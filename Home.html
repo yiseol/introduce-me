@@ -2,351 +2,48 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>about-me | 풀페이지 인디케이터 + 버튼</title>
-  <!-- 동글동글 귀여운 폰트 Pretendard, Gmarket Sans CDN -->
+  <title>홈 | 이설</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root { --nav-height: 70px; }
-
-    html, body {
-      margin: 0; padding: 0; width: 100vw; height: 100vh;
-      font-family: 'Noto Sans KR', 'Montserrat', Arial, sans-serif;
-      color: #222; background: #f5fafe; overflow: hidden;
-    }
+    body { margin:0; padding:0; background:#f7f9fe; font-family:'Noto Sans KR','Montserrat',sans-serif; color:#222;}
     nav {
-      position: fixed; top: 0; left: 0; width: 100vw; height: var(--nav-height);
-      background: #6e83e9;
-      color: #fff;
-      display: flex; justify-content: center; align-items: center;
-      font-weight: 700; font-size: 1.14rem; gap: 38px;
-      z-index: 100;
-      letter-spacing: 0.02em;
-      box-shadow: 0 2px 14px rgba(110,131,233,0.14);
+      position:fixed; top:0; left:0; width:100vw; height:70px;
+      background:#6e83e9; color:#fff; display:flex; justify-content:center; align-items:center;
+      font-weight:700; font-size:1.14rem; gap:38px; z-index:100; letter-spacing:0.02em; box-shadow:0 2px 14px rgba(110,131,233,0.14);
     }
-    nav span, nav a {
-      cursor: pointer;
-      padding: 7px 18px;
-      border-radius: 18px;
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
-      transition: background 0.13s;
-      display: inline-block;
+    nav a { color:#fff; text-decoration:none; padding:7px 18px; border-radius:18px; font-family:'Gmarket Sans','Pretendard','Montserrat','Noto Sans KR',Arial,sans-serif; transition:background 0.13s;}
+    nav a:hover { background:rgba(255,255,255,0.14);}
+    .page-container { max-width:860px; margin:0 auto; padding:90px 14px 50px 14px;}
+    .main-title { font-size:2.4rem; font-weight:800; color:#3cb7cf; margin-top:30px; margin-bottom:22px; font-family:'Montserrat','Gmarket Sans','Noto Sans KR',sans-serif;}
+    .main-desc { font-size:1.23rem; color:#4e60d6; margin-bottom:28px;}
+    .start-btn {
+      display:inline-block; margin-top:18px; background:#6e83e9; color:#fff; font-weight:700;
+      font-size:1.13rem; padding:12px 38px; border-radius:26px; text-decoration:none; box-shadow:0 2px 8px #6e83e95a; transition:background 0.14s;
     }
-    nav span:hover, nav a:hover { background: rgba(255,255,255,0.14); }
-
-    .sections { width: 100vw; height: 100vh; position: relative; }
-    .section {
-      width: 100vw;
-      height: calc(100vh - var(--nav-height));
-      position: absolute; left: 0; top: var(--nav-height);
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.7s cubic-bezier(.7,0,.3,1);
-      will-change: transform;
-      overflow: hidden;
-      padding: 0;
-    }
-    .intro         { background: #e3ebfd; }
-    .about         { background: #e8f1ff; }
-    .awards        { background: #e3f3fd; }
-    .certificates  { background: #e2f6fa; }
-    .projects      { background: #e3fafd; }
-    .resume        { background: #eceeff; }
-
-    .section-inner {
-      display: flex; flex-direction: column; gap: 22px;
-      max-width: 700px; width: 70vw; min-width: 220px;
-      align-items: flex-start; text-align: left;
-      justify-content: center;
-    }
-    .section-img {
-      width: 56px; height: 56px; object-fit: cover;
-      border-radius: 22px;
-      box-shadow: 0 4px 18px rgba(44,130,201,0.12);
-      margin-bottom: 10px;
-      background: rgba(255,255,255,0.18);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .section-title {
-      font-size: 2.3rem; font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
-      font-weight: 700; margin-bottom: 10px; letter-spacing: 0.01em;
-    }
-    .section-desc {
-      font-size: 1.18rem; color: #22447e;
-      font-weight: 500; letter-spacing: 0.01em;
-    }
-
-    .section-btn {
-      margin-top: 16px;
-      font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
-      font-size: 1.01rem;
-      font-weight: 600;
-      background: #6e83e9;
-      color: #fff;
-      border: none;
-      border-radius: 22px;
-      padding: 11px 32px;
-      box-shadow: 0 2px 14px rgba(110,131,233,0.12);
-      cursor: pointer;
-      letter-spacing: 0.03em;
-      outline: none;
-      transition: background 0.19s, transform 0.14s, box-shadow 0.16s, text-decoration 0.13s;
-      position: relative;
-      overflow: hidden;
-      text-decoration: none !important;
-      display: inline-block;
-    }
-    .section-btn:hover, .section-btn:focus {
-      background: #3d5ed3;
-      transform: scale(1.07);
-      box-shadow: 0 4px 22px rgba(43,90,207,0.19);
-      text-decoration: none !important;
-    }
-
-    .about .section-title       { color: #5c94ea; }
-    .awards .section-title      { color: #47a3e5; }
-    .certificates .section-title{ color: #3cb7cf; }
-    .projects .section-title    { color: #24babe; }
-    .resume .section-title      { color: #6672ea; }
-    .intro .section-title       { color: #4e60d6; }
-
-    .scroll-indicator {
-      position: fixed;
-      top: 50%;
-      right: 15px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 14px;
-      z-index: 120;
-      user-select: none;
-    }
-    .scroll-indicator-row {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      min-width: 95px;
-      gap: 10px;
-      cursor: pointer;
-      transition: min-width 0.2s;
-    }
-    .scroll-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: rgba(120,140,230,0.17);
-      border: 1.5px solid #b0b8e8;
-      transition: background 0.23s, border 0.23s, box-shadow 0.18s;
-      box-shadow: 0 2px 8px rgba(110,131,233,0.04);
-      flex-shrink: 0;
-      margin-left: 0;
-    }
-    .scroll-dot.active {
-      background: #5c94ea;
-      border: 2px solid #2b5acf;
-      box-shadow: 0 0 0 2.5px rgba(44,130,201,0.10);
-    }
-    .scroll-menu {
-      font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
-      font-size: 0.78rem;
-      color: #6a7bad;
-      opacity: 0.47;
-      letter-spacing: 0.01em;
-      min-width: 32px;
-      max-width: 81px;
-      text-align: right;
-      transition: 
-        color 0.23s, 
-        font-size 0.21s, 
-        opacity 0.23s,
-        font-weight 0.18s,
-        max-width 0.21s;
-      font-weight: 500;
-      pointer-events: none;
-      user-select: none;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    .scroll-indicator-row.active .scroll-menu {
-      color: #2447c9;
-      opacity: 1;
-      font-size: 0.97rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      min-width: 36px;
-      max-width: 110px;
-      pointer-events: auto;
-    }
-    @media (max-width: 900px) {
-      .section-inner { width: 98vw; max-width: 99vw; }
-      .section-title { font-size: 1.08rem;}
-      .section-desc { font-size: 0.91rem;}
-      .section-img { width: 28px; height: 28px;}
-      .section-btn { font-size: 0.86rem; padding: 8px 20px;}
-      .scroll-indicator { right: 2.5px; gap: 6px;}
-      .scroll-dot { width: 4.5px; height: 4.5px;}
-      .scroll-menu { font-size: 0.63rem; min-width: 11px; max-width: 55px;}
-      .scroll-indicator-row.active .scroll-menu { font-size: 0.74rem; max-width: 80px;}
+    .start-btn:hover { background:#3cb7cf;}
+    @media (max-width:700px){
+      .page-container{padding:78px 2vw 28px 2vw;}
+      .main-title{font-size:1.32rem;}
+      .main-desc{font-size:0.99rem;}
+      .start-btn{font-size:1.01rem; padding:9px 18px;}
     }
   </style>
 </head>
 <body>
   <nav>
-    <span onclick="scrollToSection(0)">홈</span>
-    <!-- '자기소개' 메뉴는 소개 페이지로 이동하는 a태그로 추가 -->
+    <a href="Home.html">홈</a>
     <a href="introduce_myself.html">자기소개</a>
-    <span onclick="scrollToSection(2)">수상경력</span>
-    <span onclick="scrollToSection(3)">자격증</span>
-    <span onclick="scrollToSection(4)">프로젝트</span>
-    <span onclick="scrollToSection(5)">이력서</span>
+    <a href="Activity.html">활동</a>
   </nav>
-  <div class="sections">
-    <section class="section intro">
-      <div class="section-inner">
-        <div class="section-img" style="background:#e0e6f8;">
-          <img src="https://img.icons8.com/ios-filled/100/4e60d6/rocket--v1.png" width="40" height="40" alt="사이트소개"/>
-        </div>
-        <div class="section-title">이설의 포트폴리오</div>
-        <div class="section-desc">
-          성장과 도전의 여정을 담은 포트폴리오 사이트입니다.<br>
-          저의 경험, 프로젝트, 역량을 쉽고 직관적으로 소개합니다.
-        </div>
-        <a href="#" class="section-btn">메뉴이동</a>
-      </div>
-    </section>
-    <section class="section about">
-      <div class="section-inner">
-        <div class="section-img" style="background:#e3f3ff;">
-          <img src="https://img.icons8.com/ios-filled/100/5c94ea/user-male-circle.png" width="40" height="40" alt="자기소개"/>
-        </div>
-        <div class="section-title">자기소개</div>
-        <div class="section-desc">
-          저의 성장 스토리와 개발자로서 추구하는 가치관을 소개합니다.
-        </div>
-        <!-- 자기소개 상세페이지로 이동 버튼 -->
-        <a href="introduce_myself.html" class="section-btn">자기소개 상세보기</a>
-      </div>
-    </section>
-    <section class="section awards">
-      <div class="section-inner">
-        <div class="section-img" style="background:#e5f1ff;">
-          <img src="https://img.icons8.com/ios-filled/100/47a3e5/trophy.png" width="40" height="40" alt="수상경력"/>
-        </div>
-        <div class="section-title">수상경력</div>
-        <div class="section-desc">
-          다양한 대회와 활동에서의 수상 및 도전 경험을 한눈에!
-        </div>
-        <a href="#" class="section-btn">메뉴이동</a>
-      </div>
-    </section>
-    <section class="section certificates">
-      <div class="section-inner">
-        <div class="section-img" style="background:#e2f6fa;">
-          <img src="https://img.icons8.com/ios-filled/100/3cb7cf/diploma.png" width="40" height="40" alt="자격증"/>
-        </div>
-        <div class="section-title">자격증</div>
-        <div class="section-desc">
-          전문성과 역량을 증명하는 주요 자격증 보유 현황입니다.
-        </div>
-        <a href="#" class="section-btn">메뉴이동</a>
-      </div>
-    </section>
-    <section class="section projects">
-      <div class="section-inner">
-        <div class="section-img" style="background:#def7fa;">
-          <img src="https://img.icons8.com/ios-filled/100/24babe/source-code.png" width="40" height="40" alt="프로젝트"/>
-        </div>
-        <div class="section-title">프로젝트</div>
-        <div class="section-desc">
-          실전 경험, 팀워크와 성장의 주요 프로젝트를 모았습니다.
-        </div>
-        <a href="#" class="section-btn">메뉴이동</a>
-      </div>
-    </section>
-    <section class="section resume">
-      <div class="section-inner">
-        <div class="section-img" style="background:#eceeff;">
-          <img src="https://img.icons8.com/ios-filled/100/6672ea/resume.png" width="40" height="40" alt="이력서"/>
-        </div>
-        <div class="section-title">이력서</div>
-        <div class="section-desc">
-          경력, 기술, 학력 등 한눈에 보는 이설의 이력서입니다.
-        </div>
-        <a href="#" class="section-btn">메뉴이동</a>
-      </div>
-    </section>
+  <div class="page-container">
+    <div class="main-title">이설의 포트폴리오</div>
+    <div class="main-desc">
+      안녕하세요! <br>
+      성장과 소통을 중시하는 개발자 이설입니다.<br>
+      이 사이트에서 저의 다양한 경험과 프로젝트, 자기소개, 활동을 확인하실 수 있습니다.
+    </div>
+    <a class="start-btn" href="introduce_myself.html">자기소개 보러가기</a>
+    <a class="start-btn" href="Activity.html" style="margin-left:18px;background:#47a3e5;">활동 보러가기</a>
   </div>
-  <div class="scroll-indicator" id="scrollIndicator"></div>
-  <script>
-    const sections = document.querySelectorAll('.section');
-    let currentSection = 0, isScrolling = false;
-    const menuNames = [
-      "홈", "자기소개", "수상경력", "자격증", "프로젝트", "이력서"
-    ];
-    function showSection(idx) {
-      sections.forEach((sec, i) => {
-        sec.style.transform = `translateY(${(i - idx) * 100}%)`;
-      });
-      currentSection = idx;
-      updateScrollIndicator();
-    }
-    window.addEventListener('wheel', function(e) {
-      if(isScrolling) return;
-      isScrolling = true;
-      if(e.deltaY > 0) {
-        if(currentSection < sections.length - 1) showSection(currentSection + 1);
-      } else if(e.deltaY < 0) {
-        if(currentSection > 0) showSection(currentSection - 1);
-      }
-      setTimeout(()=>{isScrolling=false;}, 650);
-    }, { passive: false });
-    function scrollToSection(idx) { showSection(idx); }
-    window.addEventListener('keydown', function(e){
-      if(isScrolling) return;
-      if(e.key === "ArrowDown" && currentSection < sections.length - 1) {
-        isScrolling = true; showSection(currentSection + 1);
-        setTimeout(()=>{isScrolling=false;}, 650);
-      }
-      if(e.key === "ArrowUp" && currentSection > 0) {
-        isScrolling = true; showSection(currentSection - 1);
-        setTimeout(()=>{isScrolling=false;}, 650);
-      }
-    });
-    let touchStartY = null;
-    window.addEventListener('touchstart', function(e){
-      if(e.touches.length === 1) touchStartY = e.touches[0].clientY;
-    });
-    window.addEventListener('touchend', function(e){
-      if(touchStartY === null) return;
-      let touchEndY = e.changedTouches[0].clientY;
-      if(isScrolling) return;
-      if(touchEndY < touchStartY - 50 && currentSection < sections.length - 1) {
-        isScrolling = true; showSection(currentSection + 1); setTimeout(()=>{isScrolling=false;}, 650);
-      }
-      if(touchEndY > touchStartY + 50 && currentSection > 0) {
-        isScrolling = true; showSection(currentSection - 1); setTimeout(()=>{isScrolling=false;}, 650);
-      }
-      touchStartY = null;
-    });
-    function updateScrollIndicator() {
-      const indicator = document.getElementById('scrollIndicator');
-      indicator.innerHTML = '';
-      for(let i = 0; i < sections.length; i++) {
-        const row = document.createElement('div');
-        row.className = 'scroll-indicator-row' + (i === currentSection ? ' active' : '');
-        row.onclick = ()=>showSection(i);
-        const label = document.createElement('span');
-        label.className = 'scroll-menu';
-        label.innerText = menuNames[i];
-        const dot = document.createElement('div');
-        dot.className = 'scroll-dot' + (i === currentSection ? ' active' : '');
-        row.appendChild(label);
-        row.appendChild(dot);
-        indicator.appendChild(row);
-      }
-    }
-    showSection(0);
-  </script>
 </body>
 </html>
