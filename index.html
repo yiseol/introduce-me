@@ -2,7 +2,8 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>홈 | 이설</title>
+  <title>about-me | 풀페이지 인디케이터 + 버튼</title>
+  <!-- 동글동글 귀여운 폰트 Pretendard, Gmarket Sans CDN -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root { --nav-height: 70px; }
@@ -22,17 +23,8 @@
       letter-spacing: 0.02em;
       box-shadow: 0 2px 14px rgba(110,131,233,0.14);
     }
-    nav a, nav span {
-      cursor: pointer;
-      padding: 7px 18px;
-      border-radius: 18px;
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
-      transition: background 0.13s;
-      display: inline-block;
-    }
-    nav a:hover, nav span:hover { background: rgba(255,255,255,0.14); }
+    nav span { cursor: pointer; padding: 7px 18px; border-radius: 18px; }
+    nav span:hover { background: rgba(255,255,255,0.14); }
 
     .sections { width: 100vw; height: 100vh; position: relative; }
     .section {
@@ -47,11 +39,12 @@
     }
     .intro         { background: #e3ebfd; }
     .about         { background: #e8f1ff; }
-    .awards        { background: #e3f3fd; }
+    .activity      { background: #e3f3fd; }
     .certificates  { background: #e2f6fa; }
     .projects      { background: #e3fafd; }
     .resume        { background: #eceeff; }
 
+    /* section-inner 왼쪽 정렬 */
     .section-inner {
       display: flex; flex-direction: column; gap: 22px;
       max-width: 700px; width: 70vw; min-width: 220px;
@@ -75,6 +68,7 @@
       font-weight: 500; letter-spacing: 0.01em;
     }
 
+    /* 버튼 디자인 */
     .section-btn {
       margin-top: 16px;
       font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
@@ -92,7 +86,7 @@
       transition: background 0.19s, transform 0.14s, box-shadow 0.16s, text-decoration 0.13s;
       position: relative;
       overflow: hidden;
-      text-decoration: none !important;
+      text-decoration: none !important; /* 밑줄 제거 */
       display: inline-block;
     }
     .section-btn:hover, .section-btn:focus {
@@ -103,12 +97,13 @@
     }
 
     .about .section-title       { color: #5c94ea; }
-    .awards .section-title      { color: #47a3e5; }
+    .activity .section-title    { color: #47a3e5; }
     .certificates .section-title{ color: #3cb7cf; }
     .projects .section-title    { color: #24babe; }
     .resume .section-title      { color: #6672ea; }
     .intro .section-title       { color: #4e60d6; }
 
+    /* 스크롤 인디케이터 및 메뉴명(중앙정렬) */
     .scroll-indicator {
       position: fixed;
       top: 50%;
@@ -177,6 +172,7 @@
       max-width: 110px;
       pointer-events: auto;
     }
+    /* 모바일 대응 */
     @media (max-width: 900px) {
       .section-inner { width: 98vw; max-width: 99vw; }
       .section-title { font-size: 1.08rem;}
@@ -192,12 +188,12 @@
 </head>
 <body>
   <nav>
-    <a href="Home.html">홈</a>
-    <a href="introduce_myself.html">자기소개</a>
-    <a href="Activity.html">활동</a>
-    <a href="Certificate.html">자격증</a>
-    <a href="Project.html">프로젝트</a>
-    <a href="Resume.html">이력서</a>
+    <span onclick="scrollToSection(0)">홈</span>
+    <span onclick="scrollToSection(1)">자기소개</span>
+    <span onclick="scrollToSection(2)">활동</span>
+    <span onclick="scrollToSection(3)">자격증</span>
+    <span onclick="scrollToSection(4)">프로젝트</span>
+    <span onclick="scrollToSection(5)">이력서</span>
   </nav>
   <div class="sections">
     <section class="section intro">
@@ -222,19 +218,19 @@
         <div class="section-desc">
           저의 성장 스토리와 개발자로서 추구하는 가치관을 소개합니다.
         </div>
-        <a href="introduce_myself.html" class="section-btn">자기소개 상세보기</a>
+        <a href="#" class="section-btn">메뉴이동</a>
       </div>
     </section>
-    <section class="section awards">
+    <section class="section activity">
       <div class="section-inner">
         <div class="section-img" style="background:#e5f1ff;">
           <img src="https://img.icons8.com/ios-filled/100/47a3e5/trophy.png" width="40" height="40" alt="활동"/>
         </div>
         <div class="section-title">활동</div>
         <div class="section-desc">
-          다양한 대회, 인턴, 교육 등 활동 경험을 한눈에!
+          다양한 대회, 프로젝트, 커뮤니티 등에서의 활동 및 도전 경험을 한눈에!
         </div>
-        <a href="Activity.html" class="section-btn">활동 상세보기</a>
+        <a href="#" class="section-btn">메뉴이동</a>
       </div>
     </section>
     <section class="section certificates">
@@ -246,7 +242,7 @@
         <div class="section-desc">
           전문성과 역량을 증명하는 주요 자격증 보유 현황입니다.
         </div>
-        <a href="Certificate.html" class="section-btn">자격증 상세보기</a>
+        <a href="#" class="section-btn">메뉴이동</a>
       </div>
     </section>
     <section class="section projects">
@@ -258,7 +254,7 @@
         <div class="section-desc">
           실전 경험, 팀워크와 성장의 주요 프로젝트를 모았습니다.
         </div>
-        <a href="Project.html" class="section-btn">프로젝트 상세보기</a>
+        <a href="#" class="section-btn">메뉴이동</a>
       </div>
     </section>
     <section class="section resume">
@@ -270,7 +266,7 @@
         <div class="section-desc">
           경력, 기술, 학력 등 한눈에 보는 이설의 이력서입니다.
         </div>
-        <a href="Resume.html" class="section-btn">이력서 상세보기</a>
+        <a href="#" class="section-btn">메뉴이동</a>
       </div>
     </section>
   </div>
