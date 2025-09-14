@@ -14,20 +14,45 @@
     nav a { color:#fff; text-decoration:none; padding:7px 18px; border-radius:18px; font-family:'Gmarket Sans','Pretendard','Montserrat','Noto Sans KR',Arial,sans-serif; transition:background 0.13s;}
     nav a:hover { background:rgba(255,255,255,0.14);}
     .container { max-width:860px; margin:0 auto; padding:90px 14px 50px 14px;}
-    .title { font-size:2.1rem; font-weight:800; color:#47a3e5; margin-bottom:36px; font-family:'Montserrat','Gmarket Sans','Noto Sans KR',sans-serif;}
-    .award-list { display:flex; flex-direction:column; gap:32px;}
-    .award-item { background:#e5f1ff; border-radius:18px; padding:22px 32px; box-shadow:0 2px 8px #8cc5ee29;}
-    .award-title { font-size:1.23rem; color:#2b5acf; font-weight:700; margin-bottom:9px;}
-    .award-meta { font-size:1.07rem; color:#356b94; margin-bottom:5px;}
-    .award-desc { font-size:1.08rem; color:#22447e;}
+
+    /* 타임라인 스타일 */
+    .timeline { position:relative; margin:40px 0 60px 0; padding-left:46px; border-left:4px solid #47a3e5; }
+    .timeline-item {
+      position:relative; margin-bottom:54px; padding-left:0;
+      background:#e5f1ff; border-radius:18px; padding:30px 36px 30px 32px;
+      box-shadow:0 2px 9px #8cc5ee29; transition:box-shadow 0.15s;
+    }
+    .timeline-item:hover { box-shadow:0 6px 20px #8cc5ee3a; }
+    .timeline-dot {
+      position:absolute; left:-41px; top:30px; width:20px; height:20px;
+      border-radius:50%; background:#47a3e5;
+      border:4px solid #fff; box-shadow:0 2px 9px #47a3e5a0; z-index:2;
+    }
+    .timeline-title { font-size:1.23rem; color:#2b5acf; font-weight:700; margin-bottom:10px; }
+    .timeline-meta { font-size:1.07rem; color:#356b94; margin-bottom:6px; }
+    .timeline-desc { font-size:1.08rem; color:#22447e; margin-bottom:2px; }
+    .timeline-extra { font-size:0.99rem; color:#3858aa; background:#d3eafd; border-radius:9px; padding:8px 16px; margin-top:12px; }
+
+    /* 모바일 대응 */
     @media (max-width:700px){
       .container{padding:78px 2vw 28px 2vw;}
-      .title{font-size:1.25rem;}
-      .award-title{font-size:1.01rem;}
-      .award-meta{font-size:0.88rem;}
-      .award-desc{font-size:0.95rem;}
-      .award-item{padding:13px 10px;}
+      .timeline{padding-left:19px;}
+      .timeline-item{padding:15px 7px 15px 12px;}
+      .timeline-dot{left:-13px; width:12px; height:12px; top:17px;}
+      .timeline-title{font-size:1.01rem;}
+      .timeline-meta{font-size:0.87rem;}
+      .timeline-desc{font-size:0.92rem;}
+      .timeline-extra{font-size:0.85rem; padding:6px 8px;}
     }
+
+    /* 홈 버튼 */
+    .home-btn-wrap { text-align:center; margin-top:40px;}
+    .home-btn {
+      display:inline-block; background:#6e83e9; color:#fff; font-weight:700;
+      font-size:1.07rem; padding:12px 38px; border-radius:26px; text-decoration:none; box-shadow:0 2px 8px #6e83e95a; transition:background 0.14s;
+      margin-top:10px;
+    }
+    .home-btn:hover { background:#3cb7cf; }
   </style>
 </head>
 <body>
@@ -40,35 +65,51 @@
     <a href="Resume.html">이력서</a>
   </nav>
   <div class="container">
-    <div class="title">수상경력</div>
-    <div class="award-list">
-      <!-- 수상 항목 예시 -->
-      <div class="award-item">
-        <div class="award-title">OO 해커톤 대상</div>
-        <div class="award-meta">2023.12 | OO대학교 소프트웨어 해커톤 | 팀장</div>
-        <div class="award-desc">
-          혁신적인 아이디어와 리더십으로 팀을 이끌어 대상 수상.<br>
-          협업과 소통의 중요성을 깊이 깨달은 소중한 경험.
+
+    <section class="timeline">
+      <!-- 타임라인 항목: 다양한 설명, 느낀점, 역할 등 자유롭게 추가 가능 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">2023.12 | OO 해커톤 대상</div>
+        <div class="timeline-meta">OO대학교 소프트웨어 해커톤 | 팀장</div>
+        <div class="timeline-desc">
+          혁신적인 스마트 캠퍼스 앱을 기획·개발하여 대상을 수상하였습니다.
+          <br>팀원 간 역할 분담과 일정 관리를 주도하며, 리더십을 실전에서 발휘했습니다.
+        </div>
+        <div class="timeline-extra">
+          <strong>주요 역할:</strong> 전체 기획, 주요 기능 설계, 발표<br>
+          <strong>느낀 점:</strong> 다양한 전공의 팀원과 소통하며 협업 역량을 크게 키웠습니다.
         </div>
       </div>
-      <div class="award-item">
-        <div class="award-title">청년 창업 경진대회 최우수상</div>
-        <div class="award-meta">2022.06 | OO창업지원센터 | 개발 및 발표</div>
-        <div class="award-desc">
-          실사용자를 고려한 서비스 개발로 높은 평가를 받음.<br>
-          현장 발표 경험을 통해 실전 감각을 키움.
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">2022.06 | 청년 창업 경진대회 최우수상</div>
+        <div class="timeline-meta">OO창업지원센터 | 개발 및 발표</div>
+        <div class="timeline-desc">
+          실제 시장조사를 반영해 서비스 MVP를 직접 구현하고, 창업 아이템의 실현 가능성을 인정받았습니다.
+        </div>
+        <div class="timeline-extra">
+          <strong>주요 역할:</strong> 프론트엔드 개발, 사용자 인터뷰, 발표자료 제작<br>
+          <strong>특별 경험:</strong> 심사위원 Q&A에서 실전 피드백을 받고 발표 스킬을 향상시켰습니다.
         </div>
       </div>
-      <!-- 추가 수상경력은 여기 복사해서 추가 -->
-    </div>
-    <!-- 홈으로 돌아가는 버튼 -->
-    <div style="margin-top:42px;">
-      <a href="Home.html" style="
-        display:inline-block; background:#6e83e9; color:#fff; font-weight:700;
-        font-size:1.07rem; padding:12px 38px; border-radius:26px; text-decoration:none; box-shadow:0 2px 8px #6e83e95a; transition:background 0.14s;
-      " onmouseover="this.style.background='#3cb7cf'" onmouseout="this.style.background='#6e83e9'">
-        홈으로 돌아가기
-      </a>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">2021.11 | 전국 대학생 프로그래밍 경진대회 본선진출</div>
+        <div class="timeline-meta">OO정보과학회 | 팀원</div>
+        <div class="timeline-desc">
+          다양한 알고리즘 문제를 제한 시간 내에 해결하며 실전 코딩 역량을 쌓았습니다.
+        </div>
+        <div class="timeline-extra">
+          <strong>주요 역할:</strong> 문제 풀이 전략 논의, 코드 구현<br>
+          <strong>배운 점:</strong> 실전에서의 빠른 의사소통과 협력의 중요성 체감
+        </div>
+      </div>
+      <!-- 타임라인 항목은 필요만큼 복사해서 추가하세요 -->
+    </section>
+
+    <div class="home-btn-wrap">
+      <a href="Home.html" class="home-btn">홈으로 돌아가기</a>
     </div>
   </div>
 </body>
