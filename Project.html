@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>프로젝트 | 이설</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; padding:0; background:#f7f9fe; font-family:'Noto Sans KR','Montserrat',sans-serif; color:#222;}
+    nav {
+      position:fixed; top:0; left:0; width:100vw; height:70px;
+      background:#6e83e9; color:#fff; display:flex; justify-content:center; align-items:center;
+      font-weight:700; font-size:1.14rem; gap:38px; z-index:100; letter-spacing:0.02em; box-shadow:0 2px 14px rgba(110,131,233,0.14);
+    }
+    nav a { color:#fff; text-decoration:none; padding:7px 18px; border-radius:18px; font-family:'Gmarket Sans','Pretendard','Montserrat','Noto Sans KR',Arial,sans-serif; transition:background 0.13s;}
+    nav a:hover { background:rgba(255,255,255,0.14);}
+    .projects-fullpage { width:100vw; height:100vh; position:relative; overflow:hidden;}
+    .project-section {
+      width:100vw; height:100vh;
+      position:absolute; left:0; top:0;
+      display:flex; align-items:center; justify-content:center;
+      transition: transform 0.7s cubic-bezier(.7,0,.3,1);
+      will-change: transform;
+      overflow-y:auto; overflow-x:hidden;
+      background: #e3fafd;
+      z-index:1;
+    }
+    .project-inner {
+      display:flex; flex-direction:column; gap:30px;
+      max-width:760px; width:74vw; min-width:220px;
+      align-items:flex-start; text-align:left; justify-content:center;
+      background:rgba(255,255,255,0.17);
+      border-radius:22px; padding:40px 48px 40px 48px;
+      box-shadow:0 2px 12px #24babe1a;
+      margin: 32px 0;
+    }
+    .section-title {
+      font-size:2.1rem; color:#24babe; font-weight:800; margin-bottom:2px;
+    }
+    .project-meta {
+      font-size:1.09rem; color:#17939b; margin-bottom:13px; font-weight:600;
+    }
+    .project-block { margin-bottom:9px; }
+    .block-title {
+      font-size:1.13rem; color:#24babe; font-weight:700; margin-bottom:4px; margin-top:10px;
+    }
+    .block-content {
+      font-size:1.11rem; color:#22447e; line-height:1.9;
+    }
+    .project-link {
+      color:#24babe; text-decoration:underline; font-size:1.07rem; margin-top:10px; display:inline-block;
+    }
+    .project-img {
+      margin:18px 0 12px 0; width:100%; max-width:440px; display:block; border-radius:12px; box-shadow:0 2px 9px #24babe1a;
+    }
+    .code-diagram {
+      display:block; width:100%; max-width:420px; background:#def7fa; border-radius:12px; padding:13px 18px; color:#17939b; font-size:1.03rem; margin:11px 0;
+      font-family: 'Consolas','Menlo','Monaco',monospace;
+      overflow-x:auto;
+    }
+    /* 하단 네비게이션 (화이트박스X, 글씨만, 불투명/활성시 강조) */
+    .project-nav-bar {
+      position:fixed; left:0; bottom:0; width:100vw; height:54px;
+      background:transparent;
+      display:flex; justify-content:center; align-items:center; gap: 9px; z-index:200;
+      pointer-events:auto;
+    }
+    .project-nav-btn {
+      font-family:'Gmarket Sans','Pretendard','Montserrat','Noto Sans KR', Arial,sans-serif;
+      font-size:1.01rem; font-weight:600;
+      color:#24babe; background:none; border:none;
+      margin:0 2px; padding:4px 8px; border-radius:10px;
+      cursor:pointer;
+      opacity:0.45;
+      transition: font-size 0.22s, opacity 0.21s, color 0.22s, font-weight 0.16s;
+      outline:none;
+      letter-spacing:0.01em;
+    }
+    .project-nav-btn.active {
+      font-size:1.15rem;
+      color:#17939b;
+      font-weight:800;
+      opacity:1;
+      background:none;
+    }
+    .project-nav-btn:hover:not(.active) {
+      opacity:0.7;
+      color:#17939b;
+      font-weight:700;
+      background:none;
+    }
+    /* 좌우 화살표 */
+    .project-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #fff; box-shadow: 0 2px 14px #24babe22;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; color: #24babe; cursor: pointer; z-index: 150;
+      user-select: none; transition: background 0.12s;
+    }
+    .project-arrow.left { left: 18px; }
+    .project-arrow.right { right: 18px; }
+    .project-arrow:hover { background: #e3fafd; }
+    @media (max-width:900px){
+      .project-inner{width:98vw; max-width:99vw; padding:18px 7vw;}
+      .section-title{font-size:1.12rem;}
+      .block-title{font-size:0.99rem;}
+      .block-content{font-size:0.95rem;}
+      .project-nav-bar{height:38px; gap:3px;}
+      .project-nav-btn{font-size:0.83rem; padding:3px 5px;}
+      .project-nav-btn.active{font-size:0.99rem;}
+      .project-arrow{width:32px; height:32px; font-size:1.5rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="Home.html">홈</a>
+    <a href="introduce_myself.html">자기소개</a>
+    <a href="Activity.html">활동</a>
+    <a href="Certificate.html">자격증</a>
+    <a href="Project.html">프로젝트</a>
+    <a href="Resume.html">이력서</a>
+  </nav>
+  <div class="projects-fullpage" id="projectFullpage">
+    <!-- 프로젝트 1 -->
+    <section class="project-section" style="background:#e3fafd;">
+      <div class="project-inner">
+        <div class="section-title">WatchPick - 스마트 시계 추천 플랫폼</div>
+        <div class="project-meta">2024.01 ~ 2024.04 | 팀 프로젝트 | 팀장 · 프론트엔드/백엔드 개발 (5명)</div>
+        <div class="project-block">
+          <div class="block-title">프로젝트 개요</div>
+          <div class="block-content">
+            사용자의 취향을 분석해 최적의 스마트워치를 추천하는 플랫폼. <br>
+            팀 프로젝트, 참여인원 5명(팀장, FE/BE 개발)
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">프로젝트 소개</div>
+          <div class="block-content">
+            <strong>목적/목표:</strong> 스마트워치 정보 과잉 문제 해결, 개인별 맞춤 추천 제공<br>
+            <strong>문제 정의:</strong> 정보 탐색의 번거로움 → 자동화된 필터링 및 추천<br>
+            <strong>주요 기능:</strong> 설문-추천, 상세 비교, 커뮤니티, 실시간 피드백<br>
+            <strong>기술 스택:</strong> React, Node.js, AWS, Styled-components, MongoDB 등
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">상세 내용</div>
+          <div class="block-content">
+            <strong>진행 단계:</strong> 요구분석 → 설계 → 개발 → 배포<br>
+            <strong>담당/기여:</strong> 메인 페이지, 추천 알고리즘, 배포 자동화<br>
+            <img class="project-img" src="https://via.placeholder.com/440x200?text=주요+화면+스크린샷" alt="주요화면"/>
+            <div class="code-diagram">
+{ 추천로직 }
+User → 설문 → 추천엔진 → DB조회 → 결과 노출
+            </div>
+            <strong>기술적 도전:</strong> 사용자별 추천 DB 최적화, 비동기 처리 문제<br>
+            <strong>해결:</strong> MongoDB 인덱싱, useEffect 최적화
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">결과 및 성과</div>
+          <div class="block-content">
+            <strong>성과:</strong> 실제 200명 유저 설문 및 추천, 배포<br>
+            <strong>어려웠던 점:</strong> 데이터 불일치/최적화<br>
+            <strong>극복:</strong> 테스트 자동화, 코드 리뷰<br>
+            <strong>배포/깃허브:</strong>
+            <a class="project-link" href="https://github.com/yiseol/WatchPick" target="_blank">GitHub 바로가기</a>
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">기타</div>
+          <div class="block-content">
+            <strong>차후 개선:</strong> 더 세밀한 필터링, 워치버전 추가<br>
+            <strong>자료:</strong> <a href="#">프로젝트 발표자료</a><br>
+            <strong>기여도(본인):</strong> 메인 아키텍처 설계, 알고리즘 구현, 배포 총괄
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 프로젝트 2 -->
+    <section class="project-section" style="background:#e5f7fa;">
+      <div class="project-inner">
+        <div class="section-title">8_Grope - 실시간 협업 메모 서비스</div>
+        <div class="project-meta">2023.06 ~ 2023.09 | 팀 프로젝트 | 백엔드 개발 (4명)</div>
+        <div class="project-block">
+          <div class="block-title">프로젝트 개요</div>
+          <div class="block-content">실시간 동시 편집, 소셜 로그인 등 협업 툴. 4명(백엔드 담당)</div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">프로젝트 소개</div>
+          <div class="block-content">
+            <strong>목적/목표:</strong> 원격 협업 효율화<br>
+            <strong>문제 정의:</strong> 동시 작업 충돌<br>
+            <strong>주요 기능:</strong> 동시 편집, 알림, 히스토리<br>
+            <strong>기술 스택:</strong> Node.js, Socket.io, MongoDB, React
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">상세 내용</div>
+          <div class="block-content">
+            <strong>진행 단계:</strong> 요구분석→설계→개발→테스트<br>
+            <strong>담당/기여:</strong> 실시간 소켓, DB모델링, API<br>
+            <img class="project-img" src="https://via.placeholder.com/440x200?text=주요+화면+스크린샷" alt="주요화면"/>
+            <div class="code-diagram">
+{ 실시간 동기화 }
+Client ↔ Socket.io ↔ Server ↔ DB
+            </div>
+            <strong>기술적 도전:</strong> 동시성 이슈, 속도<br>
+            <strong>해결:</strong> Lock/Queue, 쿼리 튜닝
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">결과 및 성과</div>
+          <div class="block-content">
+            <strong>성과:</strong> 실제 협업팀 5곳 적용<br>
+            <strong>어려웠던 점:</strong> 실시간 충돌<br>
+            <strong>극복:</strong> Lock/비동기 설계<br>
+            <strong>배포/깃허브:</strong>
+            <a class="project-link" href="https://github.com/yiseol/8_Grope" target="_blank">GitHub 바로가기</a>
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">기타</div>
+          <div class="block-content">
+            <strong>차후 개선:</strong> 모바일 대응<br>
+            <strong>기여도(본인):</strong> 실시간 동기화 로직 및 API 설계
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 필요시 project-section을 복사해 프로젝트를 더 추가 -->
+    <div class="project-arrow left" id="arrowLeft">&#8592;</div>
+    <div class="project-arrow right" id="arrowRight">&#8594;</div>
+  </div>
+  <div class="project-nav-bar" id="projectNavBar">
+    <!-- JS로 채워짐 -->
+  </div>
+  <script>
+    // 프로젝트별 풀페이지 스크롤, 가로 애니메이션
+    const projects = document.querySelectorAll('.project-section');
+    const arrowLeft = document.getElementById('arrowLeft');
+    const arrowRight = document.getElementById('arrowRight');
+    const navBar = document.getElementById('projectNavBar');
+    const projectNames = [
+      "WatchPick - 스마트 시계 추천", "8_Grope 협업메모"
+    ];
+    let currentProject = 0, isScrolling = false;
+    function showProject(idx, direction = null) {
+      projects.forEach((sec, i) => {
+        let offset = (i - idx) * 100;
+        sec.style.transform = `translateX(${offset}vw)`;
+        sec.style.zIndex = (i === idx) ? 2 : 1;
+      });
+      currentProject = idx;
+      updateProjectNavBar();
+    }
+    // 화살표
+    arrowLeft.onclick = function() {
+      if(currentProject > 0) showProject(currentProject - 1, "left");
+    };
+    arrowRight.onclick = function() {
+      if(currentProject < projects.length - 1) showProject(currentProject + 1, "right");
+    };
+    // 하단 네비
+    function updateProjectNavBar() {
+      navBar.innerHTML = '';
+      projectNames.forEach((name, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'project-nav-btn' + (i === currentProject ? ' active' : '');
+        btn.innerText = name;
+        btn.onclick = () => { if(i !== currentProject) showProject(i, i>currentProject?"right":"left"); };
+        navBar.appendChild(btn);
+      });
+      // 화살표 활성/비활성
+      arrowLeft.style.display = (currentProject === 0) ? "none" : "flex";
+      arrowRight.style.display = (currentProject === projects.length-1) ? "none" : "flex";
+    }
+    // 키보드 ← →
+    window.addEventListener('keydown', function(e){
+      if(isScrolling) return;
+      if(e.key === "ArrowRight" && currentProject < projects.length - 1) {
+        isScrolling = true; showProject(currentProject + 1, "right");
+        setTimeout(()=>{isScrolling=false;}, 400);
+      }
+      if(e.key === "ArrowLeft" && currentProject > 0) {
+        isScrolling = true; showProject(currentProject - 1, "left");
+        setTimeout(()=>{isScrolling=false;}, 400);
+      }
+    });
+    // 터치 스와이프
+    let touchStartX = null;
+    window.addEventListener('touchstart', function(e){
+      if(e.touches.length === 1) touchStartX = e.touches[0].clientX;
+    });
+    window.addEventListener('touchend', function(e){
+      if(touchStartX === null) return;
+      let touchEndX = e.changedTouches[0].clientX;
+      if(isScrolling) return;
+      if(touchEndX < touchStartX - 50 && currentProject < projects.length - 1) {
+        isScrolling = true; showProject(currentProject + 1, "right"); setTimeout(()=>{isScrolling=false;}, 400);
+      }
+      if(touchEndX > touchStartX + 50 && currentProject > 0) {
+        isScrolling = true; showProject(currentProject - 1, "left"); setTimeout(()=>{isScrolling=false;}, 400);
+      }
+      touchStartX = null;
+    });
+    // 첫 진입
+    showProject(0);
+  </script>
+</body>
+</html>
