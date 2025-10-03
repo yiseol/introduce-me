@@ -1,4 +1,4 @@
-/* about-me.css: index.html의 디자인 분리 파일 */
+/* introduce-me.css: index.html의 디자인 분리 파일 */
 :root { --nav-height: 70px; }
 html, body {
   margin: 0; padding: 0; width: 100vw; height: 100vh;
