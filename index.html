@@ -2,19 +2,23 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>introduce-me | 풀페이지 인디케이터 + 버튼</title>
+  <title>introduce-me website</title>
   <!-- 동글동글 귀여운 폰트 Pretendard, Gmarket Sans CDN -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="introduce-me.css">
 </head>
 <body>
   <nav>
-    <span onclick="scrollToSection(0)">홈</span>
-    <span onclick="scrollToSection(1)">자기소개</span>
-    <span onclick="scrollToSection(2)">활동</span>
-    <span onclick="scrollToSection(3)">자격증</span>
-    <span onclick="scrollToSection(4)">프로젝트</span>
-    <span onclick="scrollToSection(5)">이력서</span>
+    <div class="nav-left">
+       <span onclick="scrollToSection(0)">introduce-me</span>
+    </div>
+    <div class="nav-right">
+      <span onclick="scrollToSection(1)">introduce</span>
+      <span onclick="scrollToSection(2)">Activity</span>
+      <span onclick="scrollToSection(3)">Certificates</span>
+      <span onclick="scrollToSection(4)">Projects</span>
+      <span onclick="scrollToSection(5)">Resume</span>
+    </div>
   </nav>
   <div class="sections">
     <section class="section intro">
