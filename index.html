@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="introduce-me.css">
 </head>
 <body>
+  <div class="loading-screen">
+    <div class="logo-animation">
+      <span class="logo-letter">i</span>
+      <span class="logo-letter">n</span>
+      <span class="logo-letter">t</span>
+      <span class="logo-letter">r</span>
+      <span class="logo-letter">o</span>
+      <span class="logo-letter">d</span>
+      <span class="logo-letter">u</span>
+      <span class="logo-letter">c</span>
+      <span class="logo-letter">e</span>
+      <span class="logo-letter">-</span>
+      <span class="logo-letter">m</span>
+      <span class="logo-letter">e</span>
+    </div>
+  </div>
   <nav>
     <div class="nav-left">
        <span onclick="scrollToSection(0)">introduce-me</span>
@@ -96,6 +112,76 @@
   </div>
   <div class="scroll-indicator" id="scrollIndicator"></div>
   <script>
+    // 로딩 스크린 클릭 시 동심원 물결 효과와 함께 사이트 열기
+document.addEventListener('DOMContentLoaded', function() {
+  const loadingScreen = document.querySelector('.loading-screen');
+  
+  if (loadingScreen) {
+    loadingScreen.addEventListener('click', function(e) {
+      // 클릭 위치 계산
+      const rect = loadingScreen.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      // 동심원 물결 생성
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          const ripple = document.createElement('div');
+          ripple.className = 'click-ripple';
+          ripple.style.left = e.clientX - 50 + 'px';
+          ripple.style.top = e.clientY - 50 + 'px';
+          ripple.style.width = '100px';
+          ripple.style.height = '100px';
+          document.body.appendChild(ripple);
+          
+          // 1초 후 제거
+          setTimeout(() => ripple.remove(), 1000);
+        }, i * 100);
+      }
+      
+      // 클릭 지점을 CSS 변수로 설정
+      document.documentElement.style.setProperty('--click-x', x + '%');
+      document.documentElement.style.setProperty('--click-y', y + '%');
+      
+      // 사이트 요소들 준비
+      const sections = document.querySelector('.sections');
+      const nav = document.querySelector('nav');
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      
+      // n초 후 사이트 나타나기 시작
+      setTimeout(() => {
+        if (sections) {
+          sections.style.transform = 'translateY(0)';
+          sections.style.opacity = '1';
+          sections.style.animation = 'none';
+          sections.classList.add('reveal-site');
+        }
+        if (nav) {
+          nav.style.transform = 'translateY(0)';
+          nav.style.opacity = '1';
+          nav.style.animation = 'none';
+          nav.classList.add('reveal-site');
+        }
+        if (scrollIndicator) {
+          scrollIndicator.style.transform = 'translateY(-50%)';
+          scrollIndicator.style.opacity = '1';
+          scrollIndicator.style.animation = 'none';
+          scrollIndicator.classList.add('reveal-site');
+        }
+      }, 100);
+      
+      // n초 후 로딩 스크린 완전 제거
+      setTimeout(() => {
+        loadingScreen.style.visibility = 'hidden';
+        
+        // reveal 클래스 제거
+        if (sections) sections.classList.remove('reveal-site');
+        if (nav) nav.classList.remove('reveal-site');
+        if (scrollIndicator) scrollIndicator.classList.remove('reveal-site');
+      }, 800);
+    });
+  }
+});
     const sections = document.querySelectorAll('.section');
     let currentSection = 0, isScrolling = false;
     const menuNames = [
