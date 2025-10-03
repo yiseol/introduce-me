@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>활동 | 이설</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; padding:0; background:#f7f9fe; font-family:'Noto Sans KR','Montserrat',sans-serif; color:#222;}
+    nav {
+      position:fixed; top:0; left:0; width:100vw; height:70px;
+      background:#6e83e9; color:#fff; display:flex; justify-content:center; align-items:center;
+      font-weight:700; font-size:1.14rem; gap:38px; z-index:100; letter-spacing:0.02em; box-shadow:0 2px 14px rgba(110,131,233,0.14);
+    }
+    nav a { color:#fff; text-decoration:none; padding:7px 18px; border-radius:18px; font-family:'Gmarket Sans','Pretendard','Montserrat','Noto Sans KR',Arial,sans-serif; transition:background 0.13s;}
+    nav a:hover { background:rgba(255,255,255,0.14);}
+    .container { max-width:860px; margin:0 auto; padding:90px 14px 50px 14px;}
+
+    /* 타임라인 스타일 */
+    .timeline { position:relative; margin:40px 0 60px 0; padding-left:46px; border-left:4px solid #47a3e5; }
+    .timeline-item {
+      position:relative; margin-bottom:54px; padding-left:0;
+      background:#e5f1ff; border-radius:18px; padding:30px 36px 30px 32px;
+      box-shadow:0 2px 9px #8cc5ee29; transition:box-shadow 0.15s;
+    }
+    .timeline-item:hover { box-shadow:0 6px 20px #8cc5ee3a; }
+    .timeline-dot {
+      position:absolute; left:-41px; top:30px; width:20px; height:20px;
+      border-radius:50%; background:#47a3e5;
+      border:4px solid #fff; box-shadow:0 2px 9px #47a3e5a0; z-index:2;
+    }
+    .timeline-title { font-size:1.23rem; color:#2b5acf; font-weight:700; margin-bottom:10px; }
+    .timeline-meta { font-size:1.07rem; color:#356b94; margin-bottom:6px; }
+    .timeline-desc { font-size:1.08rem; color:#22447e; margin-bottom:2px; }
+    .timeline-extra { font-size:0.99rem; color:#3858aa; background:#d3eafd; border-radius:9px; padding:8px 16px; margin-top:12px; }
+
+    /* 모바일 대응 */
+    @media (max-width:700px){
+      .container{padding:78px 2vw 28px 2vw;}
+      .timeline{padding-left:19px;}
+      .timeline-item{padding:15px 7px 15px 12px;}
+      .timeline-dot{left:-13px; width:12px; height:12px; top:17px;}
+      .timeline-title{font-size:1.01rem;}
+      .timeline-meta{font-size:0.87rem;}
+      .timeline-desc{font-size:0.92rem;}
+      .timeline-extra{font-size:0.85rem; padding:6px 8px;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html#sectionindex">홈</a>
+    <a href="introduce_myself.html#sectionintroduce">자기소개</a>
+    <a href="Activity.html#sectionactivity">활동</a>
+    <a href="Certificate.html#sectioncertificate">자격증</a>
+    <a href="Project.html#sectionproject">프로젝트</a>
+    <a href="Resume.html#sectionresume">이력서</a>
+</nav>
+  <div class="container">
+
+    <section class="timeline">
+      <!-- 수상내역 예시 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">2023.12 | OO 해커톤 대상</div>
+        <div class="timeline-meta">OO대학교 소프트웨어 해커톤 | 팀장</div>
+        <div class="timeline-desc">
+          혁신적인 스마트 캠퍼스 앱을 기획·개발하여 대상을 수상하였습니다.
+        </div>
+        <div class="timeline-extra">
+          <strong>주요 역할:</strong> 전체 기획, 주요 기능 설계, 발표<br>
+          <strong>느낀 점:</strong> 다양한 전공의 팀원과 소통하며 협업 역량을 크게 키웠습니다.
+        </div>
+      </div>
+      <!-- 인턴/교육 예시 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">2023.07~2023.08 | ABC기업 여름 인턴십</div>
+        <div class="timeline-meta">프론트엔드 개발팀 | 인턴</div>
+        <div class="timeline-desc">
+          실제 서비스 환경에서 웹 UI 개발 및 유지보수 업무를 경험하였습니다.
+        </div>
+        <div class="timeline-extra">
+          <strong>주요 경험:</strong> React 기반 대시보드 기능 구현, 코드 리뷰 및 협업<br>
+          <strong>배운 점:</strong> 실무에서의 코드 품질, 소통, 업무 적응력 향상
+        </div>
+      </div>
+      <!-- 참여 대회 예시 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-title">2022.11 | 전국 대학생 프로그래밍 경진대회 본선</div>
+        <div class="timeline-meta">OO정보과학회 | 팀원</div>
+        <div class="timeline-desc">
+          제한 시간 내 알고리즘 문제 해결을 통해 실전 코딩 역량을 쌓았습니다.
+        </div>
+        <div class="timeline-extra">
+          <strong>역할:</strong> 문제 풀이 전략 논의, 코드 구현<br>
+          <strong>특별 경험:</strong> 실전에서의 빠른 의사소통과 팀워크의 중요성 체감
+        </div>
+      </div>
+      <!-- 추가 활동은 timeline-item을 복사해서 자유롭게 추가하세요 -->
+    </section>
+  </div>
+</body>
+</html>
