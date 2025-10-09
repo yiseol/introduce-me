@@ -1,13 +1,42 @@
-/* introduce-me.css: index.html의 디자인 분리 파일 */
-:root { --nav-height: 40px; }
+/* =======================================================
+   INTRODUCE-ME WEBSITE STYLES
+   구조화된 CSS: Header > Main > Sidebar > Footer
+======================================================= */
+
+/* =======================================================
+   1. GLOBAL STYLES & VARIABLES
+======================================================= */
+:root { 
+  --nav-height: 40px;
+  --primary-color: #007FFF;
+  --secondary-color: #2A52BE;
+  --text-color: #222;
+  --bg-color: #f5fafe;
+}
+
 html, body {
   margin: 0; padding: 0; width: 100vw; height: 100vh;
   font-family: 'Noto Sans KR', 'Montserrat', Arial, sans-serif;
-  color: #222; background: #f5fafe; overflow: hidden;
+  color: var(--text-color); 
+  background: var(--bg-color); 
+  overflow: hidden;
 }
-  nav {
-  position: fixed; top: 0; left: 0; width: 100vw; height: var(--nav-height);
-  background: linear-gradient(to right, #007FFF, #2A52BE);
+
+/* =======================================================
+   2. HEADER STYLES (네비게이션)
+======================================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav {
+  width: 100vw; 
+  height: var(--nav-height);
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   color: #ffffffd4;
   display: flex;
   justify-content: space-between;
@@ -15,7 +44,6 @@ html, body {
   font-weight: 700; 
   font-size: 0.7rem; 
   padding: 0 3px;
-  z-index: 100;
   letter-spacing: 0.02em;
   box-shadow: 0 2px 14px rgba(110,131,233,0.14);
 }
@@ -45,7 +73,14 @@ nav span:hover {
   text-shadow: 0 2px 8px rgba(255,255,255,0.3);
   letter-spacing: 0.05em;
 }
-.sections { width: 100vw; height: 100vh; position: relative; }
+/* =======================================================
+   3. MAIN CONTENT STYLES (메인 콘텐츠)
+======================================================= */
+main.sections { 
+  width: 100vw; 
+  height: 100vh; 
+  position: relative; 
+}
 .section {
   width: 100vw;
   height: calc(100vh - var(--nav-height));
@@ -63,8 +98,9 @@ nav span:hover {
   overflow: hidden;
 }
 
+/* Section Background Colors */
 .about         { background: #e8f1ff; }
-.Activity        { background: #e3f3fd; }
+.Activity      { background: #e3f3fd; }
 .certificates  { background: #e2f6fa; }
 .projects      { background: #e3fafd; }
 .resume        { background: #eceeff; }
@@ -122,7 +158,10 @@ nav span:hover {
 .projects .section-title    { color: #24babe; }
 .resume .section-title      { color: #6672ea; }
 .intro .section-title       { color: #4e60d6; }
-.scroll-indicator {
+/* =======================================================
+   4. SIDEBAR STYLES (스크롤 인디케이터)
+======================================================= */
+aside.scroll-indicator {
   position: fixed;
   top: 45%;
   right: 15px;
@@ -190,18 +229,58 @@ nav span:hover {
   max-width: 110px;
   pointer-events: auto;
 }
+/* =======================================================
+   7. RESPONSIVE DESIGN (반응형)
+======================================================= */
 @media (max-width: 900px) {
+  /* Header Responsive */
+  nav { font-size: 0.6rem; padding: 0 2px; }
+  .nav-left { margin-left: 10px; font-size: 1.2em; }
+  .nav-right { margin-right: 10px; gap: 5px; }
+  
+  /* Main Content Responsive */
   .section-inner { width: 98vw; max-width: 99vw; }
   .section-title { font-size: 1.08rem;}
   .section-desc { font-size: 0.91rem;}
-  .section-img { width: 28px; height: 28px;}
+  figure.section-img { width: 28px; height: 28px;}
   .section-btn { font-size: 0.86rem; padding: 8px 20px;}
-  .scroll-indicator { right: 2.5px; gap: 6px;}
+  
+  /* Sidebar Responsive */
+  aside.scroll-indicator { right: 2.5px; gap: 6px;}
   .scroll-dot { width: 4.5px; height: 4.5px;}
   .scroll-menu { font-size: 0.63rem; min-width: 11px; max-width: 55px;}
   .scroll-indicator-row.active .scroll-menu { font-size: 0.74rem; max-width: 80px;}
+  
+  /* Footer Responsive */
+  footer { padding: 6px 0; font-size: 0.6rem; }
 }
-/* 로고 애니메이션 로딩 스크린 */
+
+/* =======================================================
+   5. FOOTER STYLES (푸터)
+======================================================= */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 127, 255, 0.1);
+  color: var(--text-color);
+  text-align: center;
+  padding: 8px 0;
+  font-size: 0.7rem;
+  z-index: 90;
+  backdrop-filter: blur(10px);
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.7;
+}
+/* =======================================================
+   6. SPECIAL EFFECTS & ANIMATIONS
+======================================================= */
+
+/* Loading Screen */
 .loading-screen {
   position: fixed;
   top: 0; left: 0;
@@ -312,7 +391,9 @@ body:not(.page-body) .scroll-indicator {
   }
 }
 
-/* 다른 페이지용 네비게이션 바 스타일링 */
+/* =======================================================
+   8. SUB-PAGES HEADER STYLES (부가 페이지 헤더)
+======================================================= */
 .page-nav {
   position: fixed; 
   top: 0; 
