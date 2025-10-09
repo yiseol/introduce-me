@@ -55,7 +55,228 @@ nav span:hover {
   overflow: hidden;
   padding: 0;
 }
-.intro         { background: #e3ebfd; }
+/* ...existing code... */
+
+.intro {
+  background: linear-gradient(135deg, #80c0ff 0%, #5daeff 50%, #3697f9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 구름 컨테이너 */
+.clouds-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 구름 스타일 */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 구름 1 */
+.cloud1 {
+  width: 120px;
+  height: 60px;
+  top: 15%;
+  left: 10%;
+  animation: float1 20s ease-in-out infinite;
+}
+
+.cloud1:before {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 15px;
+}
+
+.cloud1:after {
+  width: 100px;
+  height: 70px;
+  top: -30px;
+  right: 15px;
+}
+
+/* 구름 2 */
+.cloud2 {
+  width: 80px;
+  height: 40px;
+  top: 25%;
+  right: 15%;
+  animation: float2 25s ease-in-out infinite;
+}
+
+.cloud2:before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 10px;
+}
+
+.cloud2:after {
+  width: 70px;
+  height: 50px;
+  top: -20px;
+  right: 10px;
+}
+
+/* 구름 3 */
+.cloud3 {
+  width: 100px;
+  height: 50px;
+  top: 60%;
+  left: 20%;
+  animation: float3 30s ease-in-out infinite;
+}
+
+.cloud3:before {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 12px;
+}
+
+.cloud3:after {
+  width: 85px;
+  height: 60px;
+  top: -25px;
+  right: 12px;
+}
+
+/* 구름 4 */
+.cloud4 {
+  width: 90px;
+  height: 45px;
+  top: 70%;
+  right: 25%;
+  animation: float4 22s ease-in-out infinite;
+}
+
+.cloud4:before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 8px;
+}
+
+.cloud4:after {
+  width: 75px;
+  height: 55px;
+  top: -22px;
+  right: 8px;
+}
+
+/* 구름 5 (작은 구름) */
+.cloud5 {
+  width: 60px;
+  height: 30px;
+  top: 40%;
+  right: 40%;
+  animation: float5 18s ease-in-out infinite;
+}
+
+.cloud5:before {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 8px;
+}
+
+.cloud5:after {
+  width: 50px;
+  height: 35px;
+  top: -15px;
+  right: 8px;
+}
+
+/* 구름 호버 효과 - 흩어지는 애니메이션 */
+.cloud:hover {
+  transform: scale(1.2);
+  opacity: 0.3;
+}
+
+.cloud:hover:before {
+  transform: translateX(-30px) translateY(-20px) scale(0.7);
+  opacity: 0.4;
+}
+
+.cloud:hover:after {
+  transform: translateX(30px) translateY(-15px) scale(0.8);
+  opacity: 0.4;
+}
+
+/* 구름 떠다니는 애니메이션 */
+@keyframes float1 {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(15px) translateY(-10px); }
+  50% { transform: translateX(-10px) translateY(-5px); }
+  75% { transform: translateX(8px) translateY(8px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  33% { transform: translateX(-20px) translateY(10px); }
+  66% { transform: translateX(15px) translateY(-8px); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(25px) translateY(-12px); }
+}
+
+@keyframes float4 {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(-15px) translateY(8px); }
+  75% { transform: translateX(20px) translateY(-6px); }
+}
+
+@keyframes float5 {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  40% { transform: translateX(12px) translateY(15px); }
+  80% { transform: translateX(-18px) translateY(-10px); }
+}
+
+/* section-inner z-index 조정 */
+.intro .section-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* 모바일 대응 */
+@media (max-width: 900px) {
+  .cloud1, .cloud2, .cloud3, .cloud4 {
+    transform: scale(0.7);
+  }
+  
+  .cloud5 {
+    transform: scale(0.6);
+  }
+  
+  .cloud:hover {
+    transform: scale(0.9);
+  }
+}
+
+/* ...existing code... */
 .about         { background: #e8f1ff; }
 .Activity        { background: #e3f3fd; }
 .certificates  { background: #e2f6fa; }
@@ -298,6 +519,60 @@ nav span:hover {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+/* Three.js 3D 장면 스타일링 완료 */
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .main-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .network-container {
+    width: 600px;
+    height: 450px;
+  }
+  
+  .node-icon {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .center-node .node-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .center-node .home-node {
+    border-radius: 32px;
+    backdrop-filter: blur(20px);
+  }
+
+  /* 모바일에서 애니메이션 최적화 */
+  .intro-node {
+    animation: none;
+  }
+  
+  .resume-node {
+    animation: none;
+  }
+  
+  .cert-geometric {
+    animation: none;
+  }
+
+  /* 모바일에서 블러 효과 줄이기 */
+  .node-icon {
+    backdrop-filter: blur(15px);
+  }
+  
+  .node-label {
+    font-size: 0.8rem;
   }
 }
 
