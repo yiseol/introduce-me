@@ -4,62 +4,9 @@
   <meta charset="UTF-8">
   <title>자기소개 | 이설</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body { margin:0; padding:0; background:#f7f9fe; font-family:'Noto Sans KR','Montserrat',sans-serif; color:#222;}
-    nav {
-      position:fixed; top:0; left:0; width:100vw; height:70px;
-      background:#6e83e9; color:#fff; display:flex; justify-content:center; align-items:center;
-      font-weight:700; font-size:1.14rem; gap:38px; z-index:100; letter-spacing:0.02em; box-shadow:0 2px 14px rgba(110,131,233,0.14);
-    }
-    nav a { color:#fff; text-decoration:none; padding:7px 18px; border-radius:18px; font-family:'Gmarket Sans','Pretendard','Montserrat','Noto Sans KR',Arial,sans-serif; transition:background 0.13s;}
-    nav a:hover { background:rgba(255,255,255,0.14);}
-    .page-container { max-width:860px; margin:0 auto; padding:90px 14px 50px 14px;}
-    /* 심플 프로필 */
-    .simple-profile-wrap { max-width:600px; margin:0 auto 40px auto; text-align:left;}
-    .simple-profile-title { font-size:2rem; color:#3cb7cf; font-weight:700; margin-bottom:10px;}
-    .simple-profile-list { font-size:1.13rem; color:#22447e; line-height:2.1; margin-bottom:8px; padding:0; list-style:none;}
-    .simple-profile-list li { margin-bottom:1px; }
-    /* 타임라인 */
-    .timeline-section-title { font-size:1.4rem; font-weight:700; color:#2447c9; margin-bottom:30px; font-family:'Montserrat','Noto Sans KR',sans-serif;}
-    .timeline { position:relative; margin:0 auto 50px auto; padding:0 0 0 38px; border-left:4px solid #b3c2f7; max-width:650px;}
-    .timeline-item { position:relative; margin-bottom:38px; padding-left:12px;}
-    .timeline-dot { position:absolute; left:-29px; top:3px; width:16px; height:16px; border-radius:50%; background:#6e83e9; border:3px solid #fff; box-shadow:0 2px 9px #6e83e9a0; z-index:2;}
-    .timeline-content { }
-    .timeline-title { font-size:1.13rem; font-weight:700; color:#4e60d6; margin-bottom:7px;}
-    .timeline-date { font-size:0.97rem; color:#3c4a8c; margin-bottom:3px;}
-    .timeline-desc { font-size:1.05rem; color:#22447e;}
-    /* 블로그형 */
-    .blog-title { font-size:1.4rem; font-weight:700; color:#2447c9; margin-bottom:12px; font-family:'Montserrat','Noto Sans KR',sans-serif;}
-    .blog-meta { color:#4e60d6; font-size:1.07rem; margin-bottom:27px;}
-    .blog-section { margin-bottom:32px;}
-    .blog-section h2 { font-size:1.17rem; color:#4e60d6; margin-bottom:10px; font-weight:700;}
-    .blog-section p { font-size:1.11rem; color:#22447e; line-height:1.85; margin-bottom:10px;}
-    .blog-highlight { background:#e3ebfd; border-radius:9px; padding:10px 18px; color:#3858aa; font-size:1.04rem; margin-bottom:13px;}
-    /* 구분 없는 연결 스타일 */
-    .simple-profile-wrap, .timeline-section-title, .timeline, .blog-title, .blog-meta, .blog-section {
-      background:none; box-shadow:none; border-radius:0;
-    }
-    @media (max-width:700px){
-      .page-container{padding:78px 2vw 28px 2vw;}
-      .simple-profile-title{font-size:1.18rem;}
-      .simple-profile-list{font-size:0.97rem;}
-      .timeline-section-title{font-size:1.01rem;}
-      .timeline-content{padding:0;}
-      .blog-title{font-size:1.03rem;}
-      .blog-section h2{font-size:0.98rem;}
-      .blog-section p, .blog-highlight{font-size:0.92rem;}
-    }
-  </style>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-  <nav>
-  <a href="../index.html">홈</a>
-  <a href="Introduce_myself.html">자기소개</a>
-  <a href="Activity.html">활동</a>
-  <a href="Certificate.html">자격증</a>
-  <a href="Project.html">프로젝트</a>
-  <a href="Resume.html">이력서</a>
-</nav>
+<body class="page-body">
   <div class="page-container">
 
     <!-- 심플 프로필 -->
@@ -123,5 +70,6 @@
       <p>프론트엔드, 백엔드, AI 등 다양한 분야에 도전 중이며, 사용자와 팀을 생각하는 개발자가 되기 위해 고민합니다.</p>
     </section>
   </div>
+  <script src="../js/script.js"></script>
 </body>
 </html>
