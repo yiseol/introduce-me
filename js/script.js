@@ -39,6 +39,10 @@ function createNavigation() {
   }
 }
 
+
+
+
+
 // 로딩 스크린 클릭 시 동심원 물결 효과와 함께 사이트 열기
 document.addEventListener('DOMContentLoaded', function() {
   // 네비게이션 먼저 생성
