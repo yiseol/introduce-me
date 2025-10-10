@@ -22,6 +22,12 @@ html, body {
   overflow-x: hidden; /* 가로 스크롤만 숨김 */
 }
 
+/* 홈페이지에서는 세로 스크롤도 완전히 숨김 */
+body:not(.page-body) {
+  height: 100vh;
+  overflow: hidden;
+}
+
 /* 스크롤바 숨기기 */
 ::-webkit-scrollbar {
   width: 0px;
@@ -121,16 +127,12 @@ main.sections {
   background-attachment: scroll;
   background-color: #87ceeb;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   padding-top: var(--nav-height);
   z-index: 1;
+  box-sizing: border-box;
 }
-
-
-
-
-
-
 
 /* 섹션 레이아웃 */
 .section:not(.intro) {
@@ -142,17 +144,6 @@ main.sections {
 
 .about {
   margin-top: 0;
-}
-
-/* 모든 섹션을 하나의 연속된 바다로 만들기 */
-.about, .Activity, .certificates, .projects, .resume {
-  background: transparent;
-  position: relative;
-}
-
-
-body {
-  background: transparent;
 }
 
 /* 섹션 콘텐츠 */
@@ -169,7 +160,6 @@ body {
   padding: 2rem;
   position: relative;
   z-index: 10;
-
 }
 
 /* 섹션 아이콘 */
@@ -181,39 +171,42 @@ body {
   display: flex; 
   align-items: center; 
   justify-content: center;
-
-}
-
-
-/* 바다 속 제목 스타일 */
-.section:not(.intro) .section-title {
-  font-size: 2.3rem; 
-  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
-  font-weight: 700; 
-  margin-bottom: 10px; 
-  letter-spacing: 0.01em;
-  color: #87ceeb;
-  text-shadow: 0 0 10px rgba(135,206,235,0.5);
-  animation: underwaterGlow 3s ease-in-out infinite alternate;
-}
-
-/* 바다 속 설명 스타일 */
-.section:not(.intro) .section-desc {
-  font-size: 1.18rem; 
-  color: #b0d4f1;
-  font-weight: 500; 
-  letter-spacing: 0.01em;
-  text-shadow: 0 0 5px rgba(176,212,241,0.3);
 }
 
 /* 홈섹션 전용 레이아웃 - 텍스트를 위로 올리기 */
 .intro .section-inner {
   align-self: center;
-  margin-top: -100px;
+  margin-top: -10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* 🎨 장식 이미지 스타일 */
+
+/* INTRODUCE 위쪽 장식 (TOP.png) */
+.top-decoration {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: 
+    brightness(0) invert(1) /* 하얀색으로 변경 */
+    drop-shadow(0 4px 20px rgba(0,0,0,0.7)) 
+    drop-shadow(0 2px 8px rgba(0,0,0,0.9));
+  opacity: 0.9;
+}
+
+/* ME 아래쪽 장식 (Down.png) */
+.down-decoration {
+  width: 250px;
+  height: auto;
+  margin-top: 20px;
+  filter: 
+    brightness(0) invert(1) /* 하얀색으로 변경 */
+    drop-shadow(0 4px 20px rgba(0,0,0,0.7)) 
+    drop-shadow(0 2px 8px rgba(0,0,0,0.9));
+  opacity: 0.9;
 }
 
 /* 홈섹션(하늘-바다) 제목 - 세리프체 적용 */
@@ -255,14 +248,6 @@ body {
   text-align: center;
 }
 
-@keyframes underwaterGlow {
-  0% { 
-    text-shadow: 0 0 10px rgba(135,206,235,0.5);
-  }
-  100% { 
-    text-shadow: 0 0 20px rgba(135,206,235,0.8), 0 0 30px rgba(135,206,235,0.4);
-  }
-}
 .section-btn {
   margin-top: 16px;
   font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
@@ -294,9 +279,6 @@ body {
 .certificates .section-title{ color: #3cb7cf; }
 .projects .section-title    { color: #24babe; }
 .resume .section-title      { color: #6672ea; }
-/* =======================================================
-   4. SIDEBAR STYLES (스크롤 인디케이터 삭제됨)
-======================================================= */
 
 /* =======================================================
    7. RESPONSIVE DESIGN (반응형)
@@ -319,6 +301,10 @@ body {
   .intro .title-small { font-size: 1.3rem; }
   .intro .title-large { font-size: 3.5rem; }
   .intro .section-desc { font-size: 1.0rem; }
+  
+  /* 장식 이미지 모바일 반응형 */
+  .top-decoration { width: 150px; margin-bottom: 15px; }
+  .down-decoration { width: 130px; margin-top: 20px; }
   
   /* Sidebar Responsive */
   aside.scroll-indicator { right: 2.5px; gap: 6px;}

@@ -9,17 +9,13 @@ function createNavigation() {
     <nav class="${isIndexPage ? '' : 'page-nav'}">
       <div class="nav-left">
         ${isIndexPage 
-          ? '<span onclick="scrollToSection(0)">introduce-me</span>' 
-          : '<a href="../index.html">introduce-me</a>'
+          ? '<span onclick="scrollToSection(0)">INTRODUCE-ME</span>' 
+          : '<a href="../index.html">INTRODUCE-ME</a>'
         }
       </div>
       <div class="nav-right">
         ${isIndexPage 
-          ? `<span onclick="scrollToSection(1)">introduce</span>
-             <span onclick="scrollToSection(2)">Activity</span>
-             <span onclick="scrollToSection(3)">Certificates</span>
-             <span onclick="scrollToSection(4)">Projects</span>
-             <span onclick="scrollToSection(5)">Resume</span>`
+          ? `<!-- 홈섹션만 남김 -->`
           : `<a href="Introduce_myself.html">introduce</a>
              <a href="Activity.html">Activity</a>
              <a href="Certificate.html">Certificates</a>
@@ -41,8 +37,15 @@ function createNavigation() {
 
 // 페이지 초기화 및 로딩 스크린 처리
 document.addEventListener('DOMContentLoaded', function() {
-  // 네비게이션 먼저 생성
-  createNavigation();
+  // 페이지 구분: 홈페이지가 아닌 경우 page-body 클래스 추가
+  const currentPath = window.location.pathname;
+  const isIndexPage = currentPath.includes('index.html') || currentPath.endsWith('/') || (currentPath.includes('introduce-me') && !currentPath.includes('pages'));
+  
+  // 홈페이지가 아닌 경우에만 네비게이션 동적 생성
+  if (!isIndexPage) {
+    createNavigation();
+    document.body.classList.add('page-body');
+  }
   
   const loadingScreen = document.querySelector('.loading-screen');
   
@@ -114,33 +117,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // 로딩 스크린이 없는 페이지 (부가 페이지들)에서는 즉시 초기화
     initializePage();
   }
+  
+  // 프로젝트 페이지 확인 및 초기화 (기존 currentPath 변수 재사용)
+  if (currentPath.includes('Project.html')) {
+    setTimeout(initProjectPage, 100); // DOM이 완전히 로드된 후 실행
+  }
 });
 
 // 페이지 초기화 함수 (부가 페이지용)
 function initializePage() {
-  // 부가 페이지에서만 실행되는 초기화 코드
-  const currentPath = window.location.pathname;
-  const isIndexPage = currentPath.includes('index.html') || currentPath.endsWith('/') || (currentPath.includes('introduce-me') && !currentPath.includes('pages'));
-  
-  if (!isIndexPage) {
-    // 부가 페이지에서의 추가 초기화 로직이 필요하면 여기에 작성
-    console.log('부가 페이지 초기화 완료');
-  }
+  // 부가 페이지에서의 추가 초기화 로직
+  console.log('부가 페이지 초기화 완료');
 }
 
-// 메인 페이지 스크롤 관련 변수들
-const sections = document.querySelectorAll('.section');
-let currentSection = 0, isScrolling = false;
-const menuNames = [
-  "홈", "자기소개", "활동", "자격증", "프로젝트", "이력서"
-];
-
-
-
+// 홈페이지 스크롤 함수 (홈섹션으로만 이동)
 function scrollToSection(idx) { 
-  const sections = document.querySelectorAll('.section');
-  if (sections[idx]) {
-    sections[idx].scrollIntoView({ behavior: 'smooth' });
+  if (idx === 0) {
+    const sections = document.querySelectorAll('.section');
+    if (sections[0]) {
+      sections[0].scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
 
@@ -230,23 +226,3 @@ function initProjectPage() {
   showProject(0);
 }
 
-// 인터랙티브 시스템
-function initSkySeaInteractive() {
-  // 현재 비활성화 상태
-}
-
-// 페이지별 초기화
-document.addEventListener('DOMContentLoaded', function() {
-  // 기본 초기화는 위에서 이미 처리됨
-  
-  // 인터랙티브 시스템 초기화
-  if (document.querySelector('.intro')) {
-    initSkySeaInteractive();
-  }
-  
-  // 프로젝트 페이지 확인 및 초기화
-  const currentPath = window.location.pathname;
-  if (currentPath.includes('Project.html')) {
-    setTimeout(initProjectPage, 100); // DOM이 완전히 로드된 후 실행
-  }
-});
