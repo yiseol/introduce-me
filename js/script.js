@@ -39,11 +39,7 @@ function createNavigation() {
   }
 }
 
-
-
-
-
-// 로딩 스크린 클릭 시 동심원 물결 효과와 함께 사이트 열기
+// 페이지 초기화 및 로딩 스크린 처리
 document.addEventListener('DOMContentLoaded', function() {
   // 네비게이션 먼저 생성
   createNavigation();
@@ -57,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       
-      // 동심원 물결 생성
+      // 클릭 효과 생성 (동심원 애니메이션)
       for (let i = 0; i < 3; i++) {
         setTimeout(() => {
           const ripple = document.createElement('div');
@@ -139,103 +135,18 @@ const menuNames = [
   "홈", "자기소개", "활동", "자격증", "프로젝트", "이력서"
 ];
 
-function showSection(idx) {
-  if (sections.length === 0) return; // sections가 없으면 실행하지 않음
-  
-  sections.forEach((sec, i) => {
-    sec.style.transform = `translateY(${(i - idx) * 100}%)`;
-  });
-  currentSection = idx;
-  updateScrollIndicator();
-}
 
-// 스크롤 이벤트 (메인 페이지에서만 작동)
-window.addEventListener('wheel', function(e) {
-  if (sections.length === 0) return; // 메인 페이지가 아니면 실행하지 않음
-  if(isScrolling) return;
-  
-  isScrolling = true;
-  if(e.deltaY > 0) {
-    if(currentSection < sections.length - 1) showSection(currentSection + 1);
-  } else if(e.deltaY < 0) {
-    if(currentSection > 0) showSection(currentSection - 1);
-  }
-  setTimeout(()=>{isScrolling=false;}, 650);
-}, { passive: false });
 
 function scrollToSection(idx) { 
-  if (sections.length === 0) return;
-  showSection(idx); 
-}
-
-// 키보드 이벤트 (메인 페이지에서만 작동)
-window.addEventListener('keydown', function(e){
-  if (sections.length === 0) return;
-  if(isScrolling) return;
-  
-  if(e.key === "ArrowDown" && currentSection < sections.length - 1) {
-    isScrolling = true; 
-    showSection(currentSection + 1);
-    setTimeout(()=>{isScrolling=false;}, 650);
-  }
-  if(e.key === "ArrowUp" && currentSection > 0) {
-    isScrolling = true; 
-    showSection(currentSection - 1);
-    setTimeout(()=>{isScrolling=false;}, 650);
-  }
-});
-
-// 터치 이벤트 (메인 페이지에서만 작동)
-let touchStartY = null;
-window.addEventListener('touchstart', function(e){
-  if (sections.length === 0) return;
-  if(e.touches.length === 1) touchStartY = e.touches[0].clientY;
-});
-
-window.addEventListener('touchend', function(e){
-  if (sections.length === 0) return;
-  if(touchStartY === null) return;
-  
-  let touchEndY = e.changedTouches[0].clientY;
-  if(isScrolling) return;
-  
-  if(touchEndY < touchStartY - 50 && currentSection < sections.length - 1) {
-    isScrolling = true; 
-    showSection(currentSection + 1); 
-    setTimeout(()=>{isScrolling=false;}, 650);
-  }
-  if(touchEndY > touchStartY + 50 && currentSection > 0) {
-    isScrolling = true; 
-    showSection(currentSection - 1); 
-    setTimeout(()=>{isScrolling=false;}, 650);
-  }
-  touchStartY = null;
-});
-
-function updateScrollIndicator() {
-  const indicator = document.getElementById('scrollIndicator');
-  if (!indicator) return; // 스크롤 인디케이터가 없으면 실행하지 않음
-  
-  indicator.innerHTML = '';
-  for(let i = 0; i < sections.length; i++) {
-    const row = document.createElement('div');
-    row.className = 'scroll-indicator-row' + (i === currentSection ? ' active' : '');
-    row.onclick = ()=>showSection(i);
-    const label = document.createElement('span');
-    label.className = 'scroll-menu';
-    label.innerText = menuNames[i];
-    const dot = document.createElement('div');
-    dot.className = 'scroll-dot' + (i === currentSection ? ' active' : '');
-    row.appendChild(label);
-    row.appendChild(dot);
-    indicator.appendChild(row);
+  const sections = document.querySelectorAll('.section');
+  if (sections[idx]) {
+    sections[idx].scrollIntoView({ behavior: 'smooth' });
   }
 }
 
-// 초기화 (메인 페이지에서만)
-if (sections.length > 0) {
-  showSection(0);
-}
+
+
+
 
 // 프로젝트 페이지 관련 함수들
 function initProjectPage() {
@@ -319,9 +230,19 @@ function initProjectPage() {
   showProject(0);
 }
 
+// 인터랙티브 시스템
+function initSkySeaInteractive() {
+  // 현재 비활성화 상태
+}
+
 // 페이지별 초기화
 document.addEventListener('DOMContentLoaded', function() {
   // 기본 초기화는 위에서 이미 처리됨
+  
+  // 인터랙티브 시스템 초기화
+  if (document.querySelector('.intro')) {
+    initSkySeaInteractive();
+  }
   
   // 프로젝트 페이지 확인 및 초기화
   const currentPath = window.location.pathname;
