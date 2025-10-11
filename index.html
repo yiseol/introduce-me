@@ -3,25 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>introduce-me website</title>
-  <!-- 폰트 CDN -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&family=Playfair+Display:wght@400;700;800;900&family=Crimson+Text:wght@400;600&family=Cormorant+Garamond:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- 로컬 폰트 -->
+  <link rel="stylesheet" href="fonts/stylesheet.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="loading-screen">
     <div class="logo-animation">
-      <span class="logo-letter">I</span>
-      <span class="logo-letter">N</span>
-      <span class="logo-letter">T</span>
-      <span class="logo-letter">R</span>
-      <span class="logo-letter">O</span>
-      <span class="logo-letter">D</span>
-      <span class="logo-letter">U</span>
-      <span class="logo-letter">C</span>
-      <span class="logo-letter">E</span>
-      <span class="logo-letter">-</span>
-      <span class="logo-letter">M</span>
-      <span class="logo-letter">E</span>
+      <div class="handwriting-container">
+        <span class="handwriting-text">INTRODUCE-ME</span>
+      </div>
     </div>
   </div>
   <!-- Header: 네비게이션 영역 -->
@@ -43,6 +34,39 @@
   <!-- Main Content: 메인 콘텐츠 영역 -->
   <main class="sections">
       <section class="section intro">
+        <!-- 동적 배경 요소들 -->
+        <div class="background-effects">
+          <!-- 떠다니는 기포들 -->
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          
+          <!-- 반짝이는 별들 -->
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          
+          <!-- 떠다니는 파티클들 -->
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          
+          <!-- 빛 효과 -->
+          <div class="light-ray light-ray-1"></div>
+          <div class="light-ray light-ray-2"></div>
+          <div class="light-ray light-ray-3"></div>
+        </div>
+        
         <div class="section-inner">
           <div class="main-title">
             <img src="images/top.png" alt="Top Decoration" class="top-decoration">

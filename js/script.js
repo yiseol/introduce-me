@@ -226,3 +226,149 @@ function initProjectPage() {
   showProject(0);
 }
 
+/* =======================================================
+   DYNAMIC EFFECTS (동적 효과 함수들)
+======================================================= */
+
+// 🫧 기포 효과 생성
+function createBubbles() {
+  const introSection = document.querySelector('.intro');
+  if (!introSection) return;
+
+  // 기포 7개 생성
+  for (let i = 1; i <= 7; i++) {
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.style.bottom = '0';
+    introSection.appendChild(bubble);
+  }
+}
+
+// 🌟 별 효과 생성
+function createStars() {
+  const introSection = document.querySelector('.intro');
+  if (!introSection) return;
+
+  // 별 5개 생성
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    introSection.appendChild(star);
+  }
+}
+
+// 커서 트레일 효과 비활성화
+function initCursorTrail() {
+  // 마우스를 따라다니는 빛 효과 제거
+}
+
+// 🌊 동적 효과 초기화
+function initDynamicEffects() {
+  // 홈페이지에서만 실행
+  const currentPath = window.location.pathname;
+  const isIndexPage = currentPath.includes('index.html') || currentPath.endsWith('/') || (currentPath.includes('introduce-me') && !currentPath.includes('pages'));
+  
+  if (isIndexPage) {
+    // 페이지 로드 후 효과들 초기화
+    setTimeout(() => {
+      createBubbles();
+      createStars();
+    }, 1000); // 로딩 애니메이션 후 실행
+  }
+}
+
+// 동적 효과 초기화 실행
+document.addEventListener('DOMContentLoaded', initDynamicEffects);
+
+// 배경 애니메이션 완전 비활성화
+function initWaveBackgroundEffect() {
+  // 배경 움직임 모든 효과 제거
+  // 배경은 완전히 정적으로 고정됨
+}
+
+// 동적 파티클 생성 효과
+function createDynamicParticles() {
+  const introSection = document.querySelector('.intro');
+  if (!introSection) return;
+
+  setInterval(() => {
+    // 랜덤한 위치에 임시 파티클 생성
+    const particle = document.createElement('div');
+    particle.className = 'dynamic-particle';
+    particle.style.cssText = `
+      position: absolute;
+      width: ${Math.random() * 6 + 2}px;
+      height: ${Math.random() * 6 + 2}px;
+      background: radial-gradient(circle, rgba(255,255,255,0.8), transparent);
+      border-radius: 50%;
+      left: ${Math.random() * 100}%;
+      top: 100%;
+      z-index: 3;
+      pointer-events: none;
+      animation: tempParticleFloat 8s linear forwards;
+    `;
+    
+    introSection.appendChild(particle);
+    
+    // 애니메이션 완료 후 제거
+    setTimeout(() => {
+      if (particle.parentNode) {
+        particle.parentNode.removeChild(particle);
+      }
+    }, 8000);
+  }, 3000); // 3초마다 새 파티클 생성
+}
+
+// 스크롤 효과 비활성화 (배경 완전 고정)
+function initScrollEffects() {
+  // 스크롤에 따른 배경 움직임 완전 제거
+}
+
+// ============================================================
+//                 MOUSE INTERACTION EFFECTS
+// ============================================================
+
+// 마우스 인터랙션 비활성화 (정적 배경 유지)
+function initMouseInteractionEffects() {
+  // 마우스 인터랙션 효과 모두 제거
+  // 배경은 CSS 애니메이션만으로 미세하게 움직임
+}
+
+// 자동 파티클 생성 시스템
+function createAutoParticleSystem() {
+  const backgroundEffects = document.querySelector('.background-effects');
+  if (!backgroundEffects) return;
+  
+  setInterval(() => {
+    // 새 파티클 생성
+    const particle = document.createElement('div');
+    particle.className = 'temp-particle';
+    particle.style.position = 'absolute';
+    particle.style.width = Math.random() * 6 + 2 + 'px';
+    particle.style.height = particle.style.width;
+    particle.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
+    particle.style.borderRadius = '50%';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.bottom = '-10px';
+    particle.style.animation = 'tempParticleFloat 8s linear forwards';
+    particle.style.pointerEvents = 'none';
+    
+    backgroundEffects.appendChild(particle);
+    
+    // 8초 후 파티클 제거
+    setTimeout(() => {
+      if (particle && particle.parentNode) {
+        particle.parentNode.removeChild(particle);
+      }
+    }, 8000);
+  }, 3000); // 3초마다 새 파티클 생성
+}
+
+// 새로운 동적 효과들 초기화
+document.addEventListener('DOMContentLoaded', () => {
+  initWaveBackgroundEffect();
+  createDynamicParticles();
+  initScrollEffects();
+  createAutoParticleSystem();
+});
+

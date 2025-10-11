@@ -16,7 +16,7 @@
 
 html, body {
   margin: 0; padding: 0; width: 100%;
-  font-family: 'Noto Sans KR', 'Montserrat', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   color: var(--text-color); 
   background: white; /* 기본 흰색 배경 */
   overflow-x: hidden; /* 가로 스크롤만 숨김 */
@@ -93,7 +93,7 @@ nav span {
   padding: 7px 10px; 
   border-radius: 18px; 
   transition: all 0.3s ease;
-  font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 nav span:hover {  
   transform: translateY(-1px);
@@ -123,7 +123,7 @@ main.sections {
   background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: 105%; /* 배경 애니메이션을 위한 여유 공간 */
   background-attachment: scroll;
   background-color: #87ceeb;
   position: relative;
@@ -132,6 +132,10 @@ main.sections {
   padding-top: var(--nav-height);
   z-index: 1;
   box-sizing: border-box;
+  overflow: hidden;
+  
+  /* 매우 미세한 배경 움직임 애니메이션 */
+  animation: oceanWaves 45s ease-in-out infinite;
 }
 
 /* 섹션 레이아웃 */
@@ -209,7 +213,7 @@ main.sections {
   opacity: 0.9;
 }
 
-/* 홈섹션(하늘-바다) 제목 - 세리프체 적용 */
+/* 홈섹션(하늘-바다) 제목 */
 .intro .main-title {
   display: flex;
   flex-direction: column;
@@ -219,8 +223,8 @@ main.sections {
 
 .intro .title-small {
   font-size: 1.8rem; 
-  font-family: 'Cormorant Garamond', 'EB Garamond', 'Libre Baskerville', 'Playfair Display', Georgia, serif;
-  font-weight: 800; 
+  font-family: 'DMSerifDisplay', Georgia, serif;
+  font-weight: 400; 
   letter-spacing: 0.2em;
   color: #ffffff;
   text-shadow: 0 4px 20px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.9);
@@ -229,8 +233,8 @@ main.sections {
 
 .intro .title-large {
   font-size: 8rem; 
-  font-family: 'Cormorant Garamond', 'EB Garamond', 'Libre Baskerville', 'Playfair Display', Georgia, serif;
-  font-weight: 700; 
+  font-family: 'PlayfairDisplay', Georgia, serif;
+  font-weight: 400; 
   letter-spacing: 0.12em;
   color: #ffffff;
   text-shadow: 0 6px 30px rgba(0,0,0,0.8), 0 3px 12px rgba(0,0,0,0.9);
@@ -238,19 +242,18 @@ main.sections {
 
 .intro .section-desc {
   font-size: 1.3rem; 
-  font-family: 'EB Garamond', 'Cormorant Garamond', 'Libre Baskerville', 'Crimson Text', Georgia, serif;
+  font-family: Arial, sans-serif;
   color: #ffffff;
   font-weight: 400; 
   letter-spacing: 0.05em;
   text-shadow: 0 4px 16px rgba(0,0,0,0.7), 0 2px 6px rgba(0,0,0,0.9);
-  font-style: italic;
   line-height: 1.5;
   text-align: center;
 }
 
 .section-btn {
   margin-top: 16px;
-  font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 1.01rem;
   font-weight: 600;
   background: #6e83e9;
@@ -351,7 +354,7 @@ footer p {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  animation: fadeOut 0.8s ease-in-out 4s forwards;
+  animation: fadeOut 0.8s ease-in-out 8s forwards;
 }
 
 /* 클릭 물결 효과 - 큰 동심원 */
@@ -389,37 +392,97 @@ footer p {
 }
 
 .logo-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.handwriting-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.handwriting-text {
+  font-family: 'PlaywriteDESAS', cursive;
   font-size: 4rem;
+  font-weight: 300;
   color: white;
-  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
-  font-weight: 700;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.3);
   letter-spacing: 0.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  
+  /* 타이핑 효과 설정 */
+  width: 0;
+  border-right: 3px solid white;
+  animation: typing 6s steps(12, end) 0.5s forwards,
+             blinkCursor 0.8s infinite 0.5s,
+             removeCursor 0.1s 6.5s forwards;
 }
 
-.logo-letter {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: letterAppear 0.5s ease-out forwards;
-}
-
-.logo-letter:nth-child(1) { animation-delay: 0.2s; }
-.logo-letter:nth-child(2) { animation-delay: 0.4s; }
-.logo-letter:nth-child(3) { animation-delay: 0.6s; }
-.logo-letter:nth-child(4) { animation-delay: 0.8s; }
-.logo-letter:nth-child(5) { animation-delay: 1.0s; }
-.logo-letter:nth-child(6) { animation-delay: 1.2s; }
-.logo-letter:nth-child(7) { animation-delay: 1.4s; }
-.logo-letter:nth-child(8) { animation-delay: 1.6s; }
-.logo-letter:nth-child(9) { animation-delay: 1.8s; }
-.logo-letter:nth-child(10) { animation-delay: 2.0s; }
-.logo-letter:nth-child(11) { animation-delay: 2.2s; }
-.logo-letter:nth-child(12) { animation-delay: 2.4s; }
-
-@keyframes letterAppear {
+/* 타이핑 애니메이션 키프레임 */
+@keyframes typing {
+  from {
+    width: 0;
+  }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    width: 14ch; /* INTRODUCE-ME = 12글자 + 여유공간 */
+  }
+}
+
+@keyframes blinkCursor {
+  0%, 50% {
+    border-color: white;
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes removeCursor {
+  to {
+    border-color: transparent;
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .handwriting-text {
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+  }
+  
+  /* 모바일에서 물결 효과 조정 */
+  .wave-container {
+    height: 80px;
+  }
+  
+  .wave-svg {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .handwriting-text {
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+  }
+  
+  /* 작은 화면에서 물결 효과 더 간소화 */
+  .wave-container {
+    height: 60px;
+  }
+  
+  .wave-svg {
+    height: 60px;
+  }
+  
+  .wave-path {
+    opacity: 0.5;
   }
 }
 
@@ -437,7 +500,7 @@ footer p {
 body:not(.page-body) .sections, 
 body:not(.page-body) nav, 
 body:not(.page-body) .scroll-indicator {
-  animation: slideUpSite 0.8s ease-out 4s both;
+  animation: slideUpSite 0.8s ease-out 8s both;
   transform: translateY(100vh);
 }
 
@@ -500,7 +563,7 @@ body:not(.page-body) .scroll-indicator {
   padding: 7px 10px; 
   border-radius: 18px; 
   transition: all 0.3s ease;
-  font-family: 'Gmarket Sans', 'Pretendard', 'Montserrat', 'Noto Sans KR', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   letter-spacing: 0.02em;
 }
 
@@ -536,7 +599,7 @@ body:not(.page-body) .scroll-indicator {
 /* 부가 페이지 공통 스타일 */
 .page-body { 
   margin:0; padding:0; background:#f7f9fe; 
-  font-family:'Noto Sans KR','Montserrat',sans-serif; 
+  font-family: Arial, sans-serif; 
   color:#222;
 }
 
@@ -662,7 +725,7 @@ body:not(.page-body) .scroll-indicator {
   color: #3cb7cf;
   margin-bottom: 6px; 
   margin-top: 1px;
-  font-family: 'Montserrat', 'Gmarket Sans', 'Noto Sans KR', sans-serif;
+  font-family: Arial, sans-serif;
   text-align: center;
 }
 
@@ -743,7 +806,7 @@ body:not(.page-body) .scroll-indicator {
   font-weight:700; 
   color:#2447c9; 
   margin-bottom:30px; 
-  font-family:'Montserrat','Noto Sans KR',sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 
@@ -753,7 +816,7 @@ body:not(.page-body) .scroll-indicator {
   font-weight:700; 
   color:#2447c9; 
   margin-bottom:12px; 
-  font-family:'Montserrat','Noto Sans KR',sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .blog-meta { 
@@ -883,7 +946,7 @@ body:not(.page-body) .scroll-indicator {
   color:#17939b; 
   font-size:1.03rem; 
   margin:11px 0;
-  font-family: 'Consolas','Menlo','Monaco',monospace;
+  font-family: monospace;
   overflow-x:auto;
 }
 
@@ -918,7 +981,7 @@ body:not(.page-body) .scroll-indicator {
   position: relative;
   border-radius: 0;
   opacity: 0.70;
-  font-family:'Gmarket Sans','Pretendard','Montserrat','Noto Sans KR', Arial,sans-serif;
+  font-family: Arial, sans-serif;
   font-weight:500;
   transition: color 0.18s, opacity 0.18s, font-size 0.19s, font-weight 0.16s;
   text-align:right;
@@ -1136,3 +1199,479 @@ body:not(.page-body) .scroll-indicator {
     font-size:0.81rem;
   }
 }
+
+/* =======================================================
+   DYNAMIC EFFECTS (동적 효과)
+======================================================= */
+
+/* 🌊 바다 배경 동적 효과 */
+.intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* 파도 효과 */
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    /* 햇빛 반사 */
+    linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 60%, transparent 100%);
+  animation: oceanWaves 8s ease-in-out infinite, sunlightShimmer 6s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 🫧 떠다니는 기포 효과 */
+.bubble {
+  position: absolute;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  animation: bubbleFloat 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bubble:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-delay: 1s; }
+.bubble:nth-child(3) { width: 6px; height: 6px; left: 35%; animation-delay: 2s; }
+.bubble:nth-child(4) { width: 10px; height: 10px; left: 50%; animation-delay: 0.5s; }
+.bubble:nth-child(5) { width: 8px; height: 8px; left: 65%; animation-delay: 1.5s; }
+.bubble:nth-child(6) { width: 14px; height: 14px; left: 80%; animation-delay: 2.5s; }
+.bubble:nth-child(7) { width: 7px; height: 7px; left: 90%; animation-delay: 0.8s; }
+
+
+
+/* 🌟 반짝이는 별 효과 (하늘 부분) */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: starTwinkle 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.star:nth-child(1) { width: 2px; height: 2px; top: 15%; left: 15%; animation-delay: 0s; }
+.star:nth-child(2) { width: 3px; height: 3px; top: 25%; left: 85%; animation-delay: 1s; }
+.star:nth-child(3) { width: 1px; height: 1px; top: 35%; left: 70%; animation-delay: 2s; }
+.star:nth-child(4) { width: 2px; height: 2px; top: 45%; left: 25%; animation-delay: 0.5s; }
+.star:nth-child(5) { width: 2px; height: 2px; top: 20%; left: 60%; animation-delay: 1.5s; }
+
+/* 애니메이션 정의 */
+@keyframes oceanWaves {
+  0%, 100% { transform: translateX(0px) scale(1); }
+  25% { transform: translateX(-10px) scale(1.02); }
+  50% { transform: translateX(5px) scale(0.98); }
+  75% { transform: translateX(-5px) scale(1.01); }
+}
+
+@keyframes sunlightShimmer {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+@keyframes bubbleFloat {
+  0% { 
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { 
+    transform: translateY(-100px) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* 텍스트 요소들을 효과 위에 표시 */
+.intro .section-inner {
+  position: relative;
+  z-index: 10;
+}
+
+/* =======================================================
+   NEW DYNAMIC BACKGROUND EFFECTS (새로운 동적 배경 효과)
+======================================================= */
+
+
+
+/* 동적 배경 효과 컨테이너 */
+.background-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* 시각적 물결 효과 */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 3;
+}
+
+.wave-svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+}
+
+.wave-path {
+  opacity: 0.8;
+}
+
+/* 물결 애니메이션 */
+.wave-1 {
+  animation: waveMotion1 8s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.wave-2 {
+  animation: waveMotion2 12s ease-in-out infinite;
+  transform-origin: center bottom;
+  animation-delay: -2s;
+}
+
+.wave-3 {
+  animation: waveMotion3 10s ease-in-out infinite;
+  transform-origin: center bottom;
+  animation-delay: -4s;
+}
+
+/* 개선된 떠다니는 기포들 */
+.bubble {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 60%, transparent 100%);
+  border-radius: 50%;
+  animation: enhancedBubbleFloat 8s ease-in-out infinite;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+}
+
+.bubble:nth-child(1) { width: 12px; height: 12px; left: 15%; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 18px; height: 18px; left: 25%; animation-delay: 1.5s; }
+.bubble:nth-child(3) { width: 8px; height: 8px; left: 40%; animation-delay: 3s; }
+.bubble:nth-child(4) { width: 14px; height: 14px; left: 60%; animation-delay: 2s; }
+.bubble:nth-child(5) { width: 10px; height: 10px; left: 75%; animation-delay: 4s; }
+.bubble:nth-child(6) { width: 20px; height: 20px; left: 85%; animation-delay: 0.8s; }
+.bubble:nth-child(7) { width: 6px; height: 6px; left: 30%; animation-delay: 2.5s; }
+.bubble:nth-child(8) { width: 16px; height: 16px; left: 70%; animation-delay: 3.5s; }
+
+/* 개선된 반짝이는 별들 */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: enhancedStarTwinkle 4s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.star:nth-child(9) { width: 3px; height: 3px; top: 20%; left: 20%; animation-delay: 0s; }
+.star:nth-child(10) { width: 2px; height: 2px; top: 30%; left: 80%; animation-delay: 1s; }
+.star:nth-child(11) { width: 4px; height: 4px; top: 15%; left: 60%; animation-delay: 2s; }
+.star:nth-child(12) { width: 2px; height: 2px; top: 40%; left: 15%; animation-delay: 1.5s; }
+.star:nth-child(13) { width: 3px; height: 3px; top: 25%; left: 90%; animation-delay: 0.5s; }
+.star:nth-child(14) { width: 2px; height: 2px; top: 35%; left: 45%; animation-delay: 2.5s; }
+
+/* 새로운 떠다니는 파티클들 */
+.floating-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, rgba(255,255,255,0.6), rgba(135,206,235,0.4));
+  border-radius: 50%;
+  animation: floatingParticle 12s linear infinite;
+}
+
+.floating-particle:nth-child(15) { left: 10%; animation-delay: 0s; }
+.floating-particle:nth-child(16) { left: 30%; animation-delay: 3s; }
+.floating-particle:nth-child(17) { left: 50%; animation-delay: 6s; }
+.floating-particle:nth-child(18) { left: 70%; animation-delay: 9s; }
+.floating-particle:nth-child(19) { left: 90%; animation-delay: 2s; }
+
+/* 빛 효과 */
+.light-ray {
+  position: absolute;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: lightSweep 15s ease-in-out infinite;
+}
+
+.light-ray-1 {
+  width: 200px;
+  height: 2px;
+  top: 30%;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.light-ray-2 {
+  width: 150px;
+  height: 1px;
+  top: 60%;
+  left: -150px;
+  animation-delay: 5s;
+}
+
+.light-ray-3 {
+  width: 250px;
+  height: 3px;
+  top: 80%;
+  left: -250px;
+  animation-delay: 10s;
+}
+
+/* 새로운 애니메이션 키프레임들 */
+@keyframes enhancedBubbleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(30px) rotate(180deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes enhancedStarTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes floatingParticle {
+  0% {
+    transform: translateY(110vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-50px) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSweep {
+  0% {
+    left: -300px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    left: 100vw;
+    opacity: 0;
+  }
+}
+
+/* 임시 파티클 애니메이션 */
+@keyframes tempParticleFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+
+/* ========================================================
+   ENHANCED DYNAMIC EFFECTS (강화된 동적 효과들)
+======================================================= */
+
+/* 개선된 떠다니는 기포들 */
+.bubble {
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 60%, transparent 100%);
+  animation: enhancedBubbleFloat 8s ease-in-out infinite;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+}
+
+.bubble:nth-child(1) { width: 12px; height: 12px; left: 15%; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 18px; height: 18px; left: 25%; animation-delay: 1.5s; }
+.bubble:nth-child(3) { width: 8px; height: 8px; left: 40%; animation-delay: 3s; }
+.bubble:nth-child(4) { width: 14px; height: 14px; left: 60%; animation-delay: 2s; }
+.bubble:nth-child(5) { width: 10px; height: 10px; left: 75%; animation-delay: 4s; }
+.bubble:nth-child(6) { width: 20px; height: 20px; left: 85%; animation-delay: 0.8s; }
+.bubble:nth-child(7) { width: 6px; height: 6px; left: 30%; animation-delay: 2.5s; }
+.bubble:nth-child(8) { width: 16px; height: 16px; left: 70%; animation-delay: 3.5s; }
+
+/* 개선된 반짝이는 별들 */
+.star {
+  animation: enhancedStarTwinkle 4s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.star:nth-child(9) { width: 3px; height: 3px; top: 20%; left: 20%; animation-delay: 0s; }
+.star:nth-child(10) { width: 2px; height: 2px; top: 30%; left: 80%; animation-delay: 1s; }
+.star:nth-child(11) { width: 4px; height: 4px; top: 15%; left: 60%; animation-delay: 2s; }
+.star:nth-child(12) { width: 2px; height: 2px; top: 40%; left: 15%; animation-delay: 1.5s; }
+.star:nth-child(13) { width: 3px; height: 3px; top: 25%; left: 90%; animation-delay: 0.5s; }
+.star:nth-child(14) { width: 2px; height: 2px; top: 35%; left: 45%; animation-delay: 2.5s; }
+
+/* 새로운 떠다니는 파티클들 */
+.floating-particle {
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, rgba(255,255,255,0.6), rgba(135,206,235,0.4));
+  border-radius: 50%;
+  animation: floatingParticle 12s linear infinite;
+}
+
+.floating-particle:nth-child(15) { left: 10%; animation-delay: 0s; }
+.floating-particle:nth-child(16) { left: 30%; animation-delay: 3s; }
+.floating-particle:nth-child(17) { left: 50%; animation-delay: 6s; }
+.floating-particle:nth-child(18) { left: 70%; animation-delay: 9s; }
+.floating-particle:nth-child(19) { left: 90%; animation-delay: 2s; }
+
+/* 빛 효과 */
+.light-ray {
+  position: absolute;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: lightSweep 15s ease-in-out infinite;
+}
+
+.light-ray-1 {
+  width: 200px;
+  height: 2px;
+  top: 30%;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.light-ray-2 {
+  width: 150px;
+  height: 1px;
+  top: 60%;
+  left: -150px;
+  animation-delay: 5s;
+}
+
+.light-ray-3 {
+  width: 250px;
+  height: 3px;
+  top: 80%;
+  left: -250px;
+  animation-delay: 10s;
+}
+
+/* 새로운 애니메이션 키프레임들 */
+@keyframes enhancedBubbleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(30px) rotate(180deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes enhancedStarTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes floatingParticle {
+  0% {
+    transform: translateY(110vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-50px) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSweep {
+  0% {
+    left: -300px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    left: 100vw;
+    opacity: 0;
+  }
+}
+
+/* 임시 파티클 애니메이션 */
+@keyframes tempParticleFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+

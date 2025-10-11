@@ -1,0 +1,26 @@
+ /* 홈페이지 메인 타이틀 텍스트 글꼴 */
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('PlayfairDisplay-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+ /* 홈페이지 서브 타이틀 텍스트 글꼴 */
+@font-face {
+    font-family: 'DMSerifDisplay';
+    src: url('DMSerifDisplay-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+ /* 인트로 애니메이션 글꼴 */
+@font-face {
+    font-family: 'PlaywriteDESAS';
+    src: url('PlaywriteDESAS-ExtraLight.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
