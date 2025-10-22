@@ -35,6 +35,28 @@ function createNavigation() {
   }
 }
 
+// 글자별 애니메이션 함수
+function initLetterAnimation() {
+  const handwritingText = document.querySelector('.handwriting-text');
+  if (!handwritingText) return;
+  
+  const originalText = handwritingText.textContent || 'INTRODUCE-ME';
+  handwritingText.innerHTML = ''; // 기존 텍스트 제거
+  
+  // 각 글자를 span으로 감싸서 추가
+  for (let i = 0; i < originalText.length; i++) {
+    const char = originalText[i];
+    const span = document.createElement('span');
+    span.className = char === '-' ? 'letter hyphen' : 'letter';
+    span.textContent = char;
+    
+    // 순차적으로 애니메이션 지연 시간 설정 (각 글자마다 0.1초씩 지연)
+    span.style.animationDelay = `${i * 0.1 + 0.5}s`;
+    
+    handwritingText.appendChild(span);
+  }
+}
+
 // 페이지 초기화 및 로딩 스크린 처리
 document.addEventListener('DOMContentLoaded', function() {
   // 페이지 구분: 홈페이지가 아닌 경우 page-body 클래스 추가
@@ -47,71 +69,64 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.classList.add('page-body');
   }
   
+  // 글자별 애니메이션 초기화 (로딩 스크린이 있는 경우에만)
+  if (isIndexPage) {
+    initLetterAnimation();
+  }
+  
   const loadingScreen = document.querySelector('.loading-screen');
   
+  // 인트로 애니메이션 완료 함수
+  function finishIntroAnimation(x, y) {
+    // 사이트 요소들 준비
+    const sections = document.querySelector('.sections');
+    const nav = document.querySelector('nav');
+    
+    // 1. 인트로 화면을 위로 올려서 사라지게 함과 동시에
+    // 2. 메인 사이트를 아래에서 위로 올라오게 함 (지연 없이 동시에)
+    loadingScreen.style.animation = 'slideUpAndOut 1s ease-out forwards';
+    
+    if (sections) {
+      sections.classList.add('slide-up-entrance');
+    }
+    if (nav) {
+      nav.classList.add('slide-up-entrance');
+    }
+    
+    // 3. 애니메이션 완료 후 정리
+    setTimeout(() => {
+      loadingScreen.style.visibility = 'hidden';
+      loadingScreen.style.display = 'none';
+      
+      // 애니메이션 클래스 제거 후 최종 상태로 설정
+      if (sections) {
+        sections.classList.remove('slide-up-entrance');
+        sections.style.transform = 'translateY(0)';
+        sections.style.opacity = '1';
+      }
+      if (nav) {
+        nav.classList.remove('slide-up-entrance');
+        nav.style.transform = 'translateY(0)';
+        nav.style.opacity = '1';
+      }
+    }, 1000); // 애니메이션 시간에 맞춤
+  }
+  
   if (loadingScreen) {
+    // 자동으로 인트로 종료 (글자 애니메이션 완료 후)
+    // 총 12글자 × 0.1s 지연 + 0.5s 시작지연 + 0.6s 애니메이션 시간 + 0.8s 여유 = 2.7s
+    setTimeout(() => {
+      finishIntroAnimation(50, 50); // 중앙에서 시작하는 효과
+    }, 2700);
+    
+    // 클릭 시에도 즉시 종료 가능
     loadingScreen.addEventListener('click', function(e) {
       // 클릭 위치 계산
       const rect = loadingScreen.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       
-      // 클릭 효과 생성 (동심원 애니메이션)
-      for (let i = 0; i < 3; i++) {
-        setTimeout(() => {
-          const ripple = document.createElement('div');
-          ripple.className = 'click-ripple';
-          ripple.style.left = e.clientX - 50 + 'px';
-          ripple.style.top = e.clientY - 50 + 'px';
-          ripple.style.width = '100px';
-          ripple.style.height = '100px';
-          document.body.appendChild(ripple);
-          
-          // 1초 후 제거
-          setTimeout(() => ripple.remove(), 1000);
-        }, i * 100);
-      }
-      
-      // 클릭 지점을 CSS 변수로 설정
-      document.documentElement.style.setProperty('--click-x', x + '%');
-      document.documentElement.style.setProperty('--click-y', y + '%');
-      
-      // 사이트 요소들 준비
-      const sections = document.querySelector('.sections');
-      const nav = document.querySelector('nav');
-      const scrollIndicator = document.querySelector('.scroll-indicator');
-      
-      // n초 후 사이트 나타나기 시작
-      setTimeout(() => {
-        if (sections) {
-          sections.style.transform = 'translateY(0)';
-          sections.style.opacity = '1';
-          sections.style.animation = 'none';
-          sections.classList.add('reveal-site');
-        }
-        if (nav) {
-          nav.style.transform = 'translateY(0)';
-          nav.style.opacity = '1';
-          nav.style.animation = 'none';
-          nav.classList.add('reveal-site');
-        }
-        if (scrollIndicator) {
-          scrollIndicator.style.transform = 'translateY(-50%)';
-          scrollIndicator.style.opacity = '1';
-          scrollIndicator.style.animation = 'none';
-          scrollIndicator.classList.add('reveal-site');
-        }
-      }, 100);
-      
-      // n초 후 로딩 스크린 완전 제거
-      setTimeout(() => {
-        loadingScreen.style.visibility = 'hidden';
-        
-        // reveal 클래스 제거
-        if (sections) sections.classList.remove('reveal-site');
-        if (nav) nav.classList.remove('reveal-site');
-        if (scrollIndicator) scrollIndicator.classList.remove('reveal-site');
-      }, 800);
+      finishIntroAnimation(x, y);
     });
   } else {
     // 로딩 스크린이 없는 페이지 (부가 페이지들)에서는 즉시 초기화
@@ -230,110 +245,6 @@ function initProjectPage() {
    DYNAMIC EFFECTS (동적 효과 함수들)
 ======================================================= */
 
-// 🫧 기포 효과 생성
-function createBubbles() {
-  const introSection = document.querySelector('.intro');
-  if (!introSection) return;
-
-  // 기포 7개 생성
-  for (let i = 1; i <= 7; i++) {
-    const bubble = document.createElement('div');
-    bubble.className = 'bubble';
-    bubble.style.bottom = '0';
-    introSection.appendChild(bubble);
-  }
-}
-
-// 🌟 별 효과 생성
-function createStars() {
-  const introSection = document.querySelector('.intro');
-  if (!introSection) return;
-
-  // 별 5개 생성
-  for (let i = 1; i <= 5; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    introSection.appendChild(star);
-  }
-}
-
-// 커서 트레일 효과 비활성화
-function initCursorTrail() {
-  // 마우스를 따라다니는 빛 효과 제거
-}
-
-// 🌊 동적 효과 초기화
-function initDynamicEffects() {
-  // 홈페이지에서만 실행
-  const currentPath = window.location.pathname;
-  const isIndexPage = currentPath.includes('index.html') || currentPath.endsWith('/') || (currentPath.includes('introduce-me') && !currentPath.includes('pages'));
-  
-  if (isIndexPage) {
-    // 페이지 로드 후 효과들 초기화
-    setTimeout(() => {
-      createBubbles();
-      createStars();
-    }, 1000); // 로딩 애니메이션 후 실행
-  }
-}
-
-// 동적 효과 초기화 실행
-document.addEventListener('DOMContentLoaded', initDynamicEffects);
-
-// 배경 애니메이션 완전 비활성화
-function initWaveBackgroundEffect() {
-  // 배경 움직임 모든 효과 제거
-  // 배경은 완전히 정적으로 고정됨
-}
-
-// 동적 파티클 생성 효과
-function createDynamicParticles() {
-  const introSection = document.querySelector('.intro');
-  if (!introSection) return;
-
-  setInterval(() => {
-    // 랜덤한 위치에 임시 파티클 생성
-    const particle = document.createElement('div');
-    particle.className = 'dynamic-particle';
-    particle.style.cssText = `
-      position: absolute;
-      width: ${Math.random() * 6 + 2}px;
-      height: ${Math.random() * 6 + 2}px;
-      background: radial-gradient(circle, rgba(255,255,255,0.8), transparent);
-      border-radius: 50%;
-      left: ${Math.random() * 100}%;
-      top: 100%;
-      z-index: 3;
-      pointer-events: none;
-      animation: tempParticleFloat 8s linear forwards;
-    `;
-    
-    introSection.appendChild(particle);
-    
-    // 애니메이션 완료 후 제거
-    setTimeout(() => {
-      if (particle.parentNode) {
-        particle.parentNode.removeChild(particle);
-      }
-    }, 8000);
-  }, 3000); // 3초마다 새 파티클 생성
-}
-
-// 스크롤 효과 비활성화 (배경 완전 고정)
-function initScrollEffects() {
-  // 스크롤에 따른 배경 움직임 완전 제거
-}
-
-// ============================================================
-//                 MOUSE INTERACTION EFFECTS
-// ============================================================
-
-// 마우스 인터랙션 비활성화 (정적 배경 유지)
-function initMouseInteractionEffects() {
-  // 마우스 인터랙션 효과 모두 제거
-  // 배경은 CSS 애니메이션만으로 미세하게 움직임
-}
-
 // 자동 파티클 생성 시스템
 function createAutoParticleSystem() {
   const backgroundEffects = document.querySelector('.background-effects');
@@ -364,11 +275,8 @@ function createAutoParticleSystem() {
   }, 3000); // 3초마다 새 파티클 생성
 }
 
-// 새로운 동적 효과들 초기화
+// 동적 효과들 초기화
 document.addEventListener('DOMContentLoaded', () => {
-  initWaveBackgroundEffect();
-  createDynamicParticles();
-  initScrollEffects();
   createAutoParticleSystem();
 });
 
