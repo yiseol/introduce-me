@@ -1,0 +1,210 @@
+/* =======================================================
+   INTRODUCE-ME WEBSITE - LAYOUT STYLES
+   헤더, 네비게이션, 메인 레이아웃, 서브페이지 구조
+======================================================= */
+
+/* =======================================================
+   1. HEADER & NAVIGATION
+======================================================= */
+
+/* 1) 헤더 기본 설정 */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+}
+
+/* 2) 네비게이션 바 */
+nav {
+  width: 100%; max-width: 100vw; height: var(--nav-height);
+  background: transparent; color: #ffffff;
+  display: flex; justify-content: space-between; align-items: center;
+  font-weight: 700; font-size: 0.8rem; 
+  padding: 0 25px; letter-spacing: 0.02em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+
+/* 3) 네비게이션 요소들 */
+.nav-left {
+  display: flex; align-items: center; gap: 10px;
+  margin-left: 20px; font-size: 1.8em;
+}
+.nav-right {
+  display: flex; align-items: center; gap: 15px;
+  margin-right: 0px;
+}
+
+/* 4) 네비게이션 링크 스타일 */
+nav span { 
+  cursor: pointer; padding: 7px 10px; border-radius: 18px; 
+  transition: all 0.3s ease; font-family: Arial, sans-serif;
+}
+nav span:hover {  
+  transform: translateY(-1px); color: #ffffff;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* =======================================================
+   2. MAIN CONTENT LAYOUT
+======================================================= */
+
+/* 1) 메인 콘텐츠 컨테이너 */
+main.sections {
+  width: 100%; position: relative; 
+}
+
+/* 2) 섹션 레이아웃 */
+.section {
+  width: 100%; min-height: 100vh; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; text-align: center;
+}
+
+/* 3) 인트로 섹션 배경 */
+.intro {
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+  background-color: #87ceeb;
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+  padding-top: var(--nav-height);
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 4) 섹션 내부 컨텐츠 */
+.section-inner {
+  max-width: 1140px; margin: 0 auto; padding: 80px 30px;
+  position: relative; z-index: 10;
+}
+
+/* 5) 섹션 타이틀 및 텍스트 */
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* 6) 인트로 섹션 전용 텍스트 */
+.intro .title-small {
+  font-size: 2rem;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+.intro .title-large {
+  font-size: 8rem; 
+  font-family: 'PlayfairDisplay', Georgia, serif;
+  font-weight: 400; 
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: 0 6px 30px rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.intro .section-desc {
+  font-size: 1.3rem; 
+  color: #ffffff;
+  font-weight: 400; 
+  letter-spacing: 0.05em;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.7);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* =======================================================
+   3. SUB-PAGE LAYOUT
+======================================================= */
+
+/* 1) 부가 페이지 네비게이션 */
+.page-nav {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 40px;
+  background: linear-gradient(to right, #007FFF, #2A52BE);
+  color: #ffffffd4; display: flex; justify-content: space-between; align-items: center;
+  font-weight: 700; font-size: 0.7rem; padding: 0 3px; z-index: 100;
+  letter-spacing: 0.02em; box-shadow: 0 2px 14px rgba(110,131,233,0.14);
+}
+
+.page-nav .nav-left {
+  display: flex; align-items: center; gap: 10px;
+  margin-left: 20px; font-size: 1.5em;
+}
+
+.page-nav .nav-right {
+  display: flex; align-items: center; gap: 10px;
+  margin-right: 20px;
+}
+
+.page-nav a { 
+  color: #ffffffd4; text-decoration: none; cursor: pointer; 
+  padding: 7px 10px; border-radius: 18px; 
+  transition: all 0.3s ease; letter-spacing: 0.02em;
+}
+
+.page-nav a:hover {  
+  transform: translateY(-1px); color: #ffffff;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* 2) 부가 페이지 컨테이너 */
+.page-body { 
+  margin: 0; padding: 0; background: #f7f9fe; 
+  font-family: Arial, sans-serif; color: #222;
+}
+
+.page-container { 
+  max-width: 860px; margin: 0 auto; 
+  padding: 90px 14px 50px 14px;
+}
+
+/* =======================================================
+   4. RESPONSIVE LAYOUT
+======================================================= */
+
+/* 1) 태블릿 사이즈 */
+@media (max-width: 900px) {
+  /* 헤더 반응형 */
+  :root { --nav-height: 60px; }
+  nav { font-size: 0.6rem; padding: 0 2px; }
+  .nav-left { margin-left: 10px; font-size: 1.2em; }
+  .nav-right { margin-right: 10px; gap: 5px; }
+  
+  /* 페이지 컨테이너 */
+  .page-container { padding: 78px 2vw 28px 2vw; }
+  
+  /* 인트로 텍스트 조정 */
+  .intro .title-small { font-size: 1.8rem; }
+  .intro .title-large { font-size: 5rem; }
+  .intro .section-desc { font-size: 1.1rem; }
+}
+
+/* 2) 모바일 사이즈 */
+@media (max-width: 480px) {
+  /* 인트로 텍스트 모바일 */
+  .intro .title-small { font-size: 1.3rem; }
+  .intro .title-large { font-size: 3.5rem; }
+  .intro .section-desc { font-size: 1.0rem; }
+  
+  /* 페이지 컨테이너 모바일 */
+  .page-container { padding: 70px 4vw 30px 4vw; }
+}

@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="ko">
+
+<!-- =======================================================
+   1. DOCUMENT HEAD & META INFORMATION
+======================================================= -->
 <head>
   <meta charset="UTF-8">
   <title>자기소개 | 이설</title>
+  
+  <!-- 1) 외부 폰트 로드 -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- 2) 스타일시트 연결 -->
   <link rel="stylesheet" href="../css/styles.css">
 </head>
+
+<!-- =======================================================
+   2. MAIN CONTENT BODY
+======================================================= -->
 <body class="page-body">
   <div class="page-container">
 
-    <!-- 심플 프로필 -->
+    <!-- =======================================================
+       3. BASIC PROFILE SECTION
+    ======================================================= -->
+    <!-- 1) 개인정보 -->
     <section class="simple-profile-wrap">
       <div class="simple-profile-title">이설 (Lee Seol)</div>
       <ul class="simple-profile-list">
         <li>생년월일: 2004. 09. 19</li>
         <li>전화번호: 010-8283-0919</li>
-        <li>학력:  한세대학교</li>
+        <li>학력: 한세대학교</li>
         <li>전공: 산업보안학과</li>
         <li>이메일: chldltjf0919@naver.com</li>
         <li>GitHub: github.com/yiseol</li>
@@ -23,9 +38,15 @@
       </ul>
     </section>
 
-    <!-- 타임라인 -->
+    <!-- =======================================================
+       4. GROWTH TIMELINE SECTION
+    ======================================================= -->
+    <!-- 1) 타임라인 헤더 -->
     <div class="timeline-section-title">성장과정 타임라인</div>
+    
+    <!-- 2) 타임라인 컨텐츠 -->
     <section class="timeline">
+      <!-- 대학교 과정 -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -34,6 +55,7 @@
           <div class="timeline-desc">컴퓨터와 개발에 대한 흥미로 전공 선택, 다양한 팀 프로젝트와 해커톤 경험을 쌓음</div>
         </div>
       </div>
+      <!-- 해커톤 수상 -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -42,6 +64,7 @@
           <div class="timeline-desc">새로운 아이디어로 팀을 이끌어 수상, 협업의 중요성을 깊이 체득</div>
         </div>
       </div>
+      <!-- 현재 활동 -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -52,9 +75,14 @@
       </div>
     </section>
 
-    <!-- 블로그형 -->
+    <!-- =======================================================
+       5. DETAILED INTRODUCTION SECTION
+    ======================================================= -->
+    <!-- 1) 소개 헤더 -->
     <div class="blog-title">자세한 자기소개</div>
     <div class="blog-meta">꾸준함과 도전, 그리고 소통을 중시하는 개발자</div>
+    
+    <!-- 2) 소개 내용 -->
     <section class="blog-section">
       <h2>성장 배경</h2>
       <p>어린 시절부터 컴퓨터와 친했고, 대학에서 소프트웨어공학을 전공하며 체계적인 개발 경험을 쌓았습니다.</p>
@@ -69,7 +97,13 @@
       <h2>현재와 미래</h2>
       <p>프론트엔드, 백엔드, AI 등 다양한 분야에 도전 중이며, 사용자와 팀을 생각하는 개발자가 되기 위해 고민합니다.</p>
     </section>
+    
   </div>
+  
+  <!-- =======================================================
+     6. JAVASCRIPT INITIALIZATION
+  ======================================================= -->
   <script src="../js/script.js"></script>
+  
 </body>
 </html>

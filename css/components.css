@@ -1,0 +1,357 @@
+/* =======================================================
+   INTRODUCE-ME WEBSITE - COMPONENT STYLES
+   타임라인, 카드, 프로젝트, 프로필 등 각종 컴포넌트
+======================================================= */
+
+/* =======================================================
+   1. TIMELINE COMPONENTS
+======================================================= */
+
+/* 1) 타임라인 기본 구조 */
+.timeline { 
+  position: relative; margin: 40px 0 60px 0; 
+  padding-left: 46px; border-left: 4px solid #47a3e5; 
+}
+
+/* 2) 타임라인 아이템 */
+.timeline-item {
+  position: relative; margin-bottom: 54px; padding-left: 0;
+  background: transparent; padding: 30px 36px 30px 32px;
+  transition: transform 0.15s;
+}
+.timeline-item:hover { transform: scale(1.02); }
+
+/* 3) 타임라인 도트 */
+.timeline-dot {
+  position: absolute; left: -41px; top: 30px; 
+  width: 20px; height: 20px; border-radius: 50%; 
+  background: #47a3e5; border: 4px solid #fff; 
+  box-shadow: 0 2px 9px #47a3e5a0; z-index: 2;
+}
+
+/* 4) 타임라인 텍스트 요소 */
+.timeline-title { 
+  font-size: 1.23rem; color: #2b5acf; 
+  font-weight: 700; margin-bottom: 10px; 
+}
+.timeline-meta { 
+  font-size: 1.07rem; color: #356b94; 
+  margin-bottom: 6px; 
+}
+.timeline-desc { 
+  font-size: 1.08rem; color: #22447e; 
+  margin-bottom: 2px; 
+}
+.timeline-extra { 
+  font-size: 0.99rem; color: #3cb7cf; 
+  background: rgba(60, 183, 207, 0.1); 
+  border-radius: 9px; padding: 8px 16px; 
+  margin-top: 12px; 
+}
+
+/* 5) 타임라인 섹션 타이틀 */
+.timeline-section-title { 
+  font-size: 1.4rem; font-weight: 700; 
+  color: #2447c9; margin-bottom: 30px; 
+}
+
+/* =======================================================
+   2. CERTIFICATE CARDS
+======================================================= */
+
+/* 1) 자격증 리스트 레이아웃 */
+.cert-list {
+  display: flex; flex-wrap: wrap; gap: 38px 42px;
+  justify-content: center; align-items: flex-start;
+}
+
+/* 2) 자격증 카드 */
+.cert-card {
+  background: transparent; border-radius: 22px;
+  width: 480px; min-height: 480px; 
+  padding: 38px 34px 28px 34px;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; transition: box-shadow 0.18s;
+  border: 2.5px solid #bde6f1;
+}
+.cert-card:hover { transform: scale(1.02); }
+
+/* 3) 자격증 이미지 영역 */
+.cert-img-area {
+  width: 140px; height: 100px; background: #def2f6;
+  border-radius: 14px; display: flex; align-items: center; 
+  justify-content: center; overflow: hidden; margin-bottom: 18px;
+  box-shadow: 0 2px 8px #bde6f1a0; border: 2px solid #bde6f1;
+}
+
+.cert-img-area img {
+  width: 100%; height: 100%; object-fit: contain; border-radius: 10px;
+}
+
+/* 4) 자격증 텍스트 요소 */
+.cert-title {
+  font-size: 1.34rem; font-weight: 800; color: #3cb7cf;
+  margin-bottom: 6px; margin-top: 1px; text-align: center;
+}
+.cert-basic { width: 100%; margin-bottom: 13px; }
+.cert-info-label {
+  font-size: 1.05rem; color: #1a708c; 
+  font-weight: 700; width: 80px; display: inline-block;
+}
+.cert-info-data {
+  font-size: 1.05rem; color: #22447e; font-weight: 500;
+}
+.cert-divider {
+  border-top: 1.5px solid #bde6f1;
+  width: 85%; margin: 18px auto 14px auto;
+}
+.cert-section-title {
+  font-size: 1.11rem; color: #22a1c5; 
+  font-weight: 700; margin-bottom: 6px; margin-top: 4px;
+  text-align: left; width: 100%;
+}
+.cert-desc, .cert-motivation {
+  font-size: 1.09rem; color: #22447e; 
+  margin-bottom: 12px; line-height: 1.7; 
+  text-align: left; width: 100%; word-break: keep-all;
+}
+
+/* =======================================================
+   3. PROJECT COMPONENTS
+======================================================= */
+
+/* 1) 프로젝트 전체 페이지 */
+.projects-fullpage { 
+  width: 100vw; height: 100vh; position: relative; overflow: hidden;
+}
+
+/* 2) 프로젝트 섹션 */
+.project-section {
+  width: 100vw; height: 100vh; position: absolute; 
+  left: 0; top: 0; display: flex; align-items: flex-start; 
+  justify-content: center; overflow-y: auto; overflow-x: hidden;
+  background: #e3fafd; z-index: 1; padding-top: 100px;
+}
+
+/* 3) 프로젝트 내부 컨테이너 */
+.project-inner {
+  display: flex; flex-direction: column; gap: 30px;
+  max-width: 760px; width: 74vw; min-width: 220px;
+  align-items: flex-start; text-align: left; 
+  margin: 32px auto; padding: 40px 48px;
+}
+
+/* 4) 프로젝트 텍스트 요소 */
+.project-section .section-title {
+  font-size: 2rem; color: #24babe; 
+  font-weight: 700; margin-bottom: 20px; text-align: center; width: 100%;
+}
+.project-meta {
+  font-size: 1.09rem; color: #17939b; 
+  margin-bottom: 13px; font-weight: 600;
+}
+.project-block { margin-bottom: 9px; }
+.block-title {
+  font-size: 1.13rem; color: #24babe; 
+  font-weight: 700; margin-bottom: 4px; margin-top: 10px;
+}
+.block-content {
+  font-size: 1.11rem; color: #22447e; line-height: 1.9;
+}
+.project-link {
+  color: #24babe; text-decoration: underline; 
+  font-size: 1.07rem; margin-top: 10px; display: inline-block;
+}
+.project-img {
+  margin: 18px 0 12px 0; width: 100%; max-width: 440px; 
+  display: block; border-radius: 12px; box-shadow: 0 2px 9px #24babe1a;
+}
+.code-diagram {
+  display: block; width: 100%; max-width: 420px; 
+  background: #def7fa; border-radius: 12px; 
+  padding: 13px 18px; color: #17939b; 
+  font-size: 1.03rem; margin: 11px 0;
+  font-family: monospace; overflow-x: auto;
+}
+
+/* 5) 프로젝트 네비게이션 바 */
+.project-nav-bar {
+  position: fixed; right: 30px; top: 50%;
+  transform: translateY(-50%); z-index: 1000;
+  display: flex; flex-direction: column; gap: 10px;
+}
+
+.project-nav-btn {
+  padding: 10px 15px; background: rgba(255,255,255,0.9);
+  border: 2px solid #24babe; border-radius: 20px;
+  color: #24babe; font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; transition: all 0.3s ease;
+  min-width: 120px; text-align: center;
+}
+
+.project-nav-btn:hover,
+.project-nav-btn.active {
+  background: #24babe; color: white;
+  transform: scale(1.05);
+}
+
+/* =======================================================
+   4. PROFILE & RESUME COMPONENTS
+======================================================= */
+
+/* 1) 프로필 래퍼 */
+.simple-profile-wrap { 
+  max-width: 600px; margin: 0 auto 40px auto; text-align: left;
+}
+
+/* 2) 프로필 타이틀 */
+.simple-profile-title { 
+  font-size: 2rem; color: #3cb7cf; 
+  font-weight: 700; margin-bottom: 10px;
+}
+
+/* 3) 프로필 리스트 */
+.simple-profile-list { 
+  font-size: 1.13rem; color: #22447e; 
+  line-height: 2.1; margin-bottom: 8px; 
+  padding: 0; list-style: none;
+}
+.simple-profile-list li { margin-bottom: 1px; }
+
+/* 4) 이력서 요소들 */
+.resume-title { 
+  font-size: 2rem; font-weight: 700; 
+  color: #6672ea; margin-bottom: 18px;
+}
+.resume-section { margin-bottom: 28px; }
+.resume-section h2 { 
+  font-size: 1.21rem; color: #4e60d6; 
+  margin-bottom: 10px; font-weight: 700;
+}
+.resume-list { 
+  list-style: none; padding: 0; margin: 0;
+}
+.resume-list li { 
+  font-size: 1.07rem; color: #22447e; margin-bottom: 7px;
+}
+.resume-small { 
+  font-size: 0.99rem; color: #3858aa;
+}
+
+/* 5) 블로그 스타일 요소 */
+.blog-title { 
+  font-size: 1.4rem; font-weight: 700; 
+  color: #2447c9; margin-bottom: 12px;
+}
+.blog-meta { 
+  color: #4e60d6; font-size: 1.07rem; margin-bottom: 27px;
+}
+.blog-section { margin-bottom: 32px; }
+.blog-section h2 { 
+  font-size: 1.17rem; color: #4e60d6; 
+  margin-bottom: 10px; font-weight: 700;
+}
+.blog-section p { 
+  font-size: 1.11rem; color: #22447e; 
+  line-height: 1.85; margin-bottom: 10px;
+}
+.blog-highlight { 
+  background: #e3ebfd; border-radius: 9px; 
+  padding: 10px 18px; color: #3858aa; 
+  font-size: 1.04rem; margin-bottom: 13px;
+}
+
+/* =======================================================
+   5. BUTTON COMPONENTS
+======================================================= */
+
+/* 1) 섹션 버튼 */
+.section-btn {
+  margin-top: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 1.01rem;
+  font-weight: 600;
+  background: #6e83e9;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 11px 32px;
+  box-shadow: 0 2px 14px rgba(110,131,233,0.12);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  outline: none;
+  transition: background 0.19s, transform 0.14s, box-shadow 0.16s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+.section-btn:hover, .section-btn:focus {
+  background: #3d5ed3;
+  transform: scale(1.07);
+  box-shadow: 0 4px 22px rgba(43,90,207,0.19);
+  text-decoration: none !important;
+}
+
+.button-icon {
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+
+/* =======================================================
+   6. RESPONSIVE COMPONENTS
+======================================================= */
+
+/* 1) 태블릿 사이즈 */
+@media (max-width: 900px) {
+  /* 타임라인 모바일 대응 */
+  .timeline { padding-left: 19px; }
+  .timeline-item { padding: 15px 7px 15px 12px; }
+  .timeline-dot { left: -13px; width: 12px; height: 12px; top: 17px; }
+  
+  /* 자격증 카드 모바일 대응 */
+  .cert-list { gap: 15px; flex-direction: column; align-items: center; }
+  .cert-card { width: 98vw; max-width: 370px; min-height: 280px; padding: 16px 7vw; }
+  
+  /* 프로젝트 네비게이션 */
+  .project-nav-bar { right: 15px; }
+  .project-nav-btn { min-width: 80px; font-size: 0.8rem; padding: 8px 12px; }
+  
+  /* 텍스트 크기 조정 */
+  .timeline-title { font-size: 1.01rem; }
+  .timeline-meta { font-size: 0.87rem; }
+  .timeline-desc { font-size: 0.92rem; }
+  .timeline-extra { font-size: 0.85rem; padding: 6px 8px; }
+  .cert-title { font-size: 1.04rem; }
+  .cert-info-label { width: 65px; }
+  .cert-section-title { font-size: 0.93rem; }
+  .cert-desc, .cert-motivation { font-size: 0.93rem; }
+}
+
+/* 2) 모바일 사이즈 */
+@media (max-width: 480px) {
+  /* 프로젝트 페이지 모바일 */
+  .project-inner { width: 98vw; max-width: 99vw; padding: 18px 7vw; }
+  .project-section { padding-top: 70px; }
+  
+  /* 프로젝트 네비게이션 모바일 */
+  .project-nav-bar { right: 10px; }
+  .project-nav-btn { min-width: 60px; font-size: 0.7rem; padding: 6px 10px; }
+  
+  /* 텍스트 크기 조정 */
+  .simple-profile-title { font-size: 1.18rem; }
+  .timeline-section-title { font-size: 1.01rem; }
+  .blog-title { font-size: 1.03rem; }
+  .blog-section h2 { font-size: 0.98rem; }
+  .blog-section p, .blog-highlight { font-size: 0.92rem; }
+  .resume-title { font-size: 1.13rem; }
+  .resume-section h2 { font-size: 0.91rem; }
+  .resume-list li { font-size: 0.89rem; }
+  .resume-small { font-size: 0.81rem; }
+}
+
+/* 3) 자격증 카드 특별 반응형 */
+@media (max-width: 1100px) {
+  .cert-card { width: 95vw; max-width: 500px; }
+}
