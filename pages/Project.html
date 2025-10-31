@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- =======================================================
+   1. DOCUMENT HEAD & META INFORMATION
+======================================================= -->
+<head>
+  <meta charset="UTF-8">
+  <title>프로젝트 | 이설</title>
+  
+  <!-- 1) 외부 폰트 로드 -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- 2) 스타일시트 연결 -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<!-- =======================================================
+   2. MAIN CONTENT BODY
+======================================================= -->
+<body class="page-body">
+  
+  <!-- =======================================================
+     3. PROJECT FULLPAGE CONTAINER
+  ======================================================= -->
+  <div class="projects-fullpage" id="projectFullpage">
+    
+    <!-- 1) 첫 번째 프로젝트: WatchPick -->
+    <section class="project-section" style="background:#e3fafd;">
+      <div class="project-inner">
+        <div class="section-title">WatchPick - 스마트 시계 추천 플랫폼</div>
+        <div class="project-meta">2024.01 ~ 2024.04 | 팀 프로젝트 | 팀장 · 프론트엔드/백엔드 개발 (5명)</div>
+        
+        <!-- 프로젝트 개요 -->
+        <div class="project-block">
+          <div class="block-title">프로젝트 개요</div>
+          <div class="block-content">
+            사용자의 취향을 분석해 최적의 스마트워치를 추천하는 플랫폼. <br>
+            팀 프로젝트, 참여인원 5명(팀장, FE/BE 개발)
+          </div>
+        </div>
+        
+        <!-- 프로젝트 소개 -->
+        <div class="project-block">
+          <div class="block-title">프로젝트 소개</div>
+          <div class="block-content">
+            <strong>목적/목표:</strong> 스마트워치 정보 과잉 문제 해결, 개인별 맞춤 추천 제공<br>
+            <strong>문제 정의:</strong> 정보 탐색의 번거로움 → 자동화된 필터링 및 추천<br>
+            <strong>주요 기능:</strong> 설문-추천, 상세 비교, 커뮤니티, 실시간 피드백<br>
+            <strong>기술 스택:</strong> React, Node.js, AWS, Styled-components, MongoDB 등
+          </div>
+        </div>
+        
+        <!-- 상세 내용 -->
+        <div class="project-block">
+          <div class="block-title">상세 내용</div>
+          <div class="block-content">
+            <strong>진행 단계:</strong> 요구분석 → 설계 → 개발 → 배포<br>
+            <strong>담당/기여:</strong> 메인 페이지, 추천 알고리즘, 배포 자동화<br>
+            <img class="project-img" src="https://via.placeholder.com/440x200?text=주요+화면+스크린샷" alt="주요화면"/>
+            <div class="code-diagram">
+{ 추천로직 }
+User → 설문 → 추천엔진 → DB조회 → 결과 노출
+            </div>
+            <strong>기술적 도전:</strong> 사용자별 추천 DB 최적화, 비동기 처리 문제<br>
+            <strong>해결:</strong> MongoDB 인덱싱, useEffect 최적화
+          </div>
+        </div>
+        
+        <!-- 결과 및 성과 -->
+        <div class="project-block">
+          <div class="block-title">결과 및 성과</div>
+          <div class="block-content">
+            <strong>성과:</strong> 실제 200명 유저 설문 및 추천, 배포<br>
+            <strong>어려웠던 점:</strong> 데이터 불일치/최적화<br>
+            <strong>극복:</strong> 테스트 자동화, 코드 리뷰<br>
+            <strong>배포/깃허브:</strong>
+            <a class="project-link" href="https://github.com/yiseol/WatchPick" target="_blank">GitHub 바로가기</a>
+          </div>
+        </div>
+        
+        <!-- 기타 정보 -->
+        <div class="project-block">
+          <div class="block-title">기타</div>
+          <div class="block-content">
+            <strong>차후 개선:</strong> 더 세밀한 필터링, 워치버전 추가<br>
+            <strong>자료:</strong> <a href="#">프로젝트 발표자료</a><br>
+            <strong>기여도(본인):</strong> 메인 아키텍처 설계, 알고리즘 구현, 배포 총괄
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- 2) 두 번째 프로젝트: 8_Grope -->
+    <section class="project-section" style="background:#e5f7fa;">
+      <div class="project-inner">
+        <div class="section-title">8_Grope - 실시간 협업 메모 서비스</div>
+        <div class="project-meta">2023.06 ~ 2023.09 | 팀 프로젝트 | 백엔드 개발 (4명)</div>
+        
+        <!-- 프로젝트 개요 -->
+        <div class="project-block">
+          <div class="block-title">프로젝트 개요</div>
+          <div class="block-content">실시간 동시 편집, 소셜 로그인 등 협업 툴. 4명(백엔드 담당)</div>
+        </div>
+        
+        <!-- 프로젝트 소개 -->
+        <div class="project-block">
+          <div class="block-title">프로젝트 소개</div>
+          <div class="block-content">
+            <strong>목적/목표:</strong> 원격 협업 효율화<br>
+            <strong>문제 정의:</strong> 동시 작업 충돌<br>
+            <strong>주요 기능:</strong> 동시 편집, 알림, 히스토리<br>
+            <strong>기술 스택:</strong> Node.js, Socket.io, MongoDB, React
+          </div>
+        </div>
+        
+        <!-- 상세 내용 -->
+        <div class="project-block">
+          <div class="block-title">상세 내용</div>
+          <div class="block-content">
+            <strong>진행 단계:</strong> 요구분석→설계→개발→테스트<br>
+            <strong>담당/기여:</strong> 실시간 소켓, DB모델링, API<br>
+            <img class="project-img" src="https://via.placeholder.com/440x200?text=주요+화면+스크린샷" alt="주요화면"/>
+            <div class="code-diagram">
+{ 실시간 동기화 }
+Client ↔ Socket.io ↔ Server ↔ DB
+            </div>
+            <strong>기술적 도전:</strong> 동시성 이슈, 속도<br>
+            <strong>해결:</strong> Lock/Queue, 쿼리 튜닝
+          </div>
+        </div>
+        
+        <!-- 결과 및 성과 -->
+        <div class="project-block">
+          <div class="block-title">결과 및 성과</div>
+          <div class="block-content">
+            <strong>성과:</strong> 50명 베타 테스트, 실시간 반응속도 100ms 이하<br>
+            <strong>어려웠던 점:</strong> 동시성 처리<br>
+            <strong>극복:</strong> 소켓 이벤트 최적화<br>
+            <strong>배포/깃허브:</strong>
+            <a class="project-link" href="https://github.com/yiseol/8Grope" target="_blank">GitHub 바로가기</a>
+          </div>
+        </div>
+        
+        <!-- 기타 정보 -->
+        <div class="project-block">
+          <div class="block-title">기타</div>
+          <div class="block-content">
+            <strong>차후 개선:</strong> 모바일 앱 버전 개발, 고급 협업 기능 추가<br>
+            <strong>자료:</strong> <a href="#">프로젝트 발표자료</a><br>
+            <strong>기여도(본인):</strong> 백엔드 아키텍처 설계, 실시간 통신 구현
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </div>
+  
+  <!-- =======================================================
+     4. PROJECT NAVIGATION BAR
+  ======================================================= -->
+  <!-- 오른쪽 중앙 라인탭 네비게이션 -->
+  <div class="project-nav-bar" id="projectNavBar">
+    <!-- JS로 동적 생성됨 -->
+  </div>
+  
+  <!-- =======================================================
+     5. JAVASCRIPT INITIALIZATION
+  ======================================================= -->
+  <script src="../js/script.js"></script>
+  
+</body>
+</html>
+            <strong>해결:</strong> MongoDB 인덱싱, useEffect 최적화
+          </div>
+        </div>
+        
+        <!-- 결과 및 성과 -->
+        <div class="project-block">
+          <div class="block-title">결과 및 성과</div>
+          <div class="block-content">
+            <strong>성과:</strong> 실제 200명 유저 설문 및 추천, 배포<br>
+            <strong>어려웠던 점:</strong> 데이터 불일치/최적화<br>
+            <strong>극복:</strong> 테스트 자동화, 코드 리뷰<br>
+            <strong>배포/깃허브:</strong>
+            <a class="project-link" href="https://github.com/yiseol/WatchPick" target="_blank">GitHub 바로가기</a>
+          </div>
+        </div>
+        
+        <!-- 기타 정보 -->
+        <div class="project-block">
+          <div class="block-title">기타</div>
+          <div class="block-content">
+            <strong>차후 개선:</strong> 더 세밀한 필터링, 워치버전 추가<br>
+            <strong>자료:</strong> <a href="#">프로젝트 발표자료</a><br>
+            <strong>기여도(본인):</strong> 메인 아키텍처 설계, 알고리즘 구현, 배포 총괄
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 2) 두 번째 프로젝트 -->
+    <section class="project-section" style="background:#e5f7fa;">
+      <div class="project-inner">
+        <div class="section-title">8_Grope - 실시간 협업 메모 서비스</div>
+        <div class="project-meta">2023.06 ~ 2023.09 | 팀 프로젝트 | 백엔드 개발 (4명)</div>
+        
+        <!-- 프로젝트 개요 -->
+        <div class="project-block">
+          <div class="block-title">프로젝트 개요</div>
+          <div class="block-content">실시간 동시 편집, 소셜 로그인 등 협업 툴. 4명(백엔드 담당)</div>
+        </div>
+        
+        <!-- 프로젝트 소개 -->
+        <div class="project-block">
+          <div class="block-title">프로젝트 소개</div>
+          <div class="block-content">
+            <strong>목적/목표:</strong> 원격 협업 효율화<br>
+            <strong>문제 정의:</strong> 동시 작업 충돌<br>
+            <strong>주요 기능:</strong> 동시 편집, 알림, 히스토리<br>
+            <strong>기술 스택:</strong> Node.js, Socket.io, MongoDB, React
+          </div>
+        </div>
+        
+        <!-- 상세 내용 -->
+        <div class="project-block">
+          <div class="block-title">상세 내용</div>
+          <div class="block-content">
+            <strong>진행 단계:</strong> 요구분석→설계→개발→테스트<br>
+            <strong>담당/기여:</strong> 실시간 소켓, DB모델링, API<br>
+            <img class="project-img" src="https://via.placeholder.com/440x200?text=주요+화면+스크린샷" alt="주요화면"/>
+            <div class="code-diagram">
+{ 실시간 동기화 }
+Client ↔ Socket.io ↔ Server ↔ DB
+            </div>
+            <strong>기술적 도전:</strong> 동시성 이슈, 속도<br>
+            <strong>해결:</strong> Lock/Queue, 쿼리 튜닝
+          </div>
+        </div>
+        
+        <!-- 결과 및 성과 -->
+        <div class="project-block">
+          <div class="block-title">결과 및 성과</div>
+          <div class="block-content">
+            <strong>성과:</strong> 50명 베타 테스트, 실시간 반응속도 100ms 이하<br>
+            <strong>어려웠던 점:</strong> 동시성 처리<br>
+            <strong>극복:</strong> 소켓 이벤트 최적화<br>
+            <strong>배포/깃허브:</strong>
+            <a class="project-link" href="https://github.com/yiseol/8Grope" target="_blank">GitHub 바로가기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>
+            <strong>성과:</strong> 실제 서비스 런칭, 협업 프로세스 최적화<br>
+            <strong>어려웠던 점:</strong> 동시성 제어, 성능 최적화<br>
+            <strong>극복:</strong> 큐 시스템 도입, 캐싱 전략 적용<br>
+            <strong>배포/깃허브:</strong>
+            <a class="project-link" href="https://github.com/yiseol/8_Grope" target="_blank">GitHub 바로가기</a>
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="block-title">기타</div>
+          <div class="block-content">
+            <strong>차후 개선:</strong> 모바일 앱 버전 개발, 고급 협업 기능 추가<br>
+            <strong>자료:</strong> <a href="#">프로젝트 발표자료</a><br>
+            <strong>기여도(본인):</strong> 백엔드 아키텍처 설계, 실시간 통신 구현
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- 오른쪽 중앙 라인탭 네비게이션 -->
+  <div class="project-nav-bar" id="projectNavBar">
+    <!-- JS로 채워짐 -->
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

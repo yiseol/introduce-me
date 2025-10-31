@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>introduce-me website</title>
+  <link rel="stylesheet" href="fonts/stylesheet.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- 1. 로딩 화면 -->
+  <div class="loading-screen">
+    <div class="logo-animation">
+      <div class="handwriting-container">
+        <span class="handwriting-text">INTRODUCE-ME</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2. 헤더 -->
+  <!-- 1) 네비게이션 바 -->
+  <header>
+    <nav>
+      <div class="nav-left">
+         <span onclick="scrollToSection(0)">INTRODUCE-ME</span>
+      </div>
+      <div class="nav-right">
+        <!-- 페이지 링크들 -->
+        <span onclick="location.href='pages/Introduce_myself.html'">Introduce</span>
+        <span onclick="location.href='pages/Activity.html'">Activity</span>
+        <span onclick="location.href='pages/Certificate.html'">Certificates</span>
+        <span onclick="location.href='pages/Project.html'">Projects</span>
+        <span onclick="location.href='pages/Resume.html'">Resume</span>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- 3. 메인 콘텐츠 -->
+  <!-- 1) 인트로 섹션 -->
+  <main class="sections">
+      <section class="section intro">
+        <!-- 동적 배경 효과들 -->
+        <div class="background-effects">
+          <!-- 떠다니는 기포들 -->
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          <div class="bubble"></div>
+          
+          <!-- 반짝이는 별들 -->
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          
+          <!-- 떠다니는 파티클들 -->
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          <div class="floating-particle"></div>
+          
+          <!-- 빛 효과 -->
+          <div class="light-ray light-ray-1"></div>
+          <div class="light-ray light-ray-2"></div>
+          <div class="light-ray light-ray-3"></div>
+        </div>
+        
+        <div class="section-inner">
+          <div class="main-title">
+            <img src="images/top.png" alt="Top Decoration" class="top-decoration">
+            <div class="title-small typing-effect" data-text="INTRODUCE">INTRODUCE</div>
+            <div class="title-large typing-effect" data-text="ME">ME</div>
+            <img src="images/down.png" alt="Down Decoration" class="down-decoration">
+          </div>
+          <p class="section-desc typing-effect" data-text="Where dreams meet reality.">
+            Where dreams meet reality.
+          </p>
+        </div>
+      </section>
+  </main>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
