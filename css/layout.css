@@ -1,13 +1,26 @@
 /* =======================================================
    INTRODUCE-ME WEBSITE - LAYOUT STYLES
-   헤더, 네비게이션, 메인 레이아웃, 서브페이지 구조
+   
+   Purpose: 헤더, 네비게이션, 메인 레이아웃, 서브페이지 구조
+   
+   Contents:
+   1. Header & Navigation
+   2. Main Content Layout
+   3. Sub-page Layout
+   4. Responsive Design
+   
+   Author: Lee Seol
+   Last Updated: 2025-11-19
 ======================================================= */
 
 /* =======================================================
    1. HEADER & NAVIGATION
 ======================================================= */
 
-/* 1) 헤더 기본 설정 */
+/**
+ * 고정 헤더
+ * 모든 페이지 상단에 고정되는 네비게이션 바 컨테이너
+ */
 header {
   position: fixed;
   top: 0; left: 0; width: 100%;

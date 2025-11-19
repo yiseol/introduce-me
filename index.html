@@ -1,46 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <!-- =======================================================
+       METADATA & DOCUMENT SETTINGS
+  ======================================================= -->
   <meta charset="UTF-8">
-  <title>introduce-me website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="이설의 포트폴리오 웹사이트 - 프로젝트, 자격증, 이력서">
+  <meta name="author" content="이설 (Lee Seol)">
+  <title>INTRODUCE-ME | 이설 포트폴리오</title>
+  
+  <!-- =======================================================
+       STYLESHEETS
+  ======================================================= -->
   <link rel="stylesheet" href="fonts/stylesheet.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <!-- 1. 로딩 화면 -->
+  <!-- =======================================================
+       LOADING SCREEN - Multi-Scene Intro Animation
+  ======================================================= -->
   <div class="loading-screen">
-    <div class="logo-animation">
-      <div class="handwriting-container">
-        <span class="handwriting-text">INTRODUCE-ME</span>
-      </div>
+    <!-- Scene 1: 로딩 진행바 -->
+    <div class="intro-progress-container">
+      <div class="intro-progress-bar"></div>
     </div>
+    
+    <!-- Scene 2: 타이핑 효과 제목 -->
+    <div class="intro-title">INTRODUCE-ME</div>
+    
+    <!-- Scene 3: 부제목 -->
+    <div class="intro-subtitle">Portfolio Website</div>
+    
+    <!-- Scene 4: 환영 메시지 -->
+    <div class="intro-welcome">이설의 포트폴리오에 오신 것을 환영합니다</div>
+    
+    <!-- Scene 5: 진입 안내 -->
+    <div class="intro-enter">잠시 후 메인 페이지로 이동합니다...</div>
   </div>
   
-  <!-- 2. 헤더 -->
-  <!-- 1) 네비게이션 바 -->
+  <!-- =======================================================
+       HEADER - Navigation Bar
+  ======================================================= -->
   <header>
     <nav>
       <div class="nav-left">
-         <span onclick="scrollToSection(0)">INTRODUCE-ME</span>
+        <span onclick="scrollToSection(0)">INTRODUCE-ME</span>
       </div>
       <div class="nav-right">
-        <!-- 페이지 링크들 -->
-        <span onclick="location.href='pages/Introduce_myself.html'">Introduce</span>
-        <span onclick="location.href='pages/Activity.html'">Activity</span>
-        <span onclick="location.href='pages/Certificate.html'">Certificates</span>
-        <span onclick="location.href='pages/Project.html'">Projects</span>
-        <span onclick="location.href='pages/Resume.html'">Resume</span>
+        <span onclick="scrollToSection(1)">Introduce</span>
+        <span onclick="scrollToSection(2)">Activity</span>
+        <span onclick="scrollToSection(3)">Certificates</span>
+        <span onclick="scrollToSection(4)">Projects</span>
+        <span onclick="scrollToSection(5)">Resume</span>
       </div>
     </nav>
   </header>
   
-  <!-- 3. 메인 콘텐츠 -->
-  <!-- 1) 인트로 섹션 -->
+  <!-- =======================================================
+       MAIN CONTENT - All Sections
+  ======================================================= -->
   <main class="sections">
-      <section class="section intro">
-        <!-- 동적 배경 효과들 -->
-        <div class="background-effects">
-          <!-- 떠다니는 기포들 -->
+    
+    <!-- ===================================================
+         SECTION 1: Hero / Intro
+    =================================================== -->
+    <section class="section intro">
+      <!-- Background Effects -->
+      <div class="background-effects">
+        <!-- Floating Bubbles -->
           <div class="bubble"></div>
           <div class="bubble"></div>
           <div class="bubble"></div>
@@ -82,9 +111,219 @@
             Where dreams meet reality.
           </p>
         </div>
-      </section>
+    </section>
+
+    <!-- ===================================================
+         SECTION 2: Introduce / About Me
+    =================================================== -->
+    <section class="section introduce-section">
+      <div class="section-inner">
+        <h2 class="section-title">INTRODUCE</h2>
+        <div class="section-content">
+          <div class="introduce-preview">
+            <div class="preview-image">
+              <div class="image-placeholder">👋</div>
+            </div>
+            <div class="preview-text">
+              <h3>자기소개</h3>
+              <p>
+                안녕하세요! 저는 열정적인 개발자 이설입니다.<br>
+                새로운 기술을 배우고 도전하는 것을 좋아하며,<br>
+                사용자 중심의 웹 서비스를 만들기 위해 노력하고 있습니다.
+              </p>
+              <button class="preview-btn" onclick="location.href='pages/Introduce_myself.html'">
+                자세히 보기
+              </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 3: Activity
+    =================================================== -->
+    <section class="section activity-section">
+      <div class="section-inner">
+        <h2 class="section-title">ACTIVITY</h2>
+          <div class="section-content">
+            <div class="activity-preview">
+              <div class="preview-grid">
+                <div class="activity-card">
+                  <div class="card-icon">🎯</div>
+                  <h4>프로젝트 활동</h4>
+                  <p>다양한 웹 개발 프로젝트 참여</p>
+                </div>
+                <div class="activity-card">
+                  <div class="card-icon">🏆</div>
+                  <h4>수상 경력</h4>
+                  <p>개발 대회 및 공모전 수상</p>
+                </div>
+                <div class="activity-card">
+                  <div class="card-icon">📚</div>
+                  <h4>학습 활동</h4>
+                  <p>온라인 강의 및 스터디 참여</p>
+                </div>
+              </div>
+              <button class="preview-btn" onclick="location.href='pages/Activity.html'">
+                모든 활동 보기
+              </button>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 4: Certificates
+    =================================================== -->
+    <section class="section certificate-section">
+      <div class="section-inner">
+        <h2 class="section-title">CERTIFICATES</h2>
+          <div class="section-content">
+            <div class="certificate-preview">
+              <div class="cert-list">
+                <div class="cert-item">
+                  <div class="cert-icon">🏅</div>
+                  <div class="cert-info">
+                    <h4>정보처리기사</h4>
+                    <span>한국산업인력공단</span>
+                  </div>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-icon">💻</div>
+                  <div class="cert-info">
+                    <h4>웹디자인기능사</h4>
+                    <span>한국산업인력공단</span>
+                  </div>
+                </div>
+                <div class="cert-item">
+                  <div class="cert-icon">📊</div>
+                  <div class="cert-info">
+                    <h4>컴활 1급</h4>
+                    <span>대한상공회의소</span>
+                  </div>
+                </div>
+              </div>
+              <button class="preview-btn" onclick="location.href='pages/Certificate.html'">
+                모든 자격증 보기
+              </button>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 5: Projects
+    =================================================== -->
+    <section class="section project-section">
+      <div class="section-inner">
+        <h2 class="section-title">PROJECTS</h2>
+          <div class="section-content">
+            <div class="project-preview">
+              <div class="project-grid">
+                <div class="project-card">
+                  <div class="project-image">🌐</div>
+                  <div class="project-info">
+                    <h4>포트폴리오 웹사이트</h4>
+                    <p>HTML, CSS, JavaScript를 활용한 반응형 포트폴리오</p>
+                    <div class="project-tech">
+                      <span class="tech-tag">HTML</span>
+                      <span class="tech-tag">CSS</span>
+                      <span class="tech-tag">JavaScript</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-card">
+                  <div class="project-image">📱</div>
+                  <div class="project-info">
+                    <h4>모바일 앱 프로젝트</h4>
+                    <p>React Native를 사용한 크로스플랫폼 모바일 앱</p>
+                    <div class="project-tech">
+                      <span class="tech-tag">React Native</span>
+                      <span class="tech-tag">Firebase</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="preview-btn" onclick="location.href='pages/Project.html'">
+                모든 프로젝트 보기
+              </button>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 6: Resume
+    =================================================== -->
+    <section class="section resume-section">
+      <div class="section-inner">
+        <h2 class="section-title">RESUME</h2>
+          <div class="section-content">
+            <div class="resume-preview">
+              <div class="resume-summary">
+                <div class="resume-item">
+                  <h4>📍 Contact</h4>
+                  <p>Email: example@email.com<br>
+                  Phone: 010-1234-5678<br>
+                  GitHub: github.com/yiseol</p>
+                </div>
+                <div class="resume-item">
+                  <h4>🎓 Education</h4>
+                  <p>컴퓨터공학과 졸업<br>
+                  관련 온라인 강의 수료</p>
+                </div>
+                <div class="resume-item">
+                  <h4>💼 Skills</h4>
+                  <p>HTML, CSS, JavaScript<br>
+                  React, Node.js<br>
+                  Git, GitHub</p>
+                </div>
+              </div>
+              <button class="preview-btn" onclick="location.href='pages/Resume.html'">
+                전체 이력서 보기
+              </button>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+         SECTION 7: Footer
+    =================================================== -->
+    <section class="section footer-section">
+      <div class="section-inner">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>INTRODUCE-ME</h3>
+          </div>
+          <div class="footer-links">
+            <div class="link-group">
+              <h4>Quick Links</h4>
+              <a href="pages/Introduce_myself.html">Introduce</a>
+              <a href="pages/Activity.html">Activity</a>
+              <a href="pages/Certificate.html">Certificates</a>
+              <a href="pages/Project.html">Projects</a>
+              <a href="pages/Resume.html">Resume</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 INTRODUCE-ME | 
+            <a href="mailto:example@email.com">Email</a> | 
+            <a href="https://github.com/yiseol">GitHub</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    
   </main>
   
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================= -->
   <script src="js/script.js"></script>
+  
 </body>
 </html>
