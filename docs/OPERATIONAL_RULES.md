@@ -3,14 +3,15 @@
 ## 📋 개요
 
 이 문서는 GitHub Copilot이 프로젝트 작업을 수행할 때 반드시 준수해야 하는 원칙을 정의합니다.  
-모든 작업은 아래 7가지 규칙을 엄격하게 따라야 하며, 이를 통해 코드 품질과 작업 효율성을 보장합니다.
+모든 작업은 아래 규칙을 엄격하게 따라야 하며, 이를 통해 코드 품질과 작업 효율성을 보장합니다.
 
 **작성일:** 2025-11-19  
+**최종 수정일:** 2025-11-26  
 **작성자:** 이설 (Yi Seol)
 
 ---
 
-## 🔒 7가지 핵심 원칙
+## 🔒 핵심 원칙
 
 ### 1. 변경 사항 기록 및 요약 (Documentation)
 
@@ -42,14 +43,13 @@
 ```markdown
 ## 2025-11-19
 
-### 전체 코드 구조 개선
-**요청:** HTML, CSS, JavaScript 모든 코드의 구조를 통일감 있게 정리  
+### 코드 구조 개선
+**요청:** HTML, CSS, JavaScript 코드 구조 정리  
 **결과:**
-- styles.css 중복 코드 제거 (2232줄 → 5줄, 99.8% 감소)
-- Resume.html 구조 개선 (175줄 → 73줄, 58% 감소)
+- styles.css 중복 코드 제거
+- Resume.html 구조 개선
 - CSS 파일 모듈화: base.css, layout.css, components.css
-- 모든 파일에 표준화된 헤더 주석 추가
-- CODING_STYLE_GUIDE.md 작성
+- 표준화된 헤더 주석 추가
 
 ---
 ```
@@ -248,37 +248,87 @@ function exampleFunction(param) {
 
 ---
 
-## ✅ 작업 시작 전 체크리스트
+## 8. 코드 분리 원칙 (Separation of Concerns)
 
-모든 작업을 시작하기 전에 아래 항목을 확인하세요:
+**핵심 원칙:** 모든 코드는 언어에 맞는 파일 형식에 작성되어야 합니다.
 
-- [ ] **Rule 5:** 현재 프로젝트 구조와 파일 내용을 파악했는가?
-- [ ] **Rule 6:** 기존 코드의 스타일을 확인했는가?
-- [ ] **Rule 3:** 중복 코드가 있는지 확인했는가?
-- [ ] **Rule 2:** 여러 구현 방법이 있다면 사용자에게 선택권을 제공했는가?
+### 금지사항
 
-## ✅ 작업 완료 후 체크리스트
+❌ **HTML 파일 내 인라인 코드 작성:**
+```html
+<!-- 금지: <script> 태그를 HTML 파일에 직접 작성 -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Hello');
+  });
+</script>
 
-작업을 마친 후에는 아래 항목을 확인하세요:
+<!-- 금지: <style> 태그를 HTML 파일에 직접 작성 -->
+<style>
+  .container {
+    background: blue;
+  }
+</style>
+```
 
-- [ ] **Rule 7:** 필요한 곳에 한글 주석을 달았는가?
-- [ ] **Rule 1:** 작업 내용을 요약해서 보고했는가?
-- [ ] **Rule 4:** Git 커밋 제안을 했는가?
-- [ ] **Rule 6:** 코드 스타일이 일관성 있게 유지되는가?
+### 올바른 방법
 
----
+✅ **외부 파일 참조:**
+```html
+<!-- HTML 파일: index.html -->
+<head>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HTML 콘텐츠만 -->
+  <script src="js/script.js"></script>
+</body>
+```
 
-## 📚 관련 문서
+```javascript
+// JavaScript 파일: js/script.js
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Hello');
+});
+```
 
-- `docs/SPEC.md` - 프로젝트 마스터 플랜
-- `docs/TODO.md` - 작업 로드맵
-- `docs/CODING_STYLE_GUIDE.md` - 코딩 스타일 가이드
-- `docs/CSS_NAMING_GUIDE.md` - CSS 네이밍 규칙
+```css
+/* CSS 파일: css/styles.css */
+.container {
+  background: blue;
+}
+```
 
----
+### 예외 사항
 
-## 🔄 문서 이력
+다음의 경우에만 인라인 코드가 허용됩니다:
 
-| 날짜 | 버전 | 변경 내용 | 작성자 |
-|------|------|----------|--------|
-| 2025-11-19 | 1.0.0 | 최초 작성 | 이설 |
+1. **외부 서비스 스크립트 (Google Analytics, 광고 스크립트 등):**
+   ```html
+   <!-- 허용: 외부 서비스 제공 스크립트 -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+   ```
+
+2. **1-2줄의 페이지별 특정 설정 (예: 페이지 ID):**
+   ```html
+   <!-- 허용: 단순 설정값 -->
+   <script>const PAGE_ID = 'about';</script>
+   ```
+
+### 코드 분리 체크리스트
+
+코드 작성 전 확인사항:
+- [ ] HTML 파일에 `<script>` 태그가 없는가? (예외 제외)
+- [ ] HTML 파일에 `<style>` 태그가 없는가? (예외 제외)
+- [ ] JavaScript 코드가 `.js` 파일에 작성되었는가?
+- [ ] CSS 코드가 `.css` 파일에 작성되었는가?
+- [ ] HTML 파일이 외부 파일을 올바르게 참조하는가?
+
+### 적용 범위
+
+이 원칙은 다음에 적용됩니다:
+- ✅ 모든 HTML 페이지 (index.html, Activity.html, Certificate.html 등)
+- ✅ 새로 생성하는 모든 파일
+- ✅ 기존 파일 수정 시
+
+**목적:** 코드의 유지보수성, 가독성, 재사용성을 높이고, 관심사를 명확히 분리하여 프로젝트 구조를 체계적으로 관리합니다.
