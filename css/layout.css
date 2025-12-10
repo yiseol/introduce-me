@@ -1,0 +1,225 @@
+/* =======================================================
+   LAYOUT STYLES - Navigation, Header, Page Structure
+======================================================= */
+
+/* =======================================================
+   NAVIGATION BAR
+======================================================= */
+/* 기본 네비게이션 (서브 페이지용) */
+.nav-container {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000;
+  background: rgba(0, 127, 255, 0.9);
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+/* 프로젝트 페이지 전용: 투명 배경 */
+body.project-page .nav-container {
+  background: transparent;
+}
+
+/* Certificate 페이지 전용: 투명 배경 */
+body.cert-page .nav-container {
+  background: transparent;
+}
+
+/* 인덱스 페이지 전용: 초기 투명 */
+body:not(.page-body) .nav-container {
+  background: transparent;
+}
+
+/* 인덱스 페이지 스크롤 시 배경색 표시 */
+body:not(.page-body) .nav-container.scrolled {
+  background: rgba(0, 127, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+/* 인덱스 페이지 메뉴 섹션에서 네비게이션 숨기기 */
+body:not(.page-body) .nav-container.nav-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav {
+  width: 100%; 
+  height: var(--nav-height);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 25px; 
+  color: white;
+}
+
+.nav-left {
+  font-size: 1.5rem; 
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-right {
+  font-weight: bold;
+  display: flex; 
+  gap: 20px;
+}
+
+.nav-item {
+  padding: 8px 15px; 
+  cursor: pointer;
+  border-radius: 20px; 
+  transition: all 0.3s ease;
+  text-decoration: none; 
+  color: white;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* =======================================================
+   HOME SECTION
+======================================================= */
+.home-section {
+  height: 100vh;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 배경 비디오 */
+.home-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* 히어로 콘텐츠를 비디오 위로 */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 5rem; 
+  margin-bottom: 20px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  animation: heroFadeIn 2s ease-out 3.5s both;
+}
+
+.hero-content h2 {
+  font-size: 2rem; 
+  margin-bottom: 30px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  animation: heroFadeIn 2s ease-out 4s both;
+}
+
+.hero-content p {
+  font-size: 1.3rem; 
+  max-width: 600px; 
+  margin: 0 auto;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  animation: heroFadeIn 2s ease-out 4.5s both;
+}
+
+/* =======================================================
+   PAGE SECTIONS
+======================================================= */
+.page-section {
+  min-height: 100vh; 
+  padding: var(--nav-height) 0 50px 0;
+  position: relative;
+}
+
+.section-container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 50px 20px;
+}
+
+.section-title {
+  font-size: 3rem; 
+  text-align: center; 
+  margin-bottom: 50px;
+  color: var(--primary-color); 
+  font-weight: bold;
+}
+
+/* =======================================================
+   SUB PAGE LAYOUT
+======================================================= */
+.page-body {
+  background: #f8f9fa; 
+  min-height: 100vh;
+}
+
+.page-container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 100px 20px 50px 20px;
+}
+
+.page-title {
+  font-size: 3rem; 
+  text-align: center; 
+  margin-bottom: 50px;
+  color: var(--primary-color); 
+  font-weight: bold;
+}
+
+/* =======================================================
+   RESPONSIVE LAYOUT
+======================================================= */
+@media (max-width: 768px) {
+  .nav { 
+    padding: 0 15px; 
+  }
+  .nav-right { 
+    gap: 10px; 
+  }
+  .nav-item { 
+    padding: 6px 10px; 
+    font-size: 0.9rem; 
+  }
+  
+  .hero-content h1 { 
+    font-size: 3rem; 
+  }
+  .hero-content h2 { 
+    font-size: 1.5rem; 
+  }
+  .section-title { 
+    font-size: 2rem; 
+  }
+  .page-title { 
+    font-size: 2rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 { 
+    font-size: 2.5rem; 
+  }
+  .section-container { 
+    padding: 30px 15px; 
+  }
+  .page-container { 
+    padding: 80px 15px 30px 15px; 
+  }
+}
