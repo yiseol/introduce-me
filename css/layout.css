@@ -3,45 +3,32 @@
 ======================================================= */
 
 /* =======================================================
-   NAVIGATION BAR
+   NAVIGATION BAR - Unified Design
 ======================================================= */
-/* 기본 네비게이션 (서브 페이지용) */
 .nav-container {
   position: fixed; 
   top: 0; 
   left: 0; 
   width: 100%; 
   z-index: 1000;
-  background: rgba(0, 127, 255, 0.9);
-  transition: background 0.3s ease, opacity 0.3s ease;
-}
-
-/* 프로젝트 페이지 전용: 투명 배경 */
-body.project-page .nav-container {
   background: transparent;
+  transition: opacity 0.3s ease;
 }
 
-/* Certificate 페이지 전용: 투명 배경 */
-body.cert-page .nav-container {
-  background: transparent;
-}
-
-/* 인덱스 페이지 전용: 초기 투명 */
-body:not(.page-body) .nav-container {
-  background: transparent;
-}
-
-/* 인덱스 페이지 스크롤 시 배경색 표시 */
-body:not(.page-body) .nav-container.scrolled {
-  background: rgba(0, 127, 255, 0.9);
-  backdrop-filter: blur(10px);
-}
-
-/* 인덱스 페이지 메뉴 섹션에서 네비게이션 숨기기 */
-body:not(.page-body) .nav-container.nav-hidden {
+/* 메뉴 섹션에서 네비게이션 숨기기 */
+.nav-container.nav-hidden {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+}
+
+/* 푸터 섹션에서 네비게이션 텍스트 검정색 */
+.footer-section .nav {
+  color: #333;
+}
+
+.footer-section .nav-left,
+.footer-section .nav-item {
+  color: #333;
 }
 
 .nav {

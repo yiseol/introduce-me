@@ -19,10 +19,15 @@
 <body>
 
     <!-- =======================================================
-         INTRO SCREEN (로고 애니메이션, 자동 사라짐)
+         INTRO SCREEN
     ======================================================= -->
     <div class="intro-screen">
-        <img src="video/logo_video.gif" alt="Logo Animation" class="intro-logo">
+        <div class="intro-content">
+            <div class="intro-line intro-line-top"></div>
+            <h1 class="intro-logo-text">INTRODUCE-ME</h1>
+            <div class="intro-line intro-line-bottom"></div>
+            <p class="intro-subtitle">Portfolio 2025</p>
+        </div>
     </div>
 
     <!-- =======================================================
@@ -113,6 +118,42 @@
         </div>
             </section>
         </div>
+
+        <!-- Footer Section -->
+        <div class="section footer-section">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-column">
+                        <h4>CONTACT</h4>
+                        <p>Email: wshdd86@naver.com</p>
+                        <p>Phone: 010-9936-0808</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>EDUCATION</h4>
+                        <p>금오공과대학교</p>
+                        <p>컴퓨터소프트웨어공학과</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>LOCATION</h4>
+                        <p>대구광역시</p>
+                        <p>South Korea</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4>CONNECT</h4>
+                        <p><a href="https://github.com/yiseol/introduce-me" target="_blank">GitHub</a></p>
+                        <p><a href="https://www.instagram.com/seoli_yah/" target="_blank">Instagram</a></p>
+                    </div>
+                </div>
+                <div class="footer-logo">
+                    <h1>INTRODUCE-ME</h1>
+                </div>
+                <div class="footer-tagline">
+                    <p>A portfolio of</p>
+                    <p>creative developer.</p>
+                    <p class="footer-copyright">© 2025 Kang Ji Woong Ltd All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- =======================================================
@@ -123,32 +164,7 @@
     
     <!-- Custom JS -->
     <script src="js/script.js"></script>
-    
-    <!-- Initialize fullPage.js -->
-    <script type="text/javascript">
-        var myFullpage = new fullpage('#fullpage', {
-            // fullPage.js 옵션
-            navigation: false, // 오른쪽 네비게이션 점 비활성화
-            scrollingSpeed: 700, // 스크롤 속도 (ms)
-            autoScrolling: true, // 자동 스크롤 활성화
-            fitToSection: true, // 섹션에 딱 맞춤
-            scrollBar: false, // 스크롤바 숨기기
-            css3: true, // CSS3 변환 사용
-            
-            // 섹션 이동 후 콜백
-            afterLoad: function(origin, destination, direction) {
-                const nav = document.querySelector('.nav-container');
-                
-                if (destination.index === 0) {
-                    // 홈 섹션: 투명 표시
-                    nav.classList.remove('nav-hidden');
-                } else {
-                    // 메뉴 섹션 (1-5): 네비게이션 숨기기
-                    nav.classList.add('nav-hidden');
-                }
-            }
-        });
-    </script>
+    <script src="js/home-init.js"></script>
 
 </body>
 </html>

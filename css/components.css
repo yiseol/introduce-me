@@ -44,7 +44,7 @@
 /* 오른쪽 콘텐츠 영역 */
 .menu-content-right {
   flex: 1;
-  background: white;
+  background: #f8f9fa;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,7 +140,7 @@
 /* 왼쪽 콘텐츠 영역 */
 .menu-content-left {
   flex: 1;
-  background: white;
+  background: #f8f9fa;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -706,9 +706,125 @@
 }
 
 /* =======================================================
+   FOOTER SECTION (70vh height)
+======================================================= */
+.footer-section {
+  background: #f5f3ef;
+  height: 70vh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  text-align: center;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-column h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.footer-column p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #666;
+  margin: 5px 0;
+}
+
+.footer-column a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #333;
+}
+
+.footer-logo {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.footer-logo h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 8rem;
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: #333;
+  margin: 0;
+}
+
+.footer-tagline {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-tagline p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: #333;
+  margin: 5px 0;
+}
+
+.footer-copyright {
+  font-size: 0.75rem !important;
+  font-style: normal !important;
+  color: #999 !important;
+  margin-top: 30px !important;
+}
+
+/* =======================================================
    RESPONSIVE COMPONENTS
 ======================================================= */
 @media (max-width: 768px) {
+  /* Footer Section */
+  .footer-section {
+    height: 80vh !important;
+    padding: 30px 20px;
+  }
+  
+  .footer-info {
+    gap: 30px;
+  }
+  
+  .footer-column {
+    min-width: 120px;
+  }
+  
+  .footer-logo h1 {
+    font-size: 4rem;
+  }
+  
+  .footer-tagline p {
+    font-size: 1.1rem;
+  }
+  
   /* Project Section */
   .project-section {
     padding: 100px 20px 40px 20px;
