@@ -2,108 +2,129 @@
 <html lang="ko">
 
 <!-- =======================================================
-   1. DOCUMENT HEAD & META INFORMATION
+     METADATA SECTION
 ======================================================= -->
 <head>
-  <meta charset="UTF-8">
-  <title>자기소개 | 이설</title>
-  
-  <!-- 1) 외부 폰트 로드 -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&family=Gmarket+Sans:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- 2) 스타일시트 연결 -->
-  <link rel="stylesheet" href="../css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개 | Introduce-Me</title>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <!-- =======================================================
-   2. MAIN CONTENT BODY
+     BODY SECTION
 ======================================================= -->
 <body class="page-body">
-  <div class="page-container">
 
     <!-- =======================================================
-       3. BASIC PROFILE SECTION
+         NAVIGATION BAR
     ======================================================= -->
-    <!-- 1) 개인정보 -->
-    <section class="simple-profile-wrap">
-      <div class="simple-profile-title">이설 (Lee Seol)</div>
-      <ul class="simple-profile-list">
-        <li>생년월일: 2004. 09. 19</li>
-        <li>전화번호: 010-8283-0919</li>
-        <li>학력: 한세대학교</li>
-        <li>전공: 산업보안학과</li>
-        <li>이메일: chldltjf0919@naver.com</li>
-        <li>GitHub: github.com/yiseol</li>
-        <li>SNS: instagram.com/yiseol.dev</li>
-      </ul>
-    </section>
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="../index.html" class="nav-left">INTRODUCE-ME</a>
+            <div class="nav-right">
+                <a href="Introduce_myself.html" class="nav-item">About</a>
+                <a href="Activity.html" class="nav-item">Activity</a>
+                <a href="Certificate.html" class="nav-item">Certificate</a>
+                <a href="Project.html" class="nav-item">Project</a>
+                <a href="Resume.html" class="nav-item">Resume</a>
+            </div>
+        </nav>
+    </div>
 
     <!-- =======================================================
-       4. GROWTH TIMELINE SECTION
+         PAGE CONTENT
     ======================================================= -->
-    <!-- 1) 타임라인 헤더 -->
-    <div class="timeline-section-title">성장과정 타임라인</div>
-    
-    <!-- 2) 타임라인 컨텐츠 -->
-    <section class="timeline">
-      <!-- 대학교 과정 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">2017 ~ 2021</div>
-          <div class="timeline-title">OO대학교 소프트웨어공학 전공</div>
-          <div class="timeline-desc">컴퓨터와 개발에 대한 흥미로 전공 선택, 다양한 팀 프로젝트와 해커톤 경험을 쌓음</div>
-        </div>
-      </div>
-      <!-- 해커톤 수상 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">2020</div>
-          <div class="timeline-title">교내 해커톤 대상 수상</div>
-          <div class="timeline-desc">새로운 아이디어로 팀을 이끌어 수상, 협업의 중요성을 깊이 체득</div>
-        </div>
-      </div>
-      <!-- 현재 활동 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-date">2021 ~ 현재</div>
-          <div class="timeline-title">다양한 프로젝트 및 실무 경험</div>
-          <div class="timeline-desc">웹, 백엔드, AI 등 다양한 분야에 도전하며 실전 역량 강화</div>
-        </div>
-      </div>
-    </section>
+    <div class="page-container">
+        <h1 class="page-title">자기소개</h1>
 
-    <!-- =======================================================
-       5. DETAILED INTRODUCTION SECTION
-    ======================================================= -->
-    <!-- 1) 소개 헤더 -->
-    <div class="blog-title">자세한 자기소개</div>
-    <div class="blog-meta">꾸준함과 도전, 그리고 소통을 중시하는 개발자</div>
-    
-    <!-- 2) 소개 내용 -->
-    <section class="blog-section">
-      <h2>성장 배경</h2>
-      <p>어린 시절부터 컴퓨터와 친했고, 대학에서 소프트웨어공학을 전공하며 체계적인 개발 경험을 쌓았습니다.</p>
-      <div class="blog-highlight">개발은 저에게 '성장'과 '협업'을 동시에 선물해주었습니다.</div>
-    </section>
-    <section class="blog-section">
-      <h2>중요 경험</h2>
-      <p>여러 해커톤, 팀 프로젝트, 인턴십을 통해 다양한 시각과 실전력을 갖추었습니다.<br>
-      특히, 2020년 교내 해커톤 대상 수상은 저에게 큰 자신감을 주었고, 팀워크의 중요성을 깊이 깨달았습니다.</p>
-    </section>
-    <section class="blog-section">
-      <h2>현재와 미래</h2>
-      <p>프론트엔드, 백엔드, AI 등 다양한 분야에 도전 중이며, 사용자와 팀을 생각하는 개발자가 되기 위해 고민합니다.</p>
-    </section>
-    
-  </div>
-  
-  <!-- =======================================================
-     6. JAVASCRIPT INITIALIZATION
-  ======================================================= -->
-  <script src="../js/script.js"></script>
-  
+        <!-- =======================================================
+             SIMPLE PROFILE SECTION
+        ======================================================= -->
+        <section class="simple-profile-wrap">
+            <h2>기본 정보</h2>
+            <ul class="simple-profile-list">
+                <li>이름: 강지웅</li>
+                <li>생년월일: 2001.08.08</li>
+                <li>연락처: 010-9936-0808</li>
+                <li>학력: 금오공과대학교 컴퓨터소프트웨어공학과 (재학)</li>
+                <li>전공: 컴퓨터소프트웨어공학과</li>
+                <li>이메일: wldnd8896@naver.com</li>
+                <li>Github: github.com/jiwoongg</li>
+                <li>Blog: blog.naver.com/jiwoongg</li>
+            </ul>
+        </section>
+
+        <!-- =======================================================
+             GROWTH TIMELINE SECTION
+        ======================================================= -->
+        <section class="timeline">
+            <h2>성장 과정</h2>
+            
+            <!-- 유년시절 -->
+            <div class="timeline-item">
+                <div class="timeline-title">🧸 유년시절 - 호기심 많은 아이</div>
+                <div class="timeline-desc">
+                    어릴 적부터 새로운 것에 대한 호기심이 많았습니다. 
+                    컴퓨터를 분해하고 조립하며 작동 원리에 대해 고민했던 시간들이 
+                    지금의 개발자로 성장하는 밑거름이 되었습니다.
+                </div>
+            </div>
+
+            <!-- 중학교 시절 -->
+            <div class="timeline-item">
+                <div class="timeline-title">📚 중학교 시절 - 코딩과의 첫 만남</div>
+                <div class="timeline-desc">
+                    중학교 2학년 때 처음 프로그래밍을 접했습니다. 
+                    간단한 계산기 프로그램을 만들었을 때의 성취감은 아직도 기억에 남아있습니다. 
+                    그때부터 개발자의 꿈을 키우기 시작했습니다.
+                </div>
+            </div>
+
+            <!-- 고등학교 시절 -->
+            <div class="timeline-item">
+                <div class="timeline-title">🎓 고등학교 시절 - 컴퓨터공학 진로 결정</div>
+                <div class="timeline-desc">
+                    정보 과목을 선택하고 본격적으로 프로그래밍을 학습했습니다. 
+                    교내 코딩 대회에서 입상하면서 자신감을 얻었고, 
+                    컴퓨터공학과 진학을 확고히 결심했습니다.
+                </div>
+            </div>
+
+            <!-- 대학교 입학 -->
+            <div class="timeline-item">
+                <div class="timeline-title">🏫 대학교 입학 - 전공 공부의 시작</div>
+                <div class="timeline-desc">
+                    금오공과대학교 컴퓨터소프트웨어공학과에 입학했습니다. 
+                    자료구조, 알고리즘, 데이터베이스 등 전공 과목을 공부하며 
+                    컴퓨터 과학의 기초를 탄탄히 다졌습니다.
+                </div>
+            </div>
+
+            <!-- 대학 생활 -->
+            <div class="timeline-item">
+                <div class="timeline-title">💻 대학 생활 - 다양한 활동과 성장</div>
+                <div class="timeline-desc">
+                    개발 동아리 활동, 해커톤 참가, 인턴십 경험 등을 통해 
+                    실무 능력을 키웠습니다. 팀 프로젝트를 통해 협업의 중요성을 배우고, 
+                    다양한 개발 경험을 쌓으며 성장했습니다.
+                </div>
+            </div>
+
+            <!-- 현재 -->
+            <div class="timeline-item">
+                <div class="timeline-title">🚀 현재 - 끊임없는 도전과 학습</div>
+                <div class="timeline-desc">
+                    현재는 웹 개발, 모바일 앱 개발, 클라우드 기술 등 
+                    다양한 분야에 관심을 가지고 공부하고 있습니다. 
+                    새로운 기술을 배우고 적용하는 것을 즐기며, 
+                    더 나은 개발자가 되기 위해 끊임없이 노력하고 있습니다.
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
 </body>
 </html>

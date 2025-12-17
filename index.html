@@ -1,90 +1,154 @@
 <!DOCTYPE html>
 <html lang="ko">
+
+<!-- =======================================================
+     METADATA SECTION
+======================================================= -->
 <head>
-  <meta charset="UTF-8">
-  <title>introduce-me website</title>
-  <link rel="stylesheet" href="fonts/stylesheet.css">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈 | Introduce-Me</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- fullPage.js CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.css" />
 </head>
+
+<!-- =======================================================
+     BODY SECTION
+======================================================= -->
 <body>
-  <!-- 1. 로딩 화면 -->
-  <div class="loading-screen">
-    <div class="logo-animation">
-      <div class="handwriting-container">
-        <span class="handwriting-text">INTRODUCE-ME</span>
-      </div>
+
+    <!-- =======================================================
+         INTRO SCREEN (로고 애니메이션, 자동 사라짐)
+    ======================================================= -->
+    <div class="intro-screen">
+        <img src="video/logo_video.gif" alt="Logo Animation" class="intro-logo">
     </div>
-  </div>
-  
-  <!-- 2. 헤더 -->
-  <!-- 1) 네비게이션 바 -->
-  <header>
-    <nav>
-      <div class="nav-left">
-         <span onclick="scrollToSection(0)">INTRODUCE-ME</span>
-      </div>
-      <div class="nav-right">
-        <!-- 페이지 링크들 -->
-        <span onclick="location.href='pages/Introduce_myself.html'">Introduce</span>
-        <span onclick="location.href='pages/Activity.html'">Activity</span>
-        <span onclick="location.href='pages/Certificate.html'">Certificates</span>
-        <span onclick="location.href='pages/Project.html'">Projects</span>
-        <span onclick="location.href='pages/Resume.html'">Resume</span>
-      </div>
-    </nav>
-  </header>
-  
-  <!-- 3. 메인 콘텐츠 -->
-  <!-- 1) 인트로 섹션 -->
-  <main class="sections">
-      <section class="section intro">
-        <!-- 동적 배경 효과들 -->
-        <div class="background-effects">
-          <!-- 떠다니는 기포들 -->
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          <div class="bubble"></div>
-          
-          <!-- 반짝이는 별들 -->
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          
-          <!-- 떠다니는 파티클들 -->
-          <div class="floating-particle"></div>
-          <div class="floating-particle"></div>
-          <div class="floating-particle"></div>
-          <div class="floating-particle"></div>
-          <div class="floating-particle"></div>
-          
-          <!-- 빛 효과 -->
-          <div class="light-ray light-ray-1"></div>
-          <div class="light-ray light-ray-2"></div>
-          <div class="light-ray light-ray-3"></div>
+
+    <!-- =======================================================
+         NAVIGATION BAR
+    ======================================================= -->
+    <div class="nav-container">
+        <nav class="nav">
+            <a href="index.html" class="nav-left">INTRODUCE-ME</a>
+            <div class="nav-right">
+                <a href="pages/Activity.html" class="nav-item">Activity</a>
+                <a href="pages/Certificate.html" class="nav-item">Certificate</a>
+                <a href="pages/Project.html" class="nav-item">Project</a>
+                <a href="pages/Resume.html" class="nav-item">Resume</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- =======================================================
+         FULLPAGE SECTIONS
+    ======================================================= -->
+    <div id="fullpage">
+        <!-- Home Section -->
+        <div class="section">
+            <section class="home-section">
+                <video class="home-bg-video" autoplay muted loop playsinline>
+                    <source src="video/Home_video.mp4" type="video/mp4">
+                </video>
+                <div class="hero-content">
+                    <h1>YISEOL</h1>
+                    <h2>Security Engineer & Consultant</h2>
+                    <p>Safety First, Innovation Always</p>
+                </div>
+            </section>
         </div>
-        
-        <div class="section-inner">
-          <div class="main-title">
-            <img src="images/top.png" alt="Top Decoration" class="top-decoration">
-            <div class="title-small typing-effect" data-text="INTRODUCE">INTRODUCE</div>
-            <div class="title-large typing-effect" data-text="ME">ME</div>
-            <img src="images/down.png" alt="Down Decoration" class="down-decoration">
-          </div>
-          <p class="section-desc typing-effect" data-text="Where dreams meet reality.">
-            Where dreams meet reality.
-          </p>
+
+        <!-- Activity Menu Section -->
+        <div class="section">
+            <section class="menu-section menu-section-reverse">
+        <div class="menu-image-left">
+            <img src="images/home_images/Activity_background.jpg" alt="Activity">
         </div>
-      </section>
-  </main>
-  
-  <script src="js/script.js"></script>
+        <div class="menu-content-right">
+            <h2 class="menu-title">Activity</h2>
+            <p class="menu-description">다양한 활동과 경험을 통해 배우고 성장하는 과정을 기록합니다. 함께한 순간들과 배운 것들을 공유합니다.</p>
+            <a href="pages/Activity.html" class="menu-button">Learn more</a>
+        </div>
+            </section>
+        </div>
+
+        <!-- Certificate Menu Section -->
+        <div class="section">
+            <section class="menu-section">
+        <div class="menu-image-left">
+            <img src="images/home_images/Certificate_background.jpg" alt="Certificate">
+        </div>
+        <div class="menu-content-right">
+            <h2 class="menu-title">Certificate</h2>
+            <p class="menu-description">전문성을 인정받은 자격증과 수료증을 소개합니다. 지속적인 학습과 성장을 위해 노력하고 있습니다.</p>
+            <a href="pages/Certificate.html" class="menu-button">Learn more</a>
+        </div>
+            </section>
+        </div>
+
+        <!-- Project Menu Section -->
+        <div class="section">
+            <section class="menu-section menu-section-reverse">
+        <div class="menu-image-left">
+            <img src="images/home_images/Project_background_background.jpg" alt="Project">
+        </div>
+        <div class="menu-content-right">
+            <h2 class="menu-title">Project</h2>
+            <p class="menu-description">창의적인 아이디어를 실현한 프로젝트들을 소개합니다. 기획부터 개발까지 전 과정을 담았습니다.</p>
+            <a href="pages/Project.html" class="menu-button">Learn more</a>
+        </div>
+            </section>
+        </div>
+
+        <!-- Resume Menu Section -->
+        <div class="section">
+            <section class="menu-section">
+        <div class="menu-image-left">
+            <img src="images/home_images/Resume_background.jpg" alt="Resume">
+        </div>
+        <div class="menu-content-right">
+            <h2 class="menu-title">Resume</h2>
+            <p class="menu-description">저의 이력과 경력을 한눈에 확인하실 수 있습니다. 성장의 발자취를 정리했습니다.</p>
+            <a href="pages/Resume.html" class="menu-button">Learn more</a>
+        </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- =======================================================
+         JAVASCRIPT
+    ======================================================= -->
+    <!-- fullPage.js JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    
+    <!-- Initialize fullPage.js -->
+    <script type="text/javascript">
+        var myFullpage = new fullpage('#fullpage', {
+            // fullPage.js 옵션
+            navigation: false, // 오른쪽 네비게이션 점 비활성화
+            scrollingSpeed: 700, // 스크롤 속도 (ms)
+            autoScrolling: true, // 자동 스크롤 활성화
+            fitToSection: true, // 섹션에 딱 맞춤
+            scrollBar: false, // 스크롤바 숨기기
+            css3: true, // CSS3 변환 사용
+            
+            // 섹션 이동 후 콜백
+            afterLoad: function(origin, destination, direction) {
+                const nav = document.querySelector('.nav-container');
+                
+                if (destination.index === 0) {
+                    // 홈 섹션: 투명 표시
+                    nav.classList.remove('nav-hidden');
+                } else {
+                    // 메뉴 섹션 (1-5): 네비게이션 숨기기
+                    nav.classList.add('nav-hidden');
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>

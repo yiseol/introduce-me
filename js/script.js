@@ -1,12 +1,28 @@
 /* =======================================================
-   INTRODUCE-ME WEBSITE JAVASCRIPT - 통합 및 정리
+   INTRODUCE-ME WEBSITE - MAIN JAVASCRIPT
+   
+   Table of Contents:
+   1. Navigation & Page Management
+   2. Loading & Animation System
+   3. Typing Effects
+   4. Event Handlers
+   5. Utility Functions
+   6. Initialization
+   
+   Author: Lee Seol
+   Last Updated: 2025-11-19
 ======================================================= */
+
+'use strict';
 
 /* =======================================================
    1. NAVIGATION & PAGE MANAGEMENT
 ======================================================= */
 
-/* 1) 네비게이션 동적 생성 */
+/**
+ * 네비게이션 바를 동적으로 생성
+ * 현재 페이지(인덱스 vs 서브페이지)에 따라 다른 스타일 적용
+ */
 function createNavigation() {
   // 현재 페이지 위치 확인
   const currentPath = window.location.pathname;
@@ -44,26 +60,32 @@ function createNavigation() {
   }
 }
 
-/* 2) 홈페이지 스크롤 함수 */
+/**
+ * 특정 섹션으로 부드럽게 스크롤
+ * @param {number} idx - 스크롤할 섹션의 인덱스
+ */
 function scrollToSection(idx) { 
-  if (idx === 0) {
-    const sections = document.querySelectorAll('.section');
-    if (sections[0]) {
-      sections[0].scrollIntoView({ behavior: 'smooth' });
-    }
+  const sections = document.querySelectorAll('.section');
+  if (sections[idx]) {
+    sections[idx].scrollIntoView({ behavior: 'smooth' });
   }
 }
 
-/* 3) 페이지 초기화 함수 */
+/**
+ * 서브 페이지 초기화
+ */
 function initializePage() {
-  console.log('부가 페이지 초기화 완료');
+  console.log('✅ 페이지 초기화 완료');
 }
 
 /* =======================================================
    2. LOADING & ANIMATION SYSTEM
 ======================================================= */
 
-/* 1) 글자별 애니메이션 초기화 */
+/**
+ * 글자별 순차 애니메이션 초기화
+ * 각 글자를 span으로 감싸서 딜레이를 적용
+ */
 function initLetterAnimation() {
   const handwritingText = document.querySelector('.handwriting-text');
   if (!handwritingText) return;
@@ -71,7 +93,7 @@ function initLetterAnimation() {
   const originalText = handwritingText.textContent || 'INTRODUCE-ME';
   handwritingText.innerHTML = '';
   
-  // 각 글자를 span으로 감싸서 순차 애니메이션
+  // 각 글자에 순차적 애니메이션 적용
   for (let i = 0; i < originalText.length; i++) {
     const char = originalText[i];
     const span = document.createElement('span');
@@ -82,20 +104,24 @@ function initLetterAnimation() {
   }
 }
 
-/* 2) 인트로 애니메이션 완료 처리 */
+/**
+ * 인트로 애니메이션 종료 후 메인 페이지 전환
+ * @param {number} x - 미사용 파라미터 (호환성 유지)
+ * @param {number} y - 미사용 파라미터 (호환성 유지)
+ */
 function finishIntroAnimation(x, y) {
   const loadingScreen = document.querySelector('.loading-screen');
   const sections = document.querySelector('.sections');
   const nav = document.querySelector('nav');
   
-  // 1. 인트로 화면을 위로 올려서 사라지게 함
-  // 2. 메인 사이트를 아래에서 위로 올라오게 함
+  // 로딩 화면을 위로 슬라이드하여 숨김
   loadingScreen.style.animation = 'slideUpAndOut 1s ease-out forwards';
   
+  // 메인 콘텐츠와 네비게이션을 아래에서 위로 등장
   if (sections) sections.classList.add('slide-up-entrance');
   if (nav) nav.classList.add('slide-up-entrance');
   
-  // 3. 애니메이션 완료 후 정리
+  // 애니메이션 완료 후 정리
   setTimeout(() => {
     loadingScreen.style.visibility = 'hidden';
     loadingScreen.style.display = 'none';
@@ -279,4 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePage();
   }
 });
+
+
+
 
