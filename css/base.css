@@ -1,0 +1,82 @@
+/* =======================================================
+   BASE STYLES - Variables, Reset, Global Styles, Animations
+======================================================= */
+
+/* =======================================================
+   CSS VARIABLES
+======================================================= */
+:root { 
+  --nav-height: 60px;
+  --primary-color: #007FFF;
+  --secondary-color: #2A52BE;
+  --text-color: #222;
+  --bg-color: #f5fafe;
+}
+
+/* =======================================================
+   RESET & GLOBAL STYLES
+======================================================= */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html, body {
+  margin: 0; 
+  padding: 0; 
+  width: 100%;
+  font-family: Arial, sans-serif;
+  color: var(--text-color); 
+  background: white;
+  overflow-x: hidden;
+}
+
+/* Certificate 페이지 스크롤 방지 */
+.cert-page ~ body,
+body.page-body.cert-page {
+  overflow: hidden;
+}
+
+/* =======================================================
+   INTRO ANIMATION (CSS only, 3초)
+======================================================= */
+.intro-screen {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: 10000;
+  width: 100vw; 
+  height: 100vh;
+  background: linear-gradient(135deg, #007FFF, #2A52BE);
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  animation: introFadeOut 1s ease-in-out 3s forwards;
+}
+
+.intro-logo {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  animation: introLogoAnimation 3s ease-in-out;
+}
+
+@keyframes introLogoAnimation {
+  0% { opacity: 0; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes introFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* =======================================================
+   HERO ANIMATION
+======================================================= */
+@keyframes heroFadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
