@@ -32,6 +32,44 @@
         </nav>
     </div>
 
+    <!-- =======================================================
+         PAGE CONTENT
+    ======================================================= -->
+    <div class="page-container project-page-container">
+        <!-- 제목 섹션 -->
+        <div class="project-header">
+            <h1>PROJECTS</h1>
+            <p>보안 전문성과 기술력이 집약된 프로젝트들을 소개합니다.<br>각 프로젝트는 실무 경험과 혁신적인 솔루션을 담고 있습니다.</p>
+        </div>
+
+        <!-- 프로젝트 카드 그리드 -->
+        <div class="projects-grid" id="projectsGrid">
+            <!-- 카드는 JavaScript로 동적 생성 -->
+        </div>
+    </div>
+
+    <!-- 프로젝트 상세 모달 -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <img id="modalImage" src="" alt="Project">
+                </div>
+                <div class="modal-info-section">
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div class="modal-divider"></div>
+                    <div id="modalDetails">
+                        <!-- 상세 정보는 JavaScript로 동적 생성 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/project.js"></script>
 
 </body>
 </html>

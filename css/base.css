@@ -65,7 +65,7 @@ body.page-body.cert-page {
   font-size: 4rem;
   font-weight: 400;
   letter-spacing: 8px;
-  color: #2c3e50;
+  color: #3d3226;
   margin: 20px 0;
   opacity: 0;
   transform: translateY(30px);
@@ -75,7 +75,7 @@ body.page-body.cert-page {
 .intro-line {
   width: 0;
   height: 2px;
-  background: #2c3e50;
+  background: #3d3226;
   margin: 0 auto;
   animation: introLineExpand 0.8s ease-out forwards;
 }
@@ -93,7 +93,7 @@ body.page-body.cert-page {
   font-size: 1rem;
   font-style: italic;
   letter-spacing: 3px;
-  color: #7f8c8d;
+  color: #3d3226;
   margin-top: 20px;
   opacity: 0;
   animation: introSubtitleFadeIn 0.6s ease-out 1.5s forwards;

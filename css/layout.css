@@ -188,6 +188,7 @@ body:not(.page-body):not(.cert-page):not(.project-page) .nav-item {
   max-width: 1200px; 
   margin: 0 auto; 
   padding: 100px 20px 50px 20px;
+  background: transparent;
 }
 
 .page-title {

@@ -63,7 +63,7 @@
 .menu-title {
   font-size: 4rem;
   font-weight: 700;
-  color: #222;
+  color: #3d3226;
   margin: 0;
   line-height: 1.2;
 }
@@ -71,7 +71,7 @@
 /* 메뉴 설명 */
 .menu-description {
   font-size: 1.3rem;
-  color: #555;
+  color: #3d3226;
   line-height: 1.8;
   margin: 0;
   max-width: 500px;
@@ -82,12 +82,12 @@
   display: inline-block;
   padding: 18px 45px;
   background: white;
-  color: #222;
+  color: #3d3226;
   text-decoration: none;
   border-radius: 30px;
   font-size: 1.1rem;
   font-weight: 600;
-  border: 2px solid #222;
+  border: 2px solid #3d3226;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
   position: relative;
@@ -290,7 +290,6 @@
   position: relative; 
   padding-left: 30px; 
   margin-bottom: 30px;
-  border-left: 3px solid var(--primary-color);
 }
 
 .timeline-item::before {
@@ -570,6 +569,23 @@
 /* =======================================================
    RESUME PAGE
 ======================================================= */
+
+/* 스크롤바 숨김 - 이력서 및 모든 서브 페이지 */
+html:has(body.page-body),
+html:has(body.page-body) body,
+body.page-body {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+html:has(body.page-body)::-webkit-scrollbar,
+html:has(body.page-body) body::-webkit-scrollbar,
+body.page-body::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
 .resume-section-wrapper {
   max-width: 1000px;
   margin: 0 auto;
