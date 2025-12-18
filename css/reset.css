@@ -1,0 +1,19 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html, body {
+  margin: 0; 
+  padding: 0; 
+  width: 100%;
+  font-family: Arial, sans-serif;
+  color: var(--text-color); 
+  background: #f8f9fa;
+}
+
+.cert-page ~ body,
+body.page-body.cert-page {
+  overflow: hidden;
+}

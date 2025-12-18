@@ -953,6 +953,44 @@ body.page-body::-webkit-scrollbar {
   margin-top: 30px !important;
 }
 
+/* Scroll to Top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 56px;
+  height: 56px;
+  background: #3d3226;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-top-btn:hover {
+  background: #2a231a;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn svg {
+  color: #fff;
+  width: 24px;
+  height: 24px;
+}
+
 /* =======================================================
    RESPONSIVE COMPONENTS
 ======================================================= */

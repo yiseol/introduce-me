@@ -12,13 +12,20 @@ var myFullpage = new fullpage('#fullpage', {
     // 섹션 이동 후 콜백
     afterLoad: function(origin, destination, direction) {
         const nav = document.querySelector('.nav-container');
+        const scrollTopBtn = document.querySelector('.scroll-top-btn');
         
-        if (destination.index === 0 || destination.index === 5) {
-            // 홈 섹션(0) 또는 푸터 섹션(5): 투명 표시
+        if (destination.index === 0) {
+            // 홈 섹션(0): 네비게이션 표시, 버튼 숨김
             nav.classList.remove('nav-hidden');
-        } else {
-            // 메뉴 섹션 (1-4): 네비게이션 숨기기
+            if (scrollTopBtn) scrollTopBtn.classList.remove('visible');
+        } else if (destination.index === 5) {
+            // 푸터 섹션(5): 네비게이션 숨김, 버튼 표시
             nav.classList.add('nav-hidden');
+            if (scrollTopBtn) scrollTopBtn.classList.add('visible');
+        } else {
+            // 메뉴 섹션 (1-4): 네비게이션 숨김, 버튼 숨김
+            nav.classList.add('nav-hidden');
+            if (scrollTopBtn) scrollTopBtn.classList.remove('visible');
         }
     }
 });

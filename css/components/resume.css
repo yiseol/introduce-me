@@ -1,0 +1,160 @@
+.resume-section-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 20px 40px 20px;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.resume-page-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: #3d3226;
+  margin-bottom: 20px;
+}
+
+.resume-subtitle {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.resume-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.resume-tab {
+  font-family: Georgia, 'Times New Roman', serif;
+  padding: 12px 30px;
+  background: white;
+  border: 2px solid #e0d9d0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resume-tab:hover {
+  border-color: #3d3226;
+  color: #3d3226;
+}
+
+.resume-tab.active {
+  background: #3d3226;
+  border-color: #3d3226;
+  color: white;
+}
+
+.resume-viewer {
+  width: 100%;
+  margin-bottom: 40px;
+  border: 2px solid #e0d9d0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background: white;
+}
+
+.resume-viewer img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.download-section {
+  text-align: center;
+  margin: 40px auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 40px;
+  background: white;
+  border: 2px solid #e0d9d0;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #3d3226;
+}
+
+.btn-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.btn-text strong {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #3d3226;
+  letter-spacing: 1px;
+}
+
+.btn-text small {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+}
+
+.download-note {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .resume-page-title {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+  }
+
+  .resume-viewer {
+    height: 600px;
+  }
+
+  .download-btn {
+    min-width: 280px;
+    padding: 25px 30px;
+  }
+}
