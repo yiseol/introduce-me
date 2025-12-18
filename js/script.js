@@ -20,58 +20,6 @@
 ======================================================= */
 
 /**
- * 네비게이션 바를 동적으로 생성
- * 현재 페이지(인덱스 vs 서브페이지)에 따라 다른 스타일 적용
- */
-function createNavigation() {
-  // 현재 페이지 위치 확인
-  const currentPath = window.location.pathname;
-  const isIndexPage = currentPath.includes('index.html') || currentPath.endsWith('/') || 
-                     (currentPath.includes('introduce-me') && !currentPath.includes('pages'));
-  
-  // 네비게이션 HTML 생성
-  const navHTML = `
-    <nav class="${isIndexPage ? '' : 'page-nav'}">
-      <div class="nav-left">
-        ${isIndexPage 
-          ? '<span onclick="scrollToSection(0)">INTRODUCE-ME</span>' 
-          : '<a href="../index.html">INTRODUCE-ME</a>'
-        }
-      </div>
-      <div class="nav-right">
-        ${isIndexPage 
-          ? `<!-- 홈섹션만 남김 -->`
-          : `<a href="Introduce_myself.html">introduce</a>
-             <a href="Activity.html">Activity</a>
-             <a href="Certificate.html">Certificates</a>
-             <a href="Project.html">Projects</a>
-             <a href="Resume.html">Resume</a>`
-        }
-      </div>
-    </nav>
-  `;
-  
-  // 기존 nav 요소 교체 또는 생성
-  const existingNav = document.querySelector('nav');
-  if (existingNav) {
-    existingNav.outerHTML = navHTML;
-  } else {
-    document.body.insertAdjacentHTML('afterbegin', navHTML);
-  }
-}
-
-/**
- * 특정 섹션으로 부드럽게 스크롤
- * @param {number} idx - 스크롤할 섹션의 인덱스
- */
-function scrollToSection(idx) { 
-  const sections = document.querySelectorAll('.section');
-  if (sections[idx]) {
-    sections[idx].scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-/**
  * 서브 페이지 초기화
  */
 function initializePage() {
