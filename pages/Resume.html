@@ -35,110 +35,75 @@
          PAGE CONTENT
     ======================================================= -->
     <div class="page-container">
-        <h1 class="resume-title">이력서</h1>
-
         <!-- =======================================================
-             PERSONAL INFO SECTION
+             RESUME SECTION
         ======================================================= -->
-        <section class="resume-section">
-            <h2>인적사항</h2>
-            <ul class="resume-list">
-                <li><strong>이름:</strong> 강지웅</li>
-                <li><strong>생년월일:</strong> 2001.08.08</li>
-                <li><strong>연락처:</strong> 010-9936-0808</li>
-                <li><strong>이메일:</strong> wldnd8896@naver.com</li>
-                <li><strong>Github:</strong> github.com/jiwoongg</li>
-                <li><strong>블로그:</strong> blog.naver.com/jiwoongg</li>
-            </ul>
-        </section>
+        <section class="resume-section-wrapper">
+            <!-- 상단: 타이틀 & 탭 -->
+            <div class="resume-header">
+                <h1 class="resume-page-title">RESUME</h1>
+                <p class="resume-subtitle">이력서를 미리보기하고 다운로드 받으실 수 있습니다.<br>한글과 영어 버전을 선택하여 확인해보세요.</p>
+                <div class="resume-tabs">
+                    <button class="resume-tab active" data-lang="ko">한글 이력서</button>
+                    <button class="resume-tab" data-lang="en">영어 이력서</button>
+                </div>
+            </div>
 
-        <!-- =======================================================
-             EDUCATION SECTION
-        ======================================================= -->
-        <section class="resume-section">
-            <h2>학력</h2>
-            <ul class="resume-list">
-                <li><strong>금오공과대학교</strong> - 컴퓨터소프트웨어공학과 (2020.03 ~ 재학중)</li>
-                <li><strong>학점:</strong> 4.2 / 4.5</li>
-                <li><strong>주요 수강과목:</strong> 자료구조, 알고리즘, 데이터베이스, 운영체제, 네트워크, 소프트웨어공학</li>
-            </ul>
-        </section>
+            <!-- 중앙: 이력서 이미지 -->
+            <div class="resume-viewer">
+                <img id="resume-image" src="../images/resume_images/KOREA Resume.png" alt="한글 이력서">
+            </div>
 
-        <!-- =======================================================
-             TECH STACK SECTION
-        ======================================================= -->
-        <section class="resume-section">
-            <h2>기술 스택</h2>
-            <div class="tech-stack">
-                <div class="tech-category">
-                    <h3>Frontend</h3>
-                    <ul class="resume-list">
-                        <li>HTML5, CSS3, JavaScript</li>
-                        <li>React, Vue.js</li>
-                        <li>TypeScript</li>
-                        <li>Sass, Styled-components</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
-                    <h3>Backend</h3>
-                    <ul class="resume-list">
-                        <li>Node.js, Express</li>
-                        <li>Python, FastAPI</li>
-                        <li>Java, Spring Boot</li>
-                        <li>RESTful API</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
-                    <h3>Database</h3>
-                    <ul class="resume-list">
-                        <li>MySQL, PostgreSQL</li>
-                        <li>MongoDB</li>
-                        <li>Redis</li>
-                        <li>SQL 쿼리 최적화</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
-                    <h3>DevOps & Tools</h3>
-                    <ul class="resume-list">
-                        <li>Git, GitHub</li>
-                        <li>Docker, Kubernetes</li>
-                        <li>AWS (EC2, S3, RDS)</li>
-                        <li>CI/CD (Jenkins, GitHub Actions)</li>
-                    </ul>
+            <!-- 하단: 다운로드 버튼 -->
+            <div class="download-section">
+                <div class="download-buttons">
+                    <a href="../images/resume_images/KOREA Resume.pdf" download class="download-btn" id="download-btn-ko">
+                        <span class="btn-text">
+                            <strong>한글 이력서 다운로드</strong>
+                            <small>Download Korean Resume</small>
+                        </span>
+                    </a>
+                    <a href="../images/resume_images/ENGLISH Resume.pdf" download class="download-btn" id="download-btn-en" style="display: none;">
+                        <span class="btn-text">
+                            <strong>영어 이력서 다운로드</strong>
+                            <small>Download English Resume</small>
+                        </span>
+                    </a>
                 </div>
             </div>
         </section>
-
-        <!-- =======================================================
-             GOAL SECTION
-        ======================================================= -->
-        <section class="resume-section">
-            <h2>목표 및 포부</h2>
-            <div class="goal-content">
-                <p>
-                    새로운 기술을 배우고 적용하는 것을 즐기는 개발자입니다. 
-                    단순히 동작하는 코드를 넘어, 효율적이고 유지보수가 용이한 코드를 작성하기 위해 노력합니다.
-                </p>
-                <p>
-                    팀 프로젝트를 통해 협업의 중요성을 배웠으며, 
-                    커뮤니케이션 능력을 바탕으로 팀원들과 원활하게 소통할 수 있습니다.
-                </p>
-                <p>
-                    앞으로 풀스택 개발자로 성장하여, 
-                    사용자에게 가치 있는 서비스를 제공하는 개발자가 되고 싶습니다.
-                </p>
-            </div>
-        </section>
-
-        <!-- =======================================================
-             PDF DOWNLOAD SECTION
-        ======================================================= -->
-        <section class="download-section">
-            <a href="../files/resume.pdf" download class="download-btn">📄 이력서 PDF 다운로드</a>
-            <p class="download-note">* PDF 파일로 이력서를 다운로드 받으실 수 있습니다</p>
-        </section>
-
     </div>
+
+    <script>
+        // 탭 전환 기능
+        const tabs = document.querySelectorAll('.resume-tab');
+        const resumeImage = document.getElementById('resume-image');
+        const downloadBtnKo = document.getElementById('download-btn-ko');
+        const downloadBtnEn = document.getElementById('download-btn-en');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 탭 활성화
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const lang = tab.dataset.lang;
+                
+                // 이미지 변경
+                if (lang === 'ko') {
+                    resumeImage.src = '../images/resume_images/KOREA Resume.png';
+                    resumeImage.alt = '한글 이력서';
+                    downloadBtnKo.style.display = 'flex';
+                    downloadBtnEn.style.display = 'none';
+                } else {
+                    resumeImage.src = '../images/resume_images/ENGLISH Resume.png';
+                    resumeImage.alt = '영어 이력서';
+                    downloadBtnKo.style.display = 'none';
+                    downloadBtnEn.style.display = 'flex';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

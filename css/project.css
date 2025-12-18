@@ -98,7 +98,12 @@
   gap: 12px;
   z-index: 10;
 }
-
+/* 프로젝트 페이지 내비 텍스트 색상 */
+body.project-page .nav-container .nav,
+body.project-page .nav-left,
+body.project-page .nav-item {
+  color: #2c2c2c !important;
+}
 .thumbnail-item {
   width: 120px;
   height: 80px;
@@ -181,6 +186,13 @@
 
 .project-description::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
+}
+
+/* 프로젝트 페이지 내비 텍스트 색상 */
+body.project-page .nav-container .nav,
+body.project-page .nav-left,
+body.project-page .nav-item {
+  color: #3d3226 !important;
 }
 
 /* 반응형 디자인 */

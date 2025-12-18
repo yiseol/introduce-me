@@ -23,12 +23,25 @@
 
 /* 푸터 섹션에서 네비게이션 텍스트 검정색 */
 .footer-section .nav {
-  color: #333;
+  color: #3d3226;
 }
 
 .footer-section .nav-left,
 .footer-section .nav-item {
-  color: #333;
+  color: #3d3226;
+}
+
+/* 서브 페이지(이력서, 활동) 내비게이션 텍스트 색상 */
+body.page-body .nav {
+  color: #3d3226 !important;
+}
+
+body.page-body .nav-left {
+  color: #3d3226 !important;
+}
+
+body.page-body .nav-item {
+  color: #3d3226 !important;
 }
 
 .nav {
@@ -38,6 +51,11 @@
   justify-content: space-between; 
   align-items: center;
   padding: 0 25px; 
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* 홈 페이지 네비 색상 */
+body:not(.page-body):not(.cert-page):not(.project-page) .nav {
   color: white;
 }
 
@@ -46,6 +64,12 @@
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 2px;
+}
+
+/* 홈 페이지 네비 왼쪽 색상 */
+body:not(.page-body):not(.cert-page):not(.project-page) .nav-left {
   color: white;
 }
 
@@ -60,7 +84,11 @@
   cursor: pointer;
   border-radius: 20px; 
   transition: all 0.3s ease;
-  text-decoration: none; 
+  text-decoration: none;
+}
+
+/* 홈 페이지 네비 아이템 색상 */
+body:not(.page-body):not(.cert-page):not(.project-page) .nav-item {
   color: white;
 }
 
@@ -152,7 +180,7 @@
    SUB PAGE LAYOUT
 ======================================================= */
 .page-body {
-  background: #f8f9fa; 
+  background: #f5f3ef; 
   min-height: 100vh;
 }
 
