@@ -269,24 +269,26 @@
   .menu-section,
   .menu-section-reverse {
     flex-direction: column !important;
-    height: auto;
-    min-height: 100vh;
+    height: auto !important;
+    min-height: auto !important;
   }
   
   .menu-image-left,
   .menu-image-right {
     min-width: 100%;
     max-width: 100%;
-    height: 40vh;
-    min-height: 250px;
+    height: 35vh;
+    min-height: 200px;
+    max-height: 300px;
   }
   
   .menu-content-right,
   .menu-content-left {
-    padding: 40px 25px;
+    padding: 30px 25px;
     text-align: center !important;
     align-items: center !important;
-    min-height: 60vh;
+    min-height: auto;
+    flex: 1;
   }
   
   .menu-section-reverse .menu-content-right {
@@ -309,51 +311,86 @@
     font-size: 0.95rem;
   }
   
-  /* Footer - 세로 레이아웃으로 변경 */
+  /* Footer - 모바일 레이아웃 */
   .footer-section {
     height: auto !important;
-    min-height: 50vh;
+    min-height: 60vh;
     padding: 40px 20px;
   }
   
   .footer-content {
-    gap: 40px;
+    gap: 30px;
+    position: relative;
   }
   
+  /* 모바일에서는 EDUCATION, LOCATION 컬럼 숨김 */
+  .footer-column-education,
+  .footer-column-location {
+    display: none;
+  }
+  
+  /* 컨럼 2개를 로고 위에 좌우 배치 */
   .footer-info {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    text-align: center;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px auto;
   }
   
   .footer-column {
-    min-width: 100%;
+    flex: 0 0 auto;
+    text-align: center;
+    min-width: auto;
   }
   
-  .footer-column h3 {
-    margin-bottom: 15px;
+  .footer-column h4 {
+    font-size: 0.65rem;
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
   }
   
+  .footer-column p {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  /* 로고 중앙 배치 */
   .footer-logo {
-    order: 1;
-  }
-  
-  .footer-tagline {
-    order: 2;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: center;
+    margin-bottom: 30px;
   }
   
   .footer-logo h1 {
     font-size: 3rem;
   }
   
+  /* 하단 텍스트 */
+  .footer-tagline {
+    position: static;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
   .footer-tagline p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
+    margin: 5px 0;
   }
   
   .footer-copyright {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    margin-top: 15px;
   }
   
   .scroll-top-btn {

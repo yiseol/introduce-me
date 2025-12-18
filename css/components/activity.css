@@ -169,10 +169,12 @@
   font-weight: 600;
 }
 
-body.activity-page .nav-container .nav,
-body.activity-page .nav-left,
-body.activity-page .nav-item {
-  color: #3d3226 !important;
+@media (min-width: 769px) {
+  body.activity-page .nav-container .nav,
+  body.activity-page .nav-left,
+  body.activity-page .nav-item {
+    color: #3d3226 !important;
+  }
 }
 
 @media (max-width: 968px) {

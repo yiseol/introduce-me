@@ -323,6 +323,10 @@ body.page-body .hamburger-menu span {
     transform: translateX(5px);
   }
   
+  body.page-body .nav-item {
+    color: white !important;
+  }
+  
   /* 페이지 body에 오버레이 */
   body.nav-open::before {
     content: '';

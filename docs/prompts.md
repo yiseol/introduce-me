@@ -1024,3 +1024,101 @@
 - docs/prompts.md
 
 ---
+## 2025-12-19
+
+### 모바일 반응형 디자인 최종 수정
+**요청:** 모바일 반응형 디자인 4가지 문제 해결  
+1. 푸터 태그라인이 중앙 로고와 겹침 → 아래로 이동
+2. 홈페이지 섹션 스크롤 시 두 번 스크롤해야 함 → 섹션 높이 최적화
+3. 활동 페이지에서 기존 네비 메뉴가 보임 → 햄버거 메뉴만 표시
+4. 햄버거 메뉴 글씨 색상이 배경과 같음 → 하얀색으로 변경
+
+**결과:**
+- css/components/home.css:
+  - 모바일 .footer-tagline을 position: static으로 변경하여 로고와 분리
+  - 메뉴 섹션 높이 축소 (min-height: 100vh 제거, 이미지 35vh)
+  - 콘텐츠 패딩 축소 (40px → 30px)
+- pages/Activity.html:
+  - .nav-right div 추가하여 모든 메뉴 항목을 햄버거 메뉴 안으로 이동
+  - 모바일에서 기존 네비 메뉴 숨김 처리
+- css/layout.css:
+  - body.page-body .nav-item { color: white !important; } 추가
+
+**변경된 파일:**
+- css/components/home.css
+- pages/Activity.html
+- css/layout.css
+
+---
+
+### 햄버거 메뉴 글씨 색상 수정
+**요청:** 활동, 자격증, 프로젝트 페이지에서 햄버거 메뉴 텍스트가 배경색과 같아서 안 보임  
+**문제 원인:** 각 페이지 CSS에서 .nav-item { color: #3d3226 !important; }가 모든 화면 크기에 적용되어 모바일 하얀색을 덮어씀
+
+**결과:**
+- css/components/activity.css:
+  - nav-item 색상 규칙을 @media (min-width: 769px)로 감싸서 데스크톱에만 적용
+- css/components/certificate.css:
+  - nav-item 색상 규칙을 @media (min-width: 769px)로 감싸서 데스크톱에만 적용
+- css/components/project.css:
+  - nav-item 색상 규칙을 @media (min-width: 769px)로 감싸서 데스크톱에만 적용
+- 모바일(768px 이하)에서는 layout.css의 하얀색 규칙이 정상 적용됨
+
+**변경된 파일:**
+- css/components/activity.css
+- css/components/certificate.css
+- css/components/project.css
+
+---
+
+### README.md 반응형 디자인 섹션 추가
+**요청:** 반응형 디자인 작업 내용을 README 보고서에 추가  
+**결과:**
+- 주요 특징 섹션:
+  - ""완벽한 반응형 디자인"" 강조
+  - 브레이크포인트 명시 (480px, 768px, 1024px+)
+  - 모바일 햄버거 메뉴 기능 추가
+- ""반응형 디자인 상세"" 섹션 신규 추가:
+  - 네비게이션 반응형 동작 상세 설명
+  - 각 페이지별 레이아웃 변화 기술
+  - 미디어 쿼리 브레이크포인트 코드 예시
+  - 테스트 완료 기기 목록 (iPhone, Galaxy, iPad, 데스크톱)
+- 프로젝트 구조:
+  - mobile-nav.js 파일 추가
+  - utils/helpers.js 존재하지 않는 파일 제거
+- 개발 히스토리:
+  - 모바일 반응형 디자인 마일스톤 상세 추가
+
+**변경된 파일:**
+- README.md
+
+---
+
+### 불필요한 코드 정리 (script.js 삭제)
+**요청:** 모든 파일 검토하여 불필요한 코드 정리  
+**발견된 문제:**
+- js/script.js (260줄):
+  - initLetterAnimation(): .handwriting-text 요소가 HTML에 없음
+  - finishIntroAnimation(): .sections 클래스가 HTML에 없음
+  - initProjectPage(): .project-section과 #projectNavBar가 없음 (project.js로 대체됨)
+  - createAutoParticleSystem(): .background-effects 요소가 없음
+  - createNavigation(): 함수 정의 없이 호출만 됨
+  - console.log: 디버깅 코드
+- README.md: js/utils/helpers.js 파일이 실제로 존재하지 않음
+
+**결과:**
+- js/script.js 파일 전체 삭제 (260줄)
+- index.html: script.js 로드 제거
+- README.md: script.js 및 utils/helpers.js 참조 제거
+- 실제 동작하는 스크립트만 유지:
+  - home-init.js: fullPage.js 초기화
+  - project.js: 프로젝트 모달
+  - mobile-nav.js: 햄버거 메뉴
+- 사이트 기능과 디자인에 영향 없음
+
+**변경된 파일:**
+- js/script.js (삭제)
+- index.html
+- README.md
+
+---

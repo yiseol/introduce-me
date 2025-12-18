@@ -104,11 +104,13 @@
   padding: 0;
 }
 
-body.cert-page .nav-container .nav,
-body.cert-page .nav-container .nav,
-body.cert-page .nav-left,
-body.cert-page .nav-item {
-  color: #3d3226 !important;
+@media (min-width: 769px) {
+  body.cert-page .nav-container .nav,
+  body.cert-page .nav-container .nav,
+  body.cert-page .nav-left,
+  body.cert-page .nav-item {
+    color: #3d3226 !important;
+  }
 }
 
 @media (max-width: 1200px) {

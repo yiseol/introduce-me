@@ -328,10 +328,12 @@
   }
 }
 
-body.project-page .nav-container .nav,
-body.project-page .nav-left,
-body.project-page .nav-item {
-  color: #3d3226 !important;
+@media (min-width: 769px) {
+  body.project-page .nav-container .nav,
+  body.project-page .nav-left,
+  body.project-page .nav-item {
+    color: #3d3226 !important;
+  }
 }
 
 @media (max-width: 1024px) {
