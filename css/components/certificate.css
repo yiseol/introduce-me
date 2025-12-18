@@ -95,15 +95,16 @@
 .cert-title {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.9rem;
-  font-weight: 400;
-  letter-spacing: 3px;
+  font-weight: 600;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #333;
-  text-align: left;
-  margin: 0;
+  color: #3d3226;
+  text-align: center;
+  margin: 10px 0 0 0;
+  padding: 0;
 }
 
-.cert-page-container ~ .nav-container .nav,
+body.cert-page .nav-container .nav,
 body.cert-page .nav-container .nav,
 body.cert-page .nav-left,
 body.cert-page .nav-item {
