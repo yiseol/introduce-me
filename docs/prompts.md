@@ -622,3 +622,405 @@
 - css/certificate.css (스타일 추가)
 
 ---
+
+### Certificate 페이지 4x3 그리드 레이아웃
+**요청:** 12개 자격증 카드를 4x3 그리드로 배치  
+**결과:**
+- 그리드 레이아웃: 4열 x 3행
+- 카드 크기: 175x250px (세로형)
+- 카드 스타일: 흰색 배경, 그림자, 둥근 모서리
+- 호버 효과: transform scale + 그림자 강화
+- 반응형: 태블릿 3x4, 모바일 2x6 그리드로 전환
+
+**자격증 목록:**
+1. 정보처리기사 (2024.05.17)
+2. 정보보안기사 (2024.08.20)
+3. AWS Solutions Architect Associate (2023.11.25)
+4. CISSP (2023.09.15)
+5. CCNA (2023.07.10)
+6. Linux Professional Institute LPIC-2 (2023.05.05)
+7. SQL Developer (2023.03.18)
+8. TOEIC 900점 (2022.12.20)
+9. JLPT N2 (2022.10.15)
+10. 정보보안산업기사 (2022.08.08)
+11. 네트워크관리사 2급 (2022.06.12)
+12. 컴퓨터활용능력 1급 (2022.04.25)
+
+**변경된 파일:**
+- pages/Certificate.html (12개 카드 추가)
+- css/certificate.css (그리드 레이아웃)
+
+---
+
+### Certificate 카드 플립 효과 구현
+**요청:** 자격증 카드에 앞뒤 플립 효과 추가  
+**결과:**
+- 카드 3D 플립 구조: .certificate-card-inner (transform-style: preserve-3d)
+- 앞면(.card-front): 자격증명, 발급기관, 취득일
+- 뒷면(.card-back): 자격증 설명, 주요 내용
+- 호버 시 Y축 180도 회전으로 뒷면 표시
+- 뒷면 초기 상태: rotateY(180deg)로 뒤집힌 채로 대기
+- 전환: transform 0.6s ease
+- 그라데이션 배경: 앞면(흰색), 뒷면(파란색 계열)
+
+**변경된 파일:**
+- pages/Certificate.html (카드 구조 변경)
+- css/certificate.css (3D flip 애니메이션)
+
+---
+
+### Certificate 카드 백그라운드 색 변경 및 반응형 조정
+**요청:** 뒷면 카드의 파란색 배경을 따뜻한 갈색 계열로 변경, 반응형 그리드 재조정  
+**결과:**
+- 뒷면 배경: 파란색 → #3d3226 (따뜻한 갈색, 기존 사이트 색상 통일)
+- 반응형 그리드:
+  - 데스크톱: 4x3 (12개)
+  - 태블릿(1024px↓): 3x4
+  - 작은 태블릿(768px↓): 2x6
+  - 모바일(480px↓): 1x12 (한 열로 세로 배치)
+
+**변경된 파일:**
+- css/certificate.css (배경색, 반응형 그리드)
+
+---
+
+### Project 페이지 프로젝트 설명 한글 번역
+**요청:** 프로젝트 설명 박스의 영문 내용을 한글로 번역  
+**결과:**
+- 5개 프로젝트 모두 한글로 번역
+- Features: 주요 기능
+- Technologies: 사용 기술
+- Achievements: 주요 성과
+- 각 항목별 bullet point 유지
+
+**변경된 파일:**
+- pages/Project.html (data-features, data-tech, data-achievements 한글 번역)
+
+---
+
+### Resume 페이지 초기화 및 기본 구조 생성
+**요청:** Resume 페이지 비우고 새로운 디자인 시작  
+**결과:**
+- pages/Resume.html: 네비게이션 제외 모든 내용 삭제
+- css/resume.css: 헤더 주석만 남기고 초기화
+- 페이지 타이틀 "RESUME" 추가
+
+**변경된 파일:**
+- pages/Resume.html
+- css/resume.css
+
+---
+
+### Resume 페이지 PDF 뷰어 구현
+**요청:** 이력서 PDF 파일을 웹페이지에 표시  
+**결과:**
+- PDF 뷰어 컨테이너 중앙 배치 (80% 너비, 85vh)
+- `<embed>` 태그로 PDF 삽입
+  - 파일: images/resume_images/resume.pdf
+  - type: application/pdf
+  - 기본 PDF 컨트롤러 포함
+- 대체 텍스트 및 다운로드 링크 제공
+- 반응형: 모바일에서 너비 95%
+
+**변경된 파일:**
+- pages/Resume.html (PDF 뷰어 구조)
+- css/resume.css (PDF 컨테이너 스타일)
+
+---
+
+### 메인 페이지 콘텐츠 수정
+**요청:** index.html 히어로 섹션 및 메뉴 설명 텍스트 한글로 변경  
+**결과:**
+- 홈 섹션 히어로 콘텐츠:
+  - 이름: "YISEOL"
+  - 타이틀: "Security Engineer & Consultant"
+  - 부제: "Safety First, Innovation Always"
+- 메뉴 섹션 설명:
+  - Activity: "다양한 활동과 경험을 통해..." (한글)
+  - Certificate: "보안 전문가로서의 역량을..." (한글)
+  - Project: "실무 중심의 보안 프로젝트..." (한글)
+  - Resume: "이력서를 통해 저의..." (한글)
+- 메뉴 버튼: "Learn more" 유지
+
+**변경된 파일:**
+- index.html
+
+---
+
+### 서브 페이지 스크롤바 제거
+**요청:** Activity, Certificate, Project, Resume 페이지에서 스크롤바 숨기기  
+**결과:**
+- css/reset.css: .page-body 스크롤바 숨김 스타일 추가
+  - ::-webkit-scrollbar { display: none; }
+  - scrollbar-width: none;
+- Activity, Certificate, Project, Resume HTML에 .page-body 클래스 확인
+- 스크롤 기능은 유지하되 스크롤바만 시각적으로 숨김
+
+**변경된 파일:**
+- css/reset.css
+
+---
+
+### 홈페이지 스크롤바 문제 및 fullPage.js 분리
+**요청:** 홈페이지에 스크롤바가 나타나는 문제 해결  
+**결과:**
+- css/reset.css: html, body에 대한 스크롤바 숨김 코드 추가
+  - 전체 페이지 적용: html::-webkit-scrollbar, body::-webkit-scrollbar
+- index.html의 fullPage.js 초기화 코드를 js/home-init.js로 분리
+  - 외부 파일 참조로 변경
+  - afterLoad 콜백으로 네비게이션 표시/숨김 제어
+- Rule 9 "코드 분리 원칙" 준수
+
+**변경된 파일:**
+- css/reset.css (전역 스크롤바 숨김)
+- js/home-init.js (신규 생성)
+- index.html (인라인 스크립트 제거)
+
+---
+
+### 홈페이지 스크롤바 완전 제거 및 reset.css 재구성
+**요청:** 스크롤바가 계속 나타나는 문제 완전 해결  
+**결과:**
+- css/reset.css 재구성:
+  - html, body 스크롤바 숨김 강화 (!important 추가)
+  - .page-body 스크롤바 숨김 강화
+  - .fp-overflow 클래스 스크롤바 숨김 추가
+- 모든 fullPage.js 관련 요소에 스크롤바 숨김 적용
+- -webkit-scrollbar와 scrollbar-width 모두 적용
+
+**변경된 파일:**
+- css/reset.css
+
+---
+
+### Certificate 페이지 스크롤바 숨김 적용 확인
+**요청:** Certificate 페이지에서 스크롤바가 보이는 문제 확인  
+**결과:**
+- pages/Certificate.html에 html.page-html 클래스 누락 확인
+- 클래스 추가: `<html lang="ko" class="page-html">`
+- 기존 reset.css 스크롤바 숨김 규칙으로 자동 적용됨
+
+**변경된 파일:**
+- pages/Certificate.html
+
+---
+
+### 홈페이지 Footer 섹션 및 스크롤 최상단 버튼 추가
+**요청:** fullPage.js 섹션에 Footer 추가 및 최상단 이동 버튼 구현  
+**결과:**
+- index.html: Footer 섹션 추가 (총 6개 섹션: Home, 4개 메뉴, Footer)
+- Footer 내용: Copyright © 2024, SNS 아이콘, 간단한 소개
+- 스크롤 최상단 버튼:
+  - 위치: 우측 하단 고정
+  - 아이콘: ↑ (U+2191)
+  - 클릭 시 fullpage_api.moveTo(1)로 Home 섹션 이동
+  - Footer 섹션에서만 표시 (afterLoad 콜백으로 제어)
+- js/home-init.js: 버튼 표시/숨김 로직 추가
+
+**변경된 파일:**
+- index.html (Footer 섹션)
+- css/components/home.css (Footer 및 버튼 스타일)
+- js/home-init.js (버튼 제어 로직)
+
+---
+
+### 네비게이션 표시 로직 수정
+**요청:** 네비게이션이 Home과 Footer 섹션에서만 표시되도록 변경  
+**결과:**
+- js/home-init.js afterLoad 콜백 수정:
+  - Home(index 0): 네비게이션 표시
+  - 메뉴 섹션(index 1-4): 네비게이션 숨김
+  - Footer(index 5): 네비게이션 표시
+- 조건문: destination.index === 0 || destination.index === 5
+
+**변경된 파일:**
+- js/home-init.js
+
+---
+
+### 스크롤 최상단 버튼 스타일 변경
+**요청:** 최상단 이동 버튼을 비즈니스 스타일로 변경  
+**결과:**
+- 디자인 변경:
+  - 흰색 배경 → 검정색 배경
+  - 검정색 텍스트 → 흰색 텍스트
+  - 검정색 테두리 유지
+  - 크기: 60px → 50px
+- 호버 효과:
+  - 배경: 약간 더 밝은 검정 (#2a2a2a)
+  - transform scale(1.1)
+
+**변경된 파일:**
+- css/components/home.css
+
+---
+
+## 2025-12-19
+
+### CSS 파일 재구성 (모듈화 완료)
+**요청:** 기말고사 제출을 위한 코드 정리 - CSS 파일을 기능별로 분리  
+**결과:**
+- css/styles.css: @import 진입점으로 변경 (5줄)
+- 신규 CSS 파일 생성:
+  - variables.css: CSS Custom Properties
+  - reset.css: 브라우저 리셋, 전역 스타일, 스크롤바 숨김, fp-watermark 숨김
+  - animations.css: keyframes 애니메이션 (introAnimation, heroAnimation)
+  - layout.css: 인트로, 네비게이션, 홈 섹션, 페이지 레이아웃, 반응형
+- css/components/ 폴더 생성:
+  - home.css: fullPage 섹션, 메뉴 섹션, Footer, 스크롤 최상단 버튼
+  - activity.css: Activity 페이지 (timeline 스타일)
+  - project.css: Project 페이지
+  - certificate.css: Certificate 페이지 (flip 카드)
+  - resume.css: Resume 페이지 (PDF 뷰어)
+- 모든 HTML 파일 CSS 링크 업데이트
+- 기존 base.css, layout.css, components.css 삭제
+
+**변경된 파일:**
+- css/styles.css (재구성)
+- css/variables.css (신규)
+- css/reset.css (신규)
+- css/animations.css (신규)
+- css/layout.css (재구성)
+- css/components/home.css (신규)
+- css/components/activity.css (신규)
+- css/components/project.css (이동)
+- css/components/certificate.css (이동)
+- css/components/resume.css (이동)
+- index.html, pages/Activity.html, Certificate.html, Project.html, Resume.html (CSS 링크 업데이트)
+
+---
+
+### 불필요한 문서 삭제 및 README 전면 재작성
+**요청:** 제출용 문서 정리 - 계획 문서 삭제, README를 실제 구현 내용 기반으로 작성  
+**결과:**
+- 문서 삭제 (3개):
+  - docs/TODO.md (미완성 Phase 리스트가 마이너스 효과)
+  - docs/OPERATIONAL_RULES.md (AI 작업 수칙, 제출물에 불필요)
+  - docs/SPEC.md (계획 문서, 미구현 기능 많아 제거)
+- README.md 전면 재작성:
+  - **⚠️ 허구의 콘텐츠 경고** 최상단 명시
+  - 프로젝트 소개: 한세대학교 융합보안학과 명시
+  - 실제 구현된 기능만 기재 (fullPage.js, 비디오 배경, 모듈화된 CSS 등)
+  - 폴더 구조 상세 설명
+  - 정적 웹사이트 실행 방법 (Live Server, 직접 실행, Python 서버)
+  - CSS 아키텍처 및 네이밍 규칙
+  - 개발 히스토리 링크 (docs/prompts.md)
+  - 개발자 정보: 최이설, chldltjf0919@naver.com, github.com/yiseol
+  - 라이선스: All Rights Reserved (학교 과제)
+  - 감사의 말: 한세대학교 웹 프로그래밍 수업 기말고사 과제
+
+**변경된 파일:**
+- README.md (전면 재작성)
+- docs/TODO.md (삭제)
+- docs/OPERATIONAL_RULES.md (삭제)
+- docs/SPEC.md (삭제)
+
+---
+
+### prompts.md 업데이트 (1차)
+**요청:** 최근 작업 내역 기록  
+**결과:**
+- 2025-12-19 섹션 추가
+- CSS 파일 재구성 작업 기록
+- 불필요한 문서 삭제 및 README 재작성 기록
+- prompts.md 자체 업데이트 기록
+
+**변경된 파일:**
+- docs/prompts.md
+
+---
+
+### README 필수 항목 추가
+**요청:** 제안서 양식에 맞춰 README에 브라우저 호환성, 사이트맵, 와이어프레임 섹션 추가  
+**결과:**
+- 브라우저 호환성 섹션 추가:
+  - Chrome, Firefox, Safari, Edge 최신 버전
+  - 모바일 브라우저 지원 (iOS Safari, Chrome Mobile)
+  - fullPage.js 및 CSS3 사용으로 최신 브라우저 권장
+- 사이트맵 (페이지 구조도) 추가:
+  - 트리 구조로 전체 페이지 관계 표시
+  - Home (6개 섹션) + 4개 서브페이지 구조
+  - 네비게이션 구조 및 fullPage.js 동작 설명
+- 와이어프레임 (레이아웃 스케치) 추가:
+  - 5개 페이지별 ASCII 아트 와이어프레임
+  - 홈페이지: fullPage.js 섹션 구조 (비디오 배경, 메뉴, Footer)
+  - Activity: 타임라인 레이아웃
+  - Certificate: 4x3 그리드 + 플립 효과
+  - Project: 배경 이미지 + 썸네일 갤러리 + 설명 박스
+  - Resume: PDF 뷰어
+  - 반응형 레이아웃 설명 포함
+
+**변경된 파일:**
+- README.md
+
+---
+
+### prompts.md 업데이트 (2차)
+**요청:** README 필수 항목 추가 작업 기록  
+**결과:**
+- 브라우저 호환성, 사이트맵, 와이어프레임 추가 작업 기록
+- 기말고사 제출용 제안서 양식 준수 완료
+
+**변경된 파일:**
+- docs/prompts.md
+
+---
+
+### 불필요한 코드 및 파일 정리
+**요청:** 모든 파일 검토하여 불필요한 코드나 파일 삭제  
+**결과:**
+- 파일 삭제 (2개):
+  - js/project_temp.js: 인코딩 깨진 임시 파일
+  - js/certificate.js: 사용하지 않는 스크립트 파일
+- Certificate.html 수정:
+  - certificate.js 스크립트 링크 제거
+  - CSS-only 애니메이션 사용 주석 추가
+- index.html Footer 수정:
+  - 이름: "Kang Ji Woong Ltd" → "YISEOL"
+  - Copyright: 2025 → 2024
+  - 설명: "creative developer" → "Security Engineer & Developer"
+- README.md 수정:
+  - 존재하지 않는 fonts/ 폴더 정보 제거
+  - 존재하지 않는 js/utils/ 폴더 정보 제거
+  - Pretendard 웹폰트 정보 제거
+  - certificate.js 설명을 "(현재 미사용)"으로 변경
+- script.js 정리:
+  - 사용하지 않는 createNavigation() 함수 제거 (~60줄)
+  - 사용하지 않는 scrollToSection() 함수 제거
+
+**변경된 파일:**
+- js/project_temp.js (삭제)
+- js/certificate.js (삭제)
+- pages/Certificate.html
+- index.html
+- README.md
+- js/script.js
+
+---
+
+### Resume 페이지 다운로드 기능 확인
+**요청:** 이력서 다운로드 버튼에 한글/영어 PDF 다운로드 기능 추가  
+**결과:**
+- 기능이 이미 완벽하게 구현되어 있음을 확인
+- 한글 탭: KOREA Resume.pdf 다운로드
+- 영어 탭: ENGLISH Resume.pdf 다운로드
+- 탭 전환 시 이미지와 다운로드 버튼 자동 변경
+- 추가 작업 불필요
+
+**확인된 파일:**
+- pages/Resume.html
+- images/resume_images/KOREA Resume.pdf
+- images/resume_images/ENGLISH Resume.pdf
+
+---
+
+### prompts.md 최종 업데이트
+**요청:** 불필요한 파일 정리 및 Resume 확인 작업 기록  
+**결과:**
+- 코드 정리 작업 완료 기록
+- 기말고사 제출 전 최종 점검 완료
+
+**변경된 파일:**
+- docs/prompts.md
+
+---
