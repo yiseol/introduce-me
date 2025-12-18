@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 bgImage.src = newBg;
                 
                 // 텍스트 정보 변경
-                projectTitle.textContent = newTitle;
+                projectTitle.innerHTML = newTitle;
                 yearValue.textContent = newYear;
                 roleValue.textContent = newRole;
                 projectDesc.innerHTML = newDesc;

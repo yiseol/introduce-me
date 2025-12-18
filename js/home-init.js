@@ -7,6 +7,7 @@ var myFullpage = new fullpage('#fullpage', {
     fitToSection: true, // 섹션에 딱 맞춤
     scrollBar: false, // 스크롤바 숨기기
     css3: true, // CSS3 변환 사용
+    credits: { enabled: false }, // fullPage.js 워터마크 제거
     
     // 섹션 이동 후 콜백
     afterLoad: function(origin, destination, direction) {
