@@ -1,38 +1,17 @@
-html {
-  scroll-behavior: smooth;
-}
-
-.main-content {
+#fullpage {
   width: 100%;
+  height: 100%;
 }
 
 .section {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.home-section {
   height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-  overflow: hidden;
-  background: #000;
 }
 
 .menu-section {
   display: flex;
+  height: 100vh;
   width: 100%;
-  min-height: 100vh;
 }
 
 .menu-image-left {
@@ -147,85 +126,14 @@ html {
   gap: 30px;
 }
 
-@media (max-width: 1024px) {
-  .menu-section,
-  .menu-section-reverse {
-    flex-direction: column;
-  }
-
-  .menu-image-left,
-  .menu-image-right {
-    min-width: 100%;
-    max-width: 100%;
-    max-height: 50%;
-  }
-
-  .menu-content-right,
-  .menu-content-left {
-    padding: 50px 40px;
-  }
-
-  .menu-title {
-    font-size: 3rem;
-  }
-
-  .menu-description {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-content-right,
-  .menu-content-left {
-    padding: 40px 30px;
-  }
-
-  .menu-title {
-    font-size: 2.5rem;
-  }
-
-  .menu-description {
-    font-size: 1rem;
-  }
-
-  .menu-button {
-    padding: 15px 35px;
-    font-size: 1rem;
-  }
-
-  .footer-section {
-    min-height: 100vh;
-    padding: 60px 20px;
-  }
-
-  .footer-info {
-    gap: 30px;
-  }
-
-  .footer-column {
-    min-width: 120px;
-  }
-
-  .footer-logo h1 {
-    font-size: 4rem;
-  }
-
-  .footer-tagline p {
-    font-size: 1.1rem;
-  }
-}
-
 .footer-section {
   background: #f5f3ef;
-  min-height: 100vh;
-  width: 100%;
+  height: 70vh !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 40px;
+  padding: 40px;
   position: relative;
-  z-index: 2;
-  overflow: hidden;
 }
 
 .footer-content {
@@ -233,19 +141,18 @@ html {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  position: relative;
-  z-index: 3;
+  gap: 60px;  
 }
 
 .footer-info {
   display: flex;
-  gap: 80px;
-  flex-wrap: wrap;
+  gap: 225px;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   justify-content: center;
-  width: 100%;
 }
 
 .footer-column {
@@ -280,23 +187,27 @@ html {
 }
 
 .footer-logo {
-  text-align: center;
-  margin: 40px 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
 
 .footer-logo h1 {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 3.5rem;
+  font-size: 10vw;
   font-weight: 300;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   color: #333;
   margin: 0;
-  line-height: 1.2;
-  max-width: 100%;
+  white-space: nowrap;
 }
 
 .footer-tagline {
-  text-align: center;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
   margin: 0;
 }
 
@@ -314,4 +225,82 @@ html {
   font-style: normal !important;
   color: #999 !important;
   margin-top: 30px !important;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 56px;
+  height: 56px;
+  background: #3d3226;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-top-btn:hover {
+  background: #2a231a;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn svg {
+  color: #fff;
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    height: 80vh !important;
+    padding: 30px 20px;
+  }
+  
+  .footer-info {
+    gap: 30px;
+  }
+  
+  .footer-column {
+    min-width: 120px;
+  }
+  
+  .footer-logo h1 {
+    font-size: 4rem;
+  }
+  
+  .footer-tagline p {
+    font-size: 1.1rem;
+  }
+  
+  .menu-content-right,
+  .menu-content-left {
+    padding: 40px 30px;
+  }
+  
+  .menu-title {
+    font-size: 2.5rem;
+  }
+  
+  .menu-description {
+    font-size: 1.1rem;
+  }
+  
+  .menu-button {
+    padding: 14px 35px;
+    font-size: 1rem;
+  }
 }

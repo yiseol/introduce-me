@@ -1,13 +1,6 @@
-/* =======================================================
-   INTRODUCE-ME WEBSITE - MAIN STYLESHEET
-   
-   ���ȭ�� CSS ����:
-   - base.css: ����, ����, �۷ι� ��Ÿ��, �ִϸ��̼�
-   - layout.css: �׺���̼�, ���, ������ ���̾ƿ�
-   - components.css: ���� ������ ������Ʈ
-======================================================= */
-
-@import url('./base.css');
+@import url('./variables.css');
+@import url('./reset.css');
+@import url('./animations.css');
 @import url('./layout.css');
-@import url('./components.css');
-@import url('./project.css');
+@import url('./components/home.css');
+

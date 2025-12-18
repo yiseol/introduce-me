@@ -11,9 +11,30 @@ html, body {
   font-family: Arial, sans-serif;
   color: var(--text-color); 
   background: #f8f9fa;
+  overflow-x: hidden;
 }
 
 .cert-page ~ body,
 body.page-body.cert-page {
   overflow: hidden;
+}
+
+html.page-html,
+body.page-body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow-y: auto;
+}
+
+html.page-html::-webkit-scrollbar,
+body.page-body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.fp-watermark {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }

@@ -1,6 +1,7 @@
 :root { 
   --nav-height: 60px;
-  --primary-color: #3d3226;
-  --text-color: #3d3226;
-  --bg-color: #f8f9fa;
+  --primary-color: #007FFF;
+  --secondary-color: #2A52BE;
+  --text-color: #222;
+  --bg-color: #f5fafe;
 }

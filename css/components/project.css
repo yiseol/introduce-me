@@ -1,3 +1,5 @@
+   PROJECT PAGE STYLES - Business Clean Design
+
 .project-page-container {
   min-height: 100vh;
   padding: 120px 60px 80px;
@@ -278,7 +280,7 @@
 }
 
 .detail-section ul li:before {
-  content: "▪";
+  content: "??;
   position: absolute;
   left: 0;
   color: #2c3e50;
@@ -304,6 +306,26 @@
 .modal-body::-webkit-scrollbar-thumb:hover,
 .modal-info-section::-webkit-scrollbar-thumb:hover {
   background: #a0aec0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 body.project-page .nav-container .nav,
@@ -369,3 +391,5 @@ body.project-page .nav-item {
     font-size: 1.5rem;
   }
 }
+
+
